@@ -1,653 +1,135 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-<meta charset="UTF-8">
-<title>BODO Offert 5C/2026 – Alexander Mørk-Eidem</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BODO Offert · Alexander Mørk-Eidem – Stenhus renovering 5C/2026</title>
+<script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html, body { font-family: 'Montserrat', system-ui, sans-serif; color: #1A1A1A; background: white; }
-  .page {
+  :root {
+    --bodo-blue: #5498D9;
+    --bodo-navy: #2A3978;
+    --bodo-gold: #A49251;
+    --bodo-gold-light: #D8D0B3;
+    --bodo-dark: #1A1A1A;
+    --bodo-accent-purple: #6366F1;
+  }
+  html, body { font-family: 'Montserrat', system-ui, sans-serif; background: #F3F4F6; }
+  .doc-page, .doc-page * { font-family: 'Montserrat', system-ui, sans-serif !important; }
+  .font-display { font-family: 'Montserrat', sans-serif; }
+  .doc-page {
     width: 210mm;
-    height: 297mm;
-    padding: 16mm 16mm;
-    page-break-after: always;
-    page-break-inside: avoid;
-    break-after: page;
-    position: relative;
+    min-height: 297mm;      /* A4 minimum — strona rośnie jeśli content tego wymaga, Chrome paginuje przy druku */
     background: white;
-    overflow: hidden;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+    margin: 0 auto 16px auto;
+    padding: 18mm 18mm;
+    position: relative;
+    box-sizing: border-box;
   }
-  .page:last-child { page-break-after: auto; break-after: auto; }
-  .page-num { position: absolute; bottom: 6mm; right: 16mm; font-size: 11px; color: #2A3978; letter-spacing: 1.5px; font-weight: 600; }
-
-  /* COVER */
-  .cover { background: rgb(158, 171, 186); display: flex; flex-direction: column; }
-  .cover-logo { display: flex; align-items: flex-end; margin-bottom: 18px; }
-  .cover-logo img { height: 90px; }
-  .cover-slogan { font-size: 22px; font-weight: 700; color: #2A3978; line-height: 1.2; margin-bottom: 20px; }
-  .cover-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; flex: 1; align-items: stretch; }
-  .cover-grid > div { display: flex; flex-direction: column; gap: 10px; }
-  .cover-grid img { width: 100%; display: block; border-radius: 4px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); object-fit: cover; }
-  .cover-img-43 { aspect-ratio: 4/3; }
-  .cover-img-34 { aspect-ratio: 3/4; }
-  .cover-text { font-size: 13px; color: #1A2A4A; line-height: 1.5; max-width: 280px; padding-top: 4px; }
-  .cover-bottom { margin-top: 20px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.4); display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; align-items: center; }
-  .contact-cell { display: flex; align-items: center; gap: 10px; }
-  .contact-icon { width: 36px; height: 36px; border-radius: 7px; background: #5498D9; display: flex; align-items: center; justify-content: center; color: white; flex-shrink: 0; }
-  .contact-label { font-size: 9.5px; text-transform: uppercase; letter-spacing: 1.2px; color: #1A2A4A; font-weight: 600; }
-  .contact-value { font-size: 13.5px; font-weight: 700; color: #1A2A4A; }
-  .contact-cell.center { justify-content: center; }
-  .contact-cell.right { justify-content: flex-end; }
-
-  /* QUOTE PAGE */
-  .header-row { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px; }
-  .header-table { font-size: 14px; }
-  .header-table td { padding: 2px 12px 2px 0; vertical-align: top; }
-  .header-table td:first-child { font-weight: 700; min-width: 80px; }
-  .header-logo img { height: 38px; }
-
-  /* TIMELINE / POINT */
-  .point { display: flex; gap: 16px; margin-bottom: 28px; page-break-inside: avoid; }
-  .point-rail { width: 40px; flex-shrink: 0; display: flex; flex-direction: column; align-items: center; }
-  .point-circle { width: 40px; height: 40px; border-radius: 50%; background: #5468E5; color: white; display: flex; align-items: center; justify-content: center; font-weight: 500; font-size: 15px; }
-  .point-line { flex: 1; width: 1px; background: #D1D5DB; margin-top: 4px; min-height: 20px; }
-  .point-content { flex: 1; min-width: 0; }
-  .point-title { font-size: 17px; font-weight: 700; color: black; line-height: 1.25; }
-  .point-price { font-size: 15px; margin-top: 2px; margin-bottom: 10px; }
-  .point-price b { font-weight: 600; }
-  .point-subtitle { font-size: 12px; color: #6B7280; margin-top: 4px; margin-bottom: 10px; font-style: italic; line-height: 1.4; }
-
-  /* SUBSECTION (bullet + price + nested) */
-  .subsection { margin-left: 20px; margin-bottom: 18px; }
-  .sub-header { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
-  .sub-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
-  .sub-label { font-size: 16px; }
-  .sub-price { margin-left: 18px; font-size: 14.5px; margin-bottom: 8px; }
-  .sub-price b { font-weight: 500; }
-
-  /* SCOPE TABLE */
-  .scope-block { margin-left: 20px; margin-bottom: 18px; }
-  .scope-header { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; color: #2A3978; }
-  .scope-header .dot { width: 8px; height: 8px; border-radius: 50%; background: #2A3978; }
-  .scope-header-title { font-size: 16px; }
-  .scope-list { margin-left: 14px; border-left: 1px solid #C8CCDB; padding-left: 16px; }
-  .scope-list .row { padding: 7px 0; border-bottom: 1px solid #E5E7EB; font-size: 13.5px; line-height: 1.4; }
-  .scope-list .row:last-child { border-bottom: 0; }
-
-  /* MANPOWER TABLE */
-  .manpower { margin-left: 20px; margin-bottom: 18px; border-top: 2px solid #5498D9; border-bottom: 2px solid #5498D9; }
-  .manpower-row { display: grid; grid-template-columns: minmax(140px,1.2fr) minmax(180px,2fr) minmax(180px,1.4fr); gap: 20px; align-items: center; padding: 10px 6px; font-size: 13px; white-space: nowrap; }
-  .manpower-row + .manpower-row { border-top: 1px solid rgba(84, 152, 217, 0.4); }
-  .mp-label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.2px; }
-  .mp-formula { color: #2A3978; }
-  .mp-total b { font-weight: 700; }
-
-  /* BULLET LIST */
-  .bullet { margin-left: 20px; margin-bottom: 18px; padding-left: 4px; }
-  .bullet-row { display: flex; gap: 8px; padding: 3px 0; font-size: 13.5px; line-height: 1.4; }
-  .bullet-row::before { content: '➡'; color: #A49251; flex-shrink: 0; }
-
-  /* TOTAL FAST PRIS */
-  .total-fast { margin-left: 20px; margin-bottom: 18px; }
-  .tf-header { display: flex; align-items: center; gap: 8px; }
-  .tf-header .dot { width: 10px; height: 10px; border-radius: 50%; background: #2A3978; }
-  .tf-label { font-size: 16px; font-weight: 700; color: #2A3978; text-transform: uppercase; letter-spacing: 1.2px; }
-  .tf-amount { margin-left: 18px; font-size: 18px; font-weight: 700; margin-top: 2px; }
-  .tf-amount span { font-weight: 400; font-size: 14px; }
-
-  /* PARAGRAPH */
-  .paragraph { margin-left: 20px; margin-bottom: 18px; font-size: 13.5px; line-height: 1.55; color: #1F2937; }
-
-  /* OTHER COSTS TABLE */
-  .other-costs h2 { font-size: 22px; font-weight: 500; margin: 16px 0 18px 0; }
-  .oc-table { border-top: 2px solid #2A3978; }
-  .oc-row { display: grid; grid-template-columns: 2fr 1.5fr 1fr; gap: 16px; padding: 16px 6px; border-bottom: 2px solid #2A3978; align-items: center; }
-  .oc-row .item { font-size: 14px; }
-  .oc-row .unit { font-size: 14px; text-align: center; color: #4B5563; }
-  .oc-row .price { font-size: 15px; font-weight: 700; text-align: right; }
-
-  /* VALUES PAGE */
-  .values { background: rgb(158, 171, 186); }
-  .values-band { background: rgba(255,255,255,0.3); margin: 0 -16mm 22px -16mm; padding: 14px 16mm; text-align: center; }
-  .values-band h2 { font-size: 21px; font-weight: 700; color: #1A2A4A; }
-  .values-grid-9 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px 32px; margin-bottom: 22px; }
-  .values-grid-4 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px 40px; }
-  .vc { text-align: center; }
-  .vc-circle { width: 44px; height: 44px; border-radius: 50%; color: white; display: flex; align-items: center; justify-content: center; font-size: 17px; font-weight: 500; margin: 0 auto 9px auto; }
-  .vc-circle.blue { background: #5468E5; }
-  .vc-circle.gold { background: #A49251; }
-  .vc-text { font-size: 12.5px; line-height: 1.5; }
-  .vc-text b { font-weight: 700; }
-
-  /* TERMS PAGE */
-  .terms h2 { text-align: center; font-weight: 700; font-size: 18px; margin-bottom: 18px; }
-  .terms p { font-size: 13.5px; line-height: 1.6; margin-bottom: 10px; }
-  .terms .legal { font-size: 12.5px; line-height: 1.55; margin: 18px 0; color: #374151; }
-  .terms h3 { text-align: center; font-size: 24px; font-weight: 300; margin: 30px 0 22px 0; }
-  .sig-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 30px; }
-  .sig-grid h4 { font-size: 16px; margin-bottom: 8px; }
-  .sig-grid .lines { color: #6B7280; font-size: 14px; line-height: 1.6; }
-  .sig-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px; }
-  .sig-fields .label { font-size: 14px; margin-bottom: 6px; }
-  .sig-fields .line { border-bottom: 1px solid black; height: 18px; }
-
-  @page { size: A4 portrait; margin: 0; }
+  /* PINK STRIPE WYŁĄCZONY — był dziedziczony z Canva, w PDF wyglądał jak artefakt */
+  .doc-page-pink { border-top: 0; }
+  .page-number {
+    position: absolute;
+    bottom: 6mm;
+    right: 18mm;
+    font-size: 11px;
+    color: #2A3978;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+  }
+  [contenteditable] {
+    min-width: 4px;
+    min-height: 1.2em;
+    border-radius: 4px;
+    transition: background 0.1s;
+    cursor: text;
+  }
+  [contenteditable]:hover { background: rgba(99,102,241,0.06); }
+  [contenteditable]:focus { outline: 2px solid rgba(99,102,241,0.4); background: rgba(99,102,241,0.05); }
+  [contenteditable]:empty:before {
+    content: attr(data-placeholder);
+    color: #9CA3AF;
+    opacity: 0.7;
+    pointer-events: none;
+    font-style: italic;
+  }
+  [contenteditable]:focus:empty:before { opacity: 0.4; }
   @media print {
-    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    [contenteditable]:empty:before { content: ''; }
+    [contenteditable] { background: transparent !important; outline: none !important; }
   }
+  .timeline-col { width: 40px; flex-shrink: 0; display: flex; flex-direction: column; align-items: center; }
+  .timeline-line-fill { flex: 1; width: 1px; background: #D1D5DB; margin-top: 2px; min-height: 20px; }
+  .scope-table-line { border-left: 1px solid #C8CCDB; }
+  .scope-row { border-bottom: 1px solid #E5E7EB; }
+  .scope-row:last-child { border-bottom: 0; }
+  .strike { text-decoration: line-through; opacity: 0.55; }
+  @media print {
+    /* FORCE color/background printing (browsers strip these by default) */
+    *, *::before, *::after {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+      color-adjust: exact !important;
+    }
+    html, body { background: transparent !important; margin: 0 !important; padding: 0 !important; }
+    .no-print { display: none !important; }
+    .doc-page {
+      box-shadow: none !important;
+      margin: 0 !important;
+      padding: 14mm !important;
+      page-break-after: always;
+      break-after: page;
+      page-break-inside: auto;
+      break-inside: auto;
+      width: 100% !important;
+      max-width: none !important;
+      height: 297mm !important;     /* sztywno A4 — Chrome nie doda białego paska */
+      max-height: 297mm !important;
+      overflow: hidden !important;
+      position: relative;
+    }
+    .doc-page:last-child { page-break-after: auto; break-after: auto; }
+    /* Pink top stripe disabled */
+    .doc-page-pink { border-top: 0 !important; }
+    .doc-page-pink::before { content: none !important; display: none !important; }
+    /* Avoid splitting individual rows / sections across pages */
+    .point-row, .scope-row, .timeline-col,
+    .doc-page table, .doc-page table tr,
+    .doc-page > div > div {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+    h1, h2, h3, h4 { break-after: avoid; page-break-after: avoid; }
+    img { break-inside: avoid; page-break-inside: avoid; max-width: 100%; }
+    .text-white { color: #ffffff !important; }
+    @page { size: A4 portrait; margin: 0; }
+  }
+  /* CONTINUOUS PDF mode — single long page (used in popup window for "PDF ciągły") */
+  @media print {
+    body.continuous-pdf .doc-page {
+      page-break-after: avoid !important;
+      break-after: avoid !important;
+      min-height: 0 !important;
+      max-height: none !important;
+    }
+  }
+  /* Scrollbar tweak */
+  .sb::-webkit-scrollbar { width: 8px; }
+  .sb::-webkit-scrollbar-thumb { background: #D1D5DB; border-radius: 4px; }
+  .sb::-webkit-scrollbar-track { background: transparent; }
+
+  body { background: #F3F4F6; padding: 32px 0; }
+  @media print { body { padding: 0; background: white; } }
 </style>
 </head>
 <body>
-
-<!-- ============ STRONA 1 — COVER ============ -->
-<div class="page cover">
-  <div class="cover-logo">
-    <img src="assets/bodo-logo-on-white.svg" alt="BODO Build & Track AB" />
-  </div>
-  <div class="cover-slogan">Ett vackert hem. Ett lugnt sinne.<br>Bygg din oas.</div>
-  <div class="cover-grid">
-    <div>
-      <img class="cover-img-43" src="assets/cover/1-kitchen.webp" alt="Japandi kök Stockholm" />
-      <img class="cover-img-43" src="assets/cover/2-are.webp" alt="Två stugor i Åre" />
-      <img class="cover-img-43" src="assets/cover/3-tillbyggnad.webp" alt="Tillbyggnad Stockholm" />
-    </div>
-    <div>
-      <div class="cover-text">Våra kunder litar på oss eftersom vi alltid håller deadlines, håller budgeten och erbjuder 20 års garanti.</div>
-      <img class="cover-img-34" src="assets/cover/4-djuro.webp" alt="Djurö simhall" />
-      <img class="cover-img-43" src="assets/cover/5-platttak.webp" alt="Platt tak Stockholm" />
-    </div>
-  </div>
-  <div class="cover-bottom">
-    <div class="contact-cell">
-      <div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2c.28-.28.67-.36 1.02-.25 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.29 21 3 13.71 3 4.5c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></div>
-      <div><div class="contact-label">Telefon</div><div class="contact-value">0 702 784 918</div></div>
-    </div>
-    <div class="contact-cell center">
-      <div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="3" y1="12" x2="21" y2="12"/><path d="M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></div>
-      <div><div class="contact-label">Hemsida</div><div class="contact-value">bodobygg.se</div></div>
-    </div>
-    <div class="contact-cell right">
-      <div class="contact-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="white" stroke="none"/></svg></div>
-      <div><div class="contact-label">Instagram</div><div class="contact-value">@bodobygg</div></div>
-    </div>
-  </div>
-  <div class="page-num">1</div>
-</div>
-
-<!-- ============ STRONA 2 — Header + ETAPP 1 ============ -->
-<div class="page">
-  <div class="header-row">
-    <table class="header-table">
-      <tr><td>Offert:</td><td>Nr 5C/2026</td></tr>
-      <tr><td>Datum:</td><td>16.05.2026</td></tr>
-      <tr><td>Kund:</td><td>Alexander Mørk-Eidem</td></tr>
-      <tr><td>Adress:</td><td>Mälarhöjdsvägen 38<br>129 40 Hägersten</td></tr>
-      <tr><td>Projekt:</td><td>Stenhus renovering — reviderad omfattning<br>(ersätter 5B/2026 från 2026-05-04)</td></tr>
-    </table>
-    <div class="header-logo"><img src="assets/bodo-logo-on-white.svg" alt="BODO" /></div>
-  </div>
-
-  <div class="point">
-    <div class="point-rail"><div class="point-circle">1</div><div class="point-line"></div></div>
-    <div class="point-content">
-      <div class="point-title">Etapp 1 — Källare (separat lägenhet)</div>
-      <div class="point-price"><b>697 500</b> kr inkl moms</div>
-      <div class="point-subtitle">Renoveringsarbeten utförs på löpande räkning baserat på timpriser i avsnittet "Timpriser och kostnadsgrunder".</div>
-
-      <div class="scope-block">
-        <div class="scope-header"><span class="dot"></span><span class="scope-header-title">Omfattningen av arbetet</span><span>:</span></div>
-        <div class="scope-list">
-          <div class="row">Rivningsarbeten</div>
-          <div class="row">Installation av ny el samt vatten och avlopp</div>
-          <div class="row">Ombyggnation av golvkonstruktionen i badrum och hall, reparation av ruttet hörn i konstruktionen</div>
-          <div class="row">Konstruktion av innerväggar</div>
-          <div class="row">Utförande av komplett badrum med elektrisk golvvärme samt vatteninstallation</div>
-          <div class="row">Anpassning av ventilation</div>
-          <div class="row">Byte av fönster och dörrar</div>
-          <div class="row">Spackling, målning och övriga finisharbeten</div>
-          <div class="row">Montering av kök samt tillfällig inkoppling av elanslutning</div>
-        </div>
-      </div>
-
-      <div class="subsection">
-        <div class="sub-header"><span class="sub-dot" style="background:#5498D9"></span><span class="sub-label" style="color:#5498D9">Arbetskostnader (bygg)</span></div>
-        <div class="sub-price"><b>552 500</b> kr inkl moms</div>
-        <div class="manpower">
-          <div class="manpower-row">
-            <div class="mp-label">ARBETSTIMMAR</div>
-            <div class="mp-formula">ca 850 h × 650 kr</div>
-            <div class="mp-total"><b>552 500</b> kr ink moms</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="subsection">
-        <div class="sub-header"><span class="sub-dot" style="background:#22C55E"></span><span class="sub-label" style="color:#22C55E">Material, transport och avfall</span></div>
-        <div class="sub-price"><b>145 000</b> kr inkl moms</div>
-        <div class="bullet">
-          <div class="bullet-row">Transport: ca 20 000 kr</div>
-          <div class="bullet-row">Resor: ca 25 000 kr</div>
-          <div class="bullet-row">Bortforsling av avfall: ca 30 000 kr</div>
-          <div class="bullet-row">Byggmaterial / konstruktion / isolering / spackel / primer: ca 70 000 kr</div>
-        </div>
-      </div>
-
-      <div class="total-fast">
-        <div class="tf-header"><span class="dot"></span><span class="tf-label">Total preliminär budget — Etapp 1</span></div>
-        <div class="tf-amount">697 500 <span>kr inkl moms</span></div>
-      </div>
-    </div>
-  </div>
-  <div class="page-num">2</div>
-</div>
-
-<!-- ============ STRONA 3 — ETAPP 2 ============ -->
-<div class="page">
-  <div class="header-row">
-    <table class="header-table">
-      <tr><td>Offert:</td><td>Nr 5C/2026</td></tr>
-      <tr><td>Datum:</td><td>16.05.2026</td></tr>
-    </table>
-    <div class="header-logo"><img src="assets/bodo-logo-on-white.svg" alt="BODO" /></div>
-  </div>
-
-  <div class="point">
-    <div class="point-rail"><div class="point-circle">2</div><div class="point-line"></div></div>
-    <div class="point-content">
-      <div class="point-title">Etapp 2 — Entréplan, plan 1 (utan tillbyggnad)</div>
-      <div class="point-price"><b>1 385 000</b> kr inkl moms</div>
-
-      <div class="scope-block">
-        <div class="scope-header"><span class="dot"></span><span class="scope-header-title">Omfattningen av arbetet</span><span>:</span></div>
-        <div class="scope-list">
-          <div class="row">Rivningsarbeten</div>
-          <div class="row">Installation av ny el samt vatten och avlopp</div>
-          <div class="row">Ombyggnation av golvkonstruktionen på entréplanets bjälklag för installation av vattenburen golvvärme</div>
-          <div class="row">Byte av fönster, ombyggnation av fönsteröppning till balkongdörr i köket samt montering av entrédörr</div>
-          <div class="row">Montering av ny balkongdörr i badrum på övervåningen (201 × 71 mm dörrblad, vänsterhängd)</div>
-          <div class="row">Fortsatta finisharbeten, ombyggnation av trappa samt tillbyggnad av extra trapplopp till källaren</div>
-          <div class="row">Montering av dörrar till badrum och sovrum, förstärkning av befintliga innerväggar på övervåningen</div>
-          <div class="row">Montering av kök</div>
-          <div class="row">Byggnation av komplett badrum på övervåningen</div>
-          <div class="row">Spackling och grundning av väggar och tak (utan målning)</div>
-          <div class="row">Montering av kamin</div>
-          <div class="row">Montering av golv och lister samt renovering av små fönster</div>
-        </div>
-      </div>
-
-      <div class="subsection">
-        <div class="sub-header"><span class="sub-dot" style="background:#5498D9"></span><span class="sub-label" style="color:#5498D9">Arbetskostnader (bygg)</span></div>
-        <div class="sub-price"><b>975 000</b> kr inkl moms</div>
-        <div class="manpower">
-          <div class="manpower-row">
-            <div class="mp-label">ARBETSTIMMAR</div>
-            <div class="mp-formula">1 500 h × 650 kr</div>
-            <div class="mp-total"><b>975 000</b> kr ink moms</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="subsection">
-        <div class="sub-header"><span class="sub-dot" style="background:#22C55E"></span><span class="sub-label" style="color:#22C55E">Material, transport och avfall</span></div>
-        <div class="sub-price"><b>410 000</b> kr inkl moms</div>
-        <div class="bullet">
-          <div class="bullet-row">Transport: 50 000 kr</div>
-          <div class="bullet-row">Resor: 50 000 kr</div>
-          <div class="bullet-row">Bortforsling av avfall: 60 000 kr</div>
-          <div class="bullet-row">Byggmaterial / konstruktion / isolering / spackel / primer: 250 000 kr</div>
-        </div>
-      </div>
-
-      <div class="total-fast">
-        <div class="tf-header"><span class="dot"></span><span class="tf-label">Total preliminär budget — Etapp 2</span></div>
-        <div class="tf-amount">1 385 000 <span>kr inkl moms</span></div>
-      </div>
-    </div>
-  </div>
-  <div class="page-num">3</div>
-</div>
-
-<!-- ============ STRONA 4 — ETAPP 3 ============ -->
-<div class="page">
-  <div class="header-row">
-    <table class="header-table">
-      <tr><td>Offert:</td><td>Nr 5C/2026</td></tr>
-      <tr><td>Datum:</td><td>16.05.2026</td></tr>
-    </table>
-    <div class="header-logo"><img src="assets/bodo-logo-on-white.svg" alt="BODO" /></div>
-  </div>
-
-  <div class="point">
-    <div class="point-rail"><div class="point-circle">3</div><div class="point-line"></div></div>
-    <div class="point-content">
-      <div class="point-title">Etapp 3 — Takrenovering och fasadrenovering</div>
-      <div class="point-price"><b>795 000</b> kr inkl moms</div>
-
-      <div class="scope-block">
-        <div class="scope-header"><span class="dot"></span><span class="scope-header-title">Omfattningen av arbetet</span><span>:</span></div>
-        <div class="scope-list">
-          <div class="row">Montering av byggställningar och skydd</div>
-          <div class="row">Demontering av takpannor, hängrännor, plåtarbeten, gamla läkt, takpapp och vindskivor</div>
-          <div class="row">Montering av nytt taksystem, hängrännor samt fotplåt och hängränneplåt</div>
-          <div class="row">Nya vindskivor, takpapp, ströläkt och bärläkt samt återmontering av keramiska takpannor</div>
-          <div class="row">Montering av takbrygga, taksteg samt snörasskydd</div>
-          <div class="row">Reparation av puts runt fönster och ombyggda öppningar</div>
-          <div class="row">Nätning och putsning av sockel, putsning och målning</div>
-          <div class="row">Komplett målning av fasaden 2 gånger med naturlig kalkfärg</div>
-        </div>
-      </div>
-
-      <div class="subsection">
-        <div class="sub-header"><span class="sub-dot" style="background:#5498D9"></span><span class="sub-label" style="color:#5498D9">Arbetskostnader (bygg)</span></div>
-        <div class="sub-price"><b>585 000</b> kr inkl moms</div>
-        <div class="manpower">
-          <div class="manpower-row">
-            <div class="mp-label">ARBETSTIMMAR</div>
-            <div class="mp-formula">ca 900 h × 650 kr</div>
-            <div class="mp-total"><b>585 000</b> kr ink moms</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="subsection">
-        <div class="sub-header"><span class="sub-dot" style="background:#22C55E"></span><span class="sub-label" style="color:#22C55E">Material, transport och avfall</span></div>
-        <div class="sub-price"><b>210 000</b> kr inkl moms</div>
-        <div class="bullet">
-          <div class="bullet-row">Transport: ca 20 000 kr</div>
-          <div class="bullet-row">Resor: ca 30 000 kr</div>
-          <div class="bullet-row">Bortforsling av avfall: ca 20 000 kr</div>
-          <div class="bullet-row">Byggmaterial (papp, läkt, hängrännor, plåtbeslag, färg): ca 140 000 kr</div>
-        </div>
-      </div>
-
-      <div class="total-fast">
-        <div class="tf-header"><span class="dot"></span><span class="tf-label">Total preliminär budget — Etapp 3</span></div>
-        <div class="tf-amount">795 000 <span>kr inkl moms</span></div>
-      </div>
-    </div>
-  </div>
-  <div class="page-num">4</div>
-</div>
-
-<!-- ============ STRONA 5 — ETAPP 4 ============ -->
-<div class="page">
-  <div class="header-row">
-    <table class="header-table">
-      <tr><td>Offert:</td><td>Nr 5C/2026</td></tr>
-      <tr><td>Datum:</td><td>16.05.2026</td></tr>
-    </table>
-    <div class="header-logo"><img src="assets/bodo-logo-on-white.svg" alt="BODO" /></div>
-  </div>
-
-  <div class="point">
-    <div class="point-rail"><div class="point-circle">4</div><div class="point-line"></div></div>
-    <div class="point-content">
-      <div class="point-title">Etapp 4 — Installationsarbeten (VVS + EL)</div>
-      <div class="point-price"><b>1 126 250</b> kr inkl moms</div>
-      <div class="point-subtitle">Hela byggnaden inklusive nya källaren.</div>
-
-      <div class="subsection">
-        <div class="sub-header"><span class="sub-dot" style="background:#5498D9"></span><span class="sub-label" style="color:#5498D9">VVS — Vatten, avlopp, uppvärmning</span></div>
-        <div class="sub-price"><b>457 500</b> kr inkl moms</div>
-        <div class="paragraph">Komplett installation enligt specifikation. Vattenburen golvvärme installeras på entréplan. Golvvärme på övervåningen ingår ej i denna offert.</div>
-      </div>
-
-      <div class="subsection">
-        <div class="sub-header"><span class="sub-dot" style="background:#6366F1"></span><span class="sub-label" style="color:#6366F1">EL — Komplett elinstallation</span></div>
-        <div class="sub-price"><b>668 750</b> kr inkl moms</div>
-        <div class="paragraph">Komplett elinstallation för hela byggnaden inklusive nya källarlägenheten. Inkluderar installationsmaterial. Vitvaror och sanitetsporslin ingår ej.</div>
-        <div class="bullet">
-          <div class="bullet-row">Arbete (EL): 575 000 kr</div>
-          <div class="bullet-row">Installationsmaterial (EL): 93 750 kr</div>
-        </div>
-      </div>
-
-      <div class="total-fast">
-        <div class="tf-header"><span class="dot"></span><span class="tf-label">Total preliminär budget — Etapp 4</span></div>
-        <div class="tf-amount">1 126 250 <span>kr inkl moms</span></div>
-      </div>
-    </div>
-  </div>
-  <div class="page-num">5</div>
-</div>
-
-<!-- ============ STRONA 6 — REVIDERAD 5/2026 Etapp 1 ============ -->
-<div class="page">
-  <div class="header-row">
-    <table class="header-table">
-      <tr><td>Offert:</td><td>Nr 5C/2026 (revid. 5/2026)</td></tr>
-      <tr><td>Datum:</td><td>16.05.2026</td></tr>
-    </table>
-    <div class="header-logo"><img src="assets/bodo-logo-on-white.svg" alt="BODO" /></div>
-  </div>
-
-  <div class="point">
-    <div class="point-rail"><div class="point-circle">5</div><div class="point-line"></div></div>
-    <div class="point-content">
-      <div class="point-title">Reviderad 5/2026 · Etapp 1 — Rivning av frontparti (löpande räkning)</div>
-      <div class="point-price"><b>139 000</b> kr inkl moms</div>
-      <div class="point-subtitle">Rivningsmängden har minskat till ca 1/4 av ursprunglig offert 5/2026. Kostnader för etablering, maskintransport och logistik kvarstår oförändrade och kan inte reduceras proportionellt mot mängden. Etapp utförs på löpande räkning.</div>
-
-      <div class="scope-block">
-        <div class="scope-header"><span class="dot"></span><span class="scope-header-title">Omfattningen av arbetet</span><span>:</span></div>
-        <div class="scope-list">
-          <div class="row">Etablering och maskintransport</div>
-          <div class="row">Manuell demontering av betongbalustrader</div>
-          <div class="row">Bilning och rivning av bjälklag, ytter- och innerväggar samt betongplatta i frontpartiet</div>
-          <div class="row">Frikoppling av konstruktionsdelar från befintlig byggnad</div>
-          <div class="row">Säker avgränsning mot kvarvarande del av befintlig källare</div>
-          <div class="row">Lastning, bortforsling och deponi av rivningsmaterial</div>
-          <div class="row">Rengöring och friläggning av berg/undergrund inför nästa byggskede</div>
-          <div class="row">Säkring av angränsande byggnadsdelar</div>
-        </div>
-      </div>
-
-      <div class="total-fast">
-        <div class="tf-header"><span class="dot"></span><span class="tf-label">Total preliminär budget — Rivning frontparti</span></div>
-        <div class="tf-amount">139 000 <span>kr inkl moms</span></div>
-      </div>
-    </div>
-  </div>
-  <div class="page-num">6</div>
-</div>
-
-<!-- ============ STRONA 7 — REVIDERAD 5/2026 Etapp 2 ============ -->
-<div class="page">
-  <div class="header-row">
-    <table class="header-table">
-      <tr><td>Offert:</td><td>Nr 5C/2026 (revid. 5/2026)</td></tr>
-      <tr><td>Datum:</td><td>16.05.2026</td></tr>
-    </table>
-    <div class="header-logo"><img src="assets/bodo-logo-on-white.svg" alt="BODO" /></div>
-  </div>
-
-  <div class="point">
-    <div class="point-rail"><div class="point-circle">6</div><div class="point-line"></div></div>
-    <div class="point-content">
-      <div class="point-title">Reviderad 5/2026 · Etapp 2 — Ny källarkonstruktion frontparti (löpande räkning)</div>
-      <div class="point-price"><b>836 250</b> kr inkl moms</div>
-      <div class="point-subtitle">Eventuell sprängning eller bearbetning av berg (t.ex. DARDA-system) ingår ej. Behov av bergbearbetning kan fastställas först efter avslutad rivning och friläggning av undergrund. Sådan åtgärd prissätts separat.</div>
-
-      <div class="scope-block">
-        <div class="scope-header"><span class="dot"></span><span class="scope-header-title">Omfattningen av arbetet</span><span>:</span></div>
-        <div class="scope-list">
-          <div class="row">Markutjämning</div>
-          <div class="row">Dränerande lager + fiberduk + radonmatta</div>
-          <div class="row">Dragning av avloppsinstallation</div>
-          <div class="row">Gjuten bottenplatta med golvvärme</div>
-          <div class="row">Ytterväggar bärande — LECA Thermoblock 300 mm + systemöverliggare</div>
-          <div class="row">Invändiga bärande väggar — LECA 190 mm</div>
-          <div class="row">Formning, armering och gjutning av betongbjälklag (takplatta)</div>
-          <div class="row">Utvändig isolering källarväggar — ISODRAN 2×100 mm</div>
-          <div class="row">Horisontell isolering takplatta — 2× svetsad takpapp</div>
-          <div class="row">Isolering takplatta — XPS 300, 100 mm</div>
-          <div class="row">Armering och gjutning av terrassplatta 100 mm</div>
-          <div class="row">Återmontering av betongbalustrader samt återuppbyggnad av trappa</div>
-        </div>
-      </div>
-
-      <div class="subsection">
-        <div class="sub-header"><span class="sub-dot" style="background:#5498D9"></span><span class="sub-label" style="color:#5498D9">Arbetskostnader</span></div>
-        <div class="sub-price"><b>471 250</b> kr inkl moms</div>
-        <div class="manpower">
-          <div class="manpower-row">
-            <div class="mp-label">ARBETE</div>
-            <div class="mp-formula">725 h × 650 kr</div>
-            <div class="mp-total"><b>471 250</b> kr ink moms</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="subsection">
-        <div class="sub-header"><span class="sub-dot" style="background:#22C55E"></span><span class="sub-label" style="color:#22C55E">Material och betong</span></div>
-        <div class="sub-price"><b>365 000</b> kr inkl moms</div>
-        <div class="bullet">
-          <div class="bullet-row">Material (stom + konstruktion): 275 000 kr</div>
-          <div class="bullet-row">Betong (inkl. leverans + pump): 50 000 kr</div>
-          <div class="bullet-row">Golvvärme (material + montage): 40 000 kr</div>
-        </div>
-      </div>
-
-      <div class="total-fast">
-        <div class="tf-header"><span class="dot"></span><span class="tf-label">Total preliminär budget — Ny källarkonstruktion frontparti</span></div>
-        <div class="tf-amount">836 250 <span>kr inkl moms</span></div>
-      </div>
-    </div>
-  </div>
-  <div class="page-num">7</div>
-</div>
-
-<!-- ============ STRONA 8 — SAMMANSTÄLLNING + GRAND TOTAL ============ -->
-<div class="page">
-  <div class="header-row">
-    <table class="header-table">
-      <tr><td>Offert:</td><td>Nr 5C/2026</td></tr>
-      <tr><td>Datum:</td><td>16.05.2026</td></tr>
-    </table>
-    <div class="header-logo"><img src="assets/bodo-logo-on-white.svg" alt="BODO" /></div>
-  </div>
-
-  <h2 style="font-size:22px; font-weight:500; margin: 16px 0 18px 0;">Sammanställning av kostnader — Offert 5C/2026</h2>
-
-  <div class="oc-table" style="margin-bottom: 28px;">
-    <div class="oc-row" style="grid-template-columns: 3fr 1fr;"><div class="item">Etapp 1 — Källare (separat lägenhet)</div><div class="price">697 500 kr</div></div>
-    <div class="oc-row" style="grid-template-columns: 3fr 1fr;"><div class="item">Etapp 2 — Entréplan, plan 1 (utan tillbyggnad)</div><div class="price">1 385 000 kr</div></div>
-    <div class="oc-row" style="grid-template-columns: 3fr 1fr;"><div class="item">Etapp 3 — Takrenovering och fasadrenovering</div><div class="price">795 000 kr</div></div>
-    <div class="oc-row" style="grid-template-columns: 3fr 1fr;"><div class="item">Etapp 4 — Installationsarbeten (VVS + EL)</div><div class="price">1 126 250 kr</div></div>
-    <div class="oc-row" style="grid-template-columns: 3fr 1fr; background: #F3F4F6;"><div class="item"><b>Summa etapper 1–4</b></div><div class="price">4 003 750 kr</div></div>
-  </div>
-
-  <h2 style="font-size:18px; font-weight:600; margin: 20px 0 14px 0; color: #2A3978;">Reviderad offert 5/2026 (rivning + ny källare frontparti)</h2>
-  <div class="oc-table" style="margin-bottom: 28px;">
-    <div class="oc-row" style="grid-template-columns: 3fr 1fr;"><div class="item">Etapp 1 — Rivning av frontparti (löpande)</div><div class="price">139 000 kr</div></div>
-    <div class="oc-row" style="grid-template-columns: 3fr 1fr;"><div class="item">Etapp 2 — Ny källarkonstruktion frontparti (löpande)</div><div class="price">836 250 kr</div></div>
-    <div class="oc-row" style="grid-template-columns: 3fr 1fr; background: #F3F4F6;"><div class="item"><b>Total reviderad offert 5/2026</b></div><div class="price">975 250 kr</div></div>
-  </div>
-
-  <div style="margin-top: 26px; padding: 20px 24px; background: linear-gradient(135deg, #2A3978, #5468E5); color: white; border-radius: 8px;">
-    <div style="font-size: 13px; opacity: 0.85; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 6px;">Grand Total</div>
-    <div style="font-size: 36px; font-weight: 800; line-height: 1;">4 979 000 kr <span style="font-size:16px; font-weight: 400; opacity: 0.9;">inkl moms</span></div>
-    <div style="margin-top: 10px; font-size: 12px; opacity: 0.85;">Reduktion vs offert 5B/2026: −918 750 kr (−15,6 %)</div>
-  </div>
-
-  <div style="margin-top: 22px; font-size: 12.5px; line-height: 1.55; color: #374151;">
-    <div style="margin-bottom: 6px;">• Alla priser inklusive moms (25 %). Arbetet utförs på löpande räkning med full kostnadstransparens.</div>
-    <div style="margin-bottom: 6px;">• Beställaren informeras löpande om kostnadsläget och godkänner eventuella tilläggsarbeten (ÄTA) skriftligt innan utförande.</div>
-    <div style="margin-bottom: 6px;">• Vid prognostiserad överskridning av budgetram med mer än 10 % hålls gemensam ekonomisk genomgång innan arbetet fortsätter.</div>
-    <div style="margin-top: 12px;"><b>Ingår ej:</b> inredning (möbler, vitvaror, belysning), sanitetsporslin (Etapp 4), bergbearbetning (DARDA / sprängning), svåra markförhållanden.</div>
-  </div>
-  <div class="page-num">8</div>
-</div>
-
-<!-- ============ STRONA 9 — TIMPRISER ============ -->
-<div class="page other-costs">
-  <div class="header-row">
-    <table class="header-table">
-      <tr><td>Offert:</td><td>Nr 5C/2026</td></tr>
-      <tr><td>Datum:</td><td>16.05.2026</td></tr>
-    </table>
-    <div class="header-logo"><img src="assets/bodo-logo-on-white.svg" alt="BODO" /></div>
-  </div>
-  <h2>Timpriser och kostnadsgrunder (2026) — alla priser inkl. moms 25 %</h2>
-  <div class="oc-table">
-    <div class="oc-row"><div class="item">Arbetstimme bygg</div><div class="unit">timme</div><div class="price">650 kr</div></div>
-    <div class="oc-row"><div class="item">Arbetstimme EL</div><div class="unit">timme</div><div class="price">760 kr</div></div>
-    <div class="oc-row"><div class="item">Arbetstimme VVS</div><div class="unit">timme</div><div class="price">820 kr</div></div>
-    <div class="oc-row"><div class="item">Grävmaskin</div><div class="unit">timme</div><div class="price">925 kr</div></div>
-    <div class="oc-row"><div class="item">Lastbil</div><div class="unit">timme</div><div class="price">1 168 kr</div></div>
-    <div class="oc-row"><div class="item">Resor / servicebil</div><div class="unit">dag</div><div class="price">750 kr</div></div>
-    <div class="oc-row"><div class="item">Transport material</div><div class="unit">tur</div><div class="price">1 625 kr</div></div>
-    <div class="oc-row"><div class="item">Avfallstransport</div><div class="unit">tur + deponi</div><div class="price">3 500 kr</div></div>
-  </div>
-  <div style="margin-top: 22px; font-size: 12.5px; line-height: 1.6; color: #374151; padding: 14px 18px; background: #F9FAFB; border-left: 3px solid #5498D9; border-radius: 4px;">
-    Arbetet utförs på löpande räkning. Varje tilläggsarbete (ÄTA) godkänns skriftligt av beställaren innan utförande.
-  </div>
-  <div class="page-num">9</div>
-</div>
-
-<!-- ============ STRONA 10 — VARFÖR VÄLJA OSS ============ -->
-<div class="page values" style="background: rgb(158, 171, 186);">
-  <div class="values-band"><h2>Varför välja oss?</h2></div>
-  <div class="values-grid-9">
-    <div class="vc"><div class="vc-circle blue">1</div><div class="vc-text"><b>Offert inom 5 dagar.</b></div></div>
-    <div class="vc"><div class="vc-circle blue">2</div><div class="vc-text"><b>Vi förhandlar inte om priserna — vi döljer inga kostnader.</b></div></div>
-    <div class="vc"><div class="vc-circle blue">3</div><div class="vc-text"><b>Vi anpassar arbetsomfattningen efter din budget och behov.</b></div></div>
-    <div class="vc"><div class="vc-circle blue">4</div><div class="vc-text"><b>Snabb och solid</b><br>Vi har en avancerad rekryteringsprocess där vi noggrant granskar våra medarbetare.</div></div>
-    <div class="vc"><div class="vc-circle blue">5</div><div class="vc-text"><b>De billigaste materialen av hög kvalitet</b><br>vi kan importera dem från Polen åt dig.</div></div>
-    <div class="vc"><div class="vc-circle blue">6</div><div class="vc-text"><b>Vi erbjuder alla typer av byggtjänster — komplett service.</b></div></div>
-    <div class="vc"><div class="vc-circle blue">7</div><div class="vc-text"><b>Säkerhet</b><br>vi använder toppmoderna byggutrustningar och säkerhetsåtgärder.</div></div>
-    <div class="vc"><div class="vc-circle blue">8</div><div class="vc-text"><b>Vi hjälper dig med fastighetsköp och värdering av bostäder före och efter renovering.</b></div></div>
-    <div class="vc"><div class="vc-circle blue">9</div><div class="vc-text"><b>Vi ger belöningar för att rekommendera oss till dina vänner.</b></div></div>
-  </div>
-  <div class="values-band"><h2 style="font-size:19px;">Varför är det fördelaktigt att samarbeta med oss på lång sikt?</h2></div>
-  <div class="values-grid-4">
-    <div class="vc"><div class="vc-circle gold">1</div><div class="vc-text"><b>Vi erbjuder upp till 20 års garanti</b><br>Om det uppstår problem kommer vi och utför reparationen kostnadsfritt.</div></div>
-    <div class="vc"><div class="vc-circle gold">2</div><div class="vc-text"><b>Lojalitetskort för återkommande kunder</b><br>Du får rabatter på framtida projekt.</div></div>
-    <div class="vc"><div class="vc-circle gold">3</div><div class="vc-text"><b>Prioriterad service</b><br>Om du behöver hjälp snabbt är vi hos dig inom 3 dagar.</div></div>
-    <div class="vc"><div class="vc-circle gold">4</div><div class="vc-text"><b>Dubbel belöning</b><br>Rekommendera oss till vänner och skriv en recension, och vi belönar dig dubbel gång.</div></div>
-  </div>
-  <div class="page-num" style="color: #1A2A4A;">10</div>
-</div>
-
-<!-- ============ STRONA 11 — TERMS & SIGNATURE ============ -->
-<div class="page terms">
-  <div class="header-row">
-    <table class="header-table">
-      <tr><td>Offert:</td><td>Nr 5C/2026</td></tr>
-      <tr><td>Datum:</td><td>16.05.2026</td></tr>
-    </table>
-    <div class="header-logo"><img src="assets/bodo-logo-on-white.svg" alt="BODO" /></div>
-  </div>
-  <h2>Regler och giltighetstid för offert</h2>
-  <p>Denna offert är giltig i <b>30 dagar</b> från utfärdandedatum (2026-05-16).</p>
-  <p><b>Betalningsvillkor:</b> 10 dagar netto. Fakturering sker löpande enligt överenskommen produktionsplan.</p>
-  <p style="margin-top: 12px;"><b>BODO Build and Track AB</b><br>Lillkalmarvägen 30A · 182 65 Djursholm<br>Org.nr: 559547-8453 · F-skatt: Ja<br>office@buildandtrack.com · bodobygg.se</p>
-
-  <div class="legal">
-    <p style="margin-bottom:10px;">&nbsp;&nbsp;&nbsp;Arbetet utförs i enlighet med konsumenttjänstlagen och branschens allmänna bestämmelser. Eventuella ändringar i omfattning eller tilläggsarbeten (ÄTA) dokumenteras skriftligt och godkänns av beställaren innan utförande.</p>
-    <p style="margin-bottom:10px;">&nbsp;&nbsp;&nbsp;Vid oförutsedda förhållanden som inte kunnat bedömas utifrån nuvarande handlingar sker ekonomisk genomgång och skriftligt godkännande innan vidare arbete.</p>
-    <p style="margin-bottom:10px;">&nbsp;&nbsp;&nbsp;Allt byggnadsarbete utförs i enlighet med de krav och föreskrifter i lag och byggnormer som gäller i Sverige. I värderingen ingår inte kostnader för inredning och utrustning såsom möbler, vitvaror, belysning etc. om de inte ingår i avtalet som en separat post.</p>
-    <p><b>Offerten ersätter offert 5B/2026 daterad 2026-05-04.</b></p>
-  </div>
-
-  <h3>Godkännande</h3>
-  <div class="sig-grid">
-    <div>
-      <h4>Kund:</h4>
-      <div class="lines">Alexander Mørk-Eidem<br>Mälarhöjdsvägen 38<br>129 40 Hägersten</div>
-    </div>
-    <div>
-      <h4>Entreprenör:</h4>
-      <div class="lines">BODO Build and Track AB<br>Lillkalmarvägen 30A<br>182 65 Djursholm<br>Org.nr: 559547-8453</div>
-    </div>
-  </div>
-  <div class="sig-fields">
-    <div><div class="label">Datum:</div><div class="line"></div></div>
-    <div><div class="label">Kundsignatur:</div><div class="line"></div></div>
-  </div>
-  <div class="page-num">11</div>
-</div>
-
+<div class="doc-page doc-page-pink" style="background: rgb(158, 171, 186); display: flex; flex-direction: column; padding: 14mm;"><div class="page-number">1</div><div class="flex items-end gap-5 mb-6"><img src="file:///Users/judytawis/Documents/BodoOffice/quote-app/assets/bodo-logo-on-white.svg" alt="BODO Build &amp; Track AB" class="" style="height: 110px;"></div><h2 class="text-[24px] font-bold text-[#2A3978] mb-6 leading-tight font-display">Ett vackert hem. Ett lugnt sinne.<br>Bygg din oas.</h2><div class="grid grid-cols-2 gap-6 items-stretch flex-1"><div class="grid gap-3"><div class="aspect-[4/3] rounded shadow-sm overflow-hidden bg-gray-100"><img src="file:///Users/judytawis/Documents/BodoOffice/quote-app/assets/cover/1-kitchen.webp" alt="Japandi köksrenovering Stockholm" class="w-full h-full object-cover"></div><div class="aspect-[4/3] rounded shadow-sm overflow-hidden bg-gray-100"><img src="file:///Users/judytawis/Documents/BodoOffice/quote-app/assets/cover/2-are.webp" alt="Två stugor i Åre" class="w-full h-full object-cover"></div><div class="aspect-[4/3] rounded shadow-sm overflow-hidden bg-gray-100"><img src="file:///Users/judytawis/Documents/BodoOffice/quote-app/assets/cover/3-tillbyggnad.webp" alt="Tillbyggnad Stockholm" class="w-full h-full object-cover"></div></div><div class="flex flex-col gap-3"><p class="text-[14px] text-[#1A2A4A] leading-relaxed max-w-[300px]">Våra kunder litar på oss eftersom vi alltid håller deadlines, håller budgeten och erbjuder 20 års garanti.</p><div class="aspect-[3/4] rounded shadow-sm overflow-hidden bg-gray-100"><img src="file:///Users/judytawis/Documents/BodoOffice/quote-app/assets/cover/4-djuro.webp" alt="Djurö simhall byggande" class="w-full h-full object-cover"></div><div class="aspect-[4/3] rounded shadow-sm overflow-hidden bg-gray-100"><img src="file:///Users/judytawis/Documents/BodoOffice/quote-app/assets/cover/5-platttak.webp" alt="Platt tak Stockholm" class="w-full h-full object-cover"></div></div></div><div class="mt-6 pt-4 border-t border-white/40 grid grid-cols-3 gap-4 items-center"><a href="tel:+46702784918" class="flex items-center gap-3 justify-start no-underline"><span class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background: rgb(84, 152, 217);"><svg viewBox="0 0 24 24" width="20" height="20" fill="white"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2c.28-.28.67-.36 1.02-.25 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.29 21 3 13.71 3 4.5c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"></path></svg></span><div class="leading-tight"><div class="text-[10px] uppercase text-[#1A2A4A] tracking-wide font-semibold">Telefon</div><div class="font-bold text-[#1A2A4A] text-[14px]">0 702 784 918</div></div></a><a href="https://bodobygg.se" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 justify-center no-underline"><span class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background: rgb(84, 152, 217);"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><line x1="3" y1="12" x2="21" y2="12"></line><path d="M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"></path></svg></span><div class="leading-tight"><div class="text-[10px] uppercase text-[#1A2A4A] tracking-wide font-semibold">Hemsida</div><div class="font-bold text-[#1A2A4A] text-[14px]">bodobygg.se</div></div></a><a href="https://www.instagram.com/bodobygg" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 justify-end no-underline"><span class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background: rgb(84, 152, 217);"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1.2" fill="white" stroke="none"></circle></svg></span><div class="leading-tight"><div class="text-[10px] uppercase text-[#1A2A4A] tracking-wide font-semibold">Instagram</div><div class="font-bold text-[#1A2A4A] text-[14px]">@bodobygg</div></div></a></div></div>
+<div class="doc-page doc-page-pink"><div class="page-number">2</div><div class="flex justify-between items-start mb-10 gap-6"><table class="text-[15px]" style="border-collapse: separate; border-spacing: 0px 4px;"><tbody><tr><td class="font-bold align-top pr-4 whitespace-nowrap" style="width: 90px;">Offert:</td><td class="align-top" style="min-width: 260px;"><div class="block">Nr 5C/2026</div></td></tr><tr><td class="font-bold align-top pr-4 whitespace-nowrap" style="width: 90px;">Datum:</td><td class="align-top" style="min-width: 260px;"><div class="block">16.05.2026</div></td></tr><tr><td class="font-bold align-top pr-4 whitespace-nowrap" style="width: 90px;">Kund:</td><td class="align-top" style="min-width: 260px;"><div class="block">Alexander Mørk-Eidem</div></td></tr><tr><td class="font-bold align-top pr-4 whitespace-nowrap" style="width: 90px;">Adress:</td><td class="align-top" style="min-width: 260px;"><div class="block">Mälarhöjdsvägen 38<br>129 40 Hägersten</div></td></tr><tr><td class="font-bold align-top pr-4 whitespace-nowrap" style="width: 90px;">Projekt:</td><td class="align-top" style="min-width: 260px;"><div class="block">Stenhus renovering — reviderad omfattning (ersätter 5B/2026 från 2026-05-04)</div></td></tr></tbody></table><img src="file:///Users/judytawis/Documents/BodoOffice/quote-app/assets/bodo-logo-on-white.svg" alt="BODO Build &amp; Track AB" class="" style="height: 42px;"></div><div class="mt-4"><div class="group flex gap-4 relative"><div class="timeline-col"><div class="w-10 h-10 rounded-full bg-[#5468E5] text-white flex items-center justify-center font-medium text-[15px] flex-shrink-0">1</div><div class="timeline-line-fill"></div></div><div class="flex-1 min-w-0 pb-6"><div class="text-[18px] font-bold text-black leading-tight">Etapp 1 — Källare (separat lägenhet)</div><div class="text-[15px] mt-0.5 mb-3"><span class="font-medium">697 500</span><span class="text-gray-600"> kr inkl moms</span></div><div class="text-[13px] text-gray-600 mt-1 mb-2">Renoveringsarbeten utförs på löpande räkning baserat på timpriser i avsnittet "Timpriser och kostnadsgrunder".</div><div class="pl-4"><div class="group relative mb-5 pl-5"><div class="flex items-center gap-2 mb-2"><span class="w-2 h-2 rounded-full bg-[#2A3978]"></span><span class="text-[18px] text-[#2A3978]">Omfattningen av arbetet</span><span class="text-[#2A3978]">:</span></div><div class="scope-table-line ml-3 pl-4"><div class="scope-row flex items-start gap-2 py-2 pr-2 group/item"><div class="flex-1 text-[15px] ">Rivningsarbeten</div></div><div class="scope-row flex items-start gap-2 py-2 pr-2 group/item"><div class="flex-1 text-[15px] ">Installation av ny el samt vatten och avlopp</div></div><div class="scope-row flex items-start gap-2 py-2 pr-2 group/item"><div class="flex-1 text-[15px] ">Ombyggnation av golvkonstruktionen i badrum och hall, reparation av ruttet hörn i konstruktionen</div></div><div class="scope-row flex items-start gap-2 py-2 pr-2 group/item"><div class="flex-1 text-[15px] ">Konstruktion av innerväggar</div></div><div class="scope-row flex items-start gap-2 py-2 pr-2 group/item"><div class="flex-1 text-[15px] ">Utförande av komplett badrum med elektrisk golvvärme samt vatteninstallation</div></div><div class="scope-row flex items-start gap-2 py-2 pr-2 group/item"><div class="flex-1 text-[15px] ">Anpassning av ventilation</div></div><div class="scope-row flex items-start gap-2 py-2 pr-2 group/item"><div class="flex-1 text-[15px] ">Byte av fönster och dörrar</div></div><div class="scope-row flex items-start gap-2 py-2 pr-2 group/item"><div class="flex-1 text-[15px] ">Spackling, målning och övriga finisharbeten</div></div><div class="scope-row flex items-start gap-2 py-2 pr-2 group/item"><div class="flex-1 text-[15px] ">Montering av kök samt tillfällig inkoppling av elanslutning</div></div></div></div><div class="group relative mb-5"><div class="flex items-center gap-2 mb-1"><span class="w-2.5 h-2.5 rounded-full flex-shrink-0" style="background: rgb(84, 152, 217);"></span><span class="text-[16px]" style="color: rgb(84, 152, 217);">Arbetskostnader (bygg)</span></div><div class="ml-5 flex items-baseline gap-2 mb-2 flex-wrap"><span class="text-[15px] font-medium">552 500</span><span class="text-[15px] text-gray-600">kr inkl moms</span></div><div class="ml-5 mt-3"><div class="group relative mb-5"><div class="border-t-2 border-b-2 border-[#5498D9]"><div class="grid items-center py-3 px-2 text-[13px] group/row relative " style="grid-template-columns: minmax(140px, 1.2fr) minmax(180px, 2fr) minmax(210px, 1.4fr); column-gap: 20px;"><div class="uppercase font-semibold tracking-wide text-[12px]">ARBETSTIMMAR</div><div class="text-left text-[#2A3978]">ca 850 h × 650 kr</div><div class="flex items-baseline justify-start gap-1.5 relative whitespace-nowrap"><span class="font-bold">552 500</span><span>kr ink moms</span></div></div></div></div></div></div><div class="group relative mb-5"><div class="flex items-center gap-2 mb-1"><span class="w-2.5 h-2.5 rounded-full flex-shrink-0" style="background: rgb(34, 197, 94);"></span><span class="text-[16px]" style="color: rgb(34, 197, 94);">Material, transport och avfall</span></div><div class="ml-5 flex items-baseline gap-2 mb-2 flex-wrap"><span class="text-[15px] font-medium">145&nbsp;000</span><span class="text-[15px] text-gray-600">kr inkl moms</span></div><div class="ml-5 mt-3"><div class="group relative mb-5 pl-5"><div class="space-y-1.5"><div class="flex items-start gap-2 group/item"><span class="text-gray-700 mt-0.5">•</span><div class="flex-1 text-[14px]  ">Transport: ca 20 000 kr</div></div><div class="flex items-start gap-2 group/item"><span class="text-gray-700 mt-0.5">•</span><div class="flex-1 text-[14px]  ">Resor: ca 25 000 kr</div></div><div class="flex items-start gap-2 group/item"><span class="text-gray-700 mt-0.5">•</span><div class="flex-1 text-[14px]  ">Bortforsling av avfall: ca 30 000 kr</div></div><div class="flex items-start gap-2 group/item"><span class="text-gray-700 mt-0.5">•</span><div class="flex-1 text-[14px]  ">Byggmaterial / konstruktion / isolering / spackel / primer: ca 70 000 kr</div></div></div></div></div></div><div class="group relative mb-5 pl-5"><div class="flex items-center gap-2 mb-1"><span class="w-2.5 h-2.5 rounded-full bg-[#2A3978]"></span><span class="text-[16px] font-bold text-[#2A3978] uppercase tracking-wide">Total preliminär budget — Etapp 1</span></div><div class="ml-5 flex items-baseline gap-2"><span class="text-[18px] font-bold">697 500</span><span class="text-[15px]">kr inkl moms</span></div></div></div></div></div><div class="group flex gap-4 relative"><div class="timeline-col"><div class="w-10 h-10 rounded-full bg-[#5468E5] text-white flex items-center justify-center font-medium text-[15px] flex-shrink-0">2</div><div class="timeline-line-fill"></div></div><div class="flex-1 min-w-0 pb-6"><div class="text-[18px] font-bold text-black leading-tight">Etapp 2 — Entréplan, plan 1 (utan tillbyggnad)</div><div class="text-[15px] mt-0.5 mb-3"><span class="font-medium">1 385 000</span><span class="text-gray-600"> kr inkl moms</span></div><div class="pl-4"><div class="group relative mb-5 pl-5"><div class="flex items-center gap-2 mb-2"><span class="w-2 h-2 rounded-full bg-[#2A3978]"></span><span class="text-[18px] text-[#2A3978]">Omfattningen av arbetet</span><span class="text-[#2A3978]">:</span></div><div class="scope-table-line ml-3 pl-4"><div class="scope-row flex items-start gap-2 py-2 pr-2 group/item"><div class="flex-1 text-[15px] ">Rivningsarbeten</div></div><div class="scope-row flex items-start gap-2 py-2 pr-2 group/item"><div class="flex-1 text-[15px] ">Installation av ny el samt vatten och avlopp</div></div><div class="scope-row flex items-start gap-2 py-2 pr-2 group/item"><div class="flex-1 text-[15px] ">Ombyggnation av golvkonstruktionen på entréplanets bjälklag för installation av vattenburen golvvärme</div></div><div class="scope-row flex items-start gap-2 py-2 pr-2 group/item"><div class="flex-1 text-[15px] ">Byte av fönster, ombyggnation av fönsteröppning till balkongdörr i köket samt montering av entrédörr</div></div><div class="scope-row flex items-start gap-2 py-2 pr-2 group/item"><div class="flex-1 text-[15px] ">Montering av ny balkongdörr i badrum på övervåningen (201 × 71 mm dörrblad, vänsterhängd, samma stil som dörr till förstukvist)</div></div><div class="scope-row flex items-start gap-2 py-2 pr-2 group/item"><div class="flex-1 text-[15px] ">Fortsatta finisharbeten, ombyggnation av trappa samt tillbyggnad av extra trapplopp till lägenheten i källaren</div></div><div class="scope-row flex items-start gap-2 py-2 pr-2 group/item"><div class="flex-1 text-[15px] ">Montering av dörrar till badrum och sovrum samt förstärkning av befintliga innerväggar på övervåningen</div></div><div class="scope-row flex items-start gap-2 py-2 pr-2 group/item"><div class="flex-1 text-[15px] ">Montering av kök</div></div><div class="scope-row flex items-start gap-2 py-2 pr-2 group/item"><div class="flex-1 text-[15px] ">Byggnation av komplett badrum på övervåningen</div></div><div class="scope-row flex items-start gap-2 py-2 pr-2 group/item"><div class="flex-1 text-[15px] ">Spackling och grundning av väggar och tak (utan målning)</div></div><div class="scope-row flex items-start gap-2 py-2 pr-2 group/item"><div class="flex-1 text-[15px] ">Montering av kamin</div></div><div class="scope-row flex items-start gap-2 py-2 pr-2 group/item"><div class="flex-1 text-[15px] ">Montering av golv och lister samt renovering av små fönster</div></div></div></div><div class="group relative mb-5"><div class="flex items-center gap-2 mb-1"><span class="w-2.5 h-2.5 rounded-full flex-shrink-0" style="background: rgb(84, 152, 217);"></span><span class="text-[16px]" style="color: rgb(84, 152, 217);">Arbetskostnader (bygg)</span></div><div class="ml-5 flex items-baseline gap-2 mb-2 flex-wrap"><span class="text-[15px] font-medium">975 000</span><span class="text-[15px] text-gray-600">kr inkl moms</span></div><div class="ml-5 mt-3"><div class="group relative mb-5"><div class="border-t-2 border-b-2 border-[#5498D9]"><div class="grid items-center py-3 px-2 text-[13px] group/row relative " style="grid-template-columns: minmax(140px, 1.2fr) minmax(180px, 2fr) minmax(210px, 1.4fr); column-gap: 20px;"><div class="uppercase font-semibold tracking-wide text-[12px]">ARBETSTIMMAR</div><div class="text-left text-[#2A3978]">1 500 h × 650 kr</div><div class="flex items-baseline justify-start gap-1.5 relative whitespace-nowrap"><span class="font-bold">975 000</span><span>kr ink moms</span></div></div></div></div></div></div><div class="group relative mb-5"><div class="flex items-center gap-2 mb-1"><span class="w-2.5 h-2.5 rounded-full flex-shrink-0" style="background: rgb(34, 197, 94);"></span><span class="text-[16px]" style="color: rgb(34, 197, 94);">Material, transport och avfall</span></div><div class="ml-5 flex items-baseline gap-2 mb-2 flex-wrap"><span class="text-[15px] font-medium">410&nbsp;000</span><span class="text-[15px] text-gray-600">kr inkl moms</span></div><div class="ml-5 mt-3"><div class="group relative mb-5 pl-5"><div class="space-y-1.5"><div class="flex items-start gap-2 group/item"><span class="text-gray-700 mt-0.5">•</span><div class="flex-1 text-[14px]  ">Transport: 50 000 kr</div></div><div class="flex items-start gap-2 group/item"><span class="text-gray-700 mt-0.5">•</span><div class="flex-1 text-[14px]  ">Resor: 50 000 kr</div></div><div class="flex items-start gap-2 group/item"><span class="text-gray-700 mt-0.5">•</span><div class="flex-1 text-[14px]  ">Bortforsling av avfall: 60 000 kr</div></div><div class="flex items-start gap-2 group/item"><span class="text-gray-700 mt-0.5">•</span><div class="flex-1 text-[14px]  ">Byggmaterial / konstruktion / isolering / spackel / primer: 250 000 kr</div></div></div></div></div></div><div class="group relative mb-5 pl-5"><div class="flex items-center gap-2 mb-1"><span class="w-2.5 h-2.5 rounded-full bg-[#2A3978]"></span><span class="text-[16px] font-bold text-[#2A3978] uppercase tracking-wide">Total preliminär budget — Etapp 2</span></div><div class="ml-5 flex items-baseline gap-2"><span class="text-[18px] font-bold">1 385 000</span><span class="text-[15px]">kr inkl moms</span></div></div></div></div></div><div class="group flex gap-4 relative"><div class="timeline-col"><div class="w-10 h-10 rounded-full bg-[#5468E5] text-white flex items-center justify-center font-medium text-[15px] flex-shrink-0">3</div><div class="timeline-line-fill"></div></div><div class="flex-1 min-w-0 pb-6"><div class="text-[18px] font-bold text-black leading-tight">Etapp 3 — Takrenovering och fasadrenovering</div><div class="text-[15px] mt-0.5 mb-3"><span class="font-medium">795 000</span><span class="text-gray-600"> kr inkl moms</span></div><div class="pl-4"><div class="group relative mb-5 pl-5"><div class="flex items-center gap-2 mb-2"><span class="w-2 h-2 rounded-full bg-[#2A3978]"></span><span class="text-[18px] text-[#2A3978]">Omfattningen av arbetet</span><span class="text-[#2A3978]">:</span></div><div class="scope-table-line ml-3 pl-4"><div class="scope-row flex items-start gap-2 py-2 pr-2 group/item"><div class="flex-1 text-[15px] ">Montering av byggställningar och skydd</div></div><div class="scope-row flex items-start gap-2 py-2 pr-2 group/item"><div class="flex-1 text-[15px] ">Demontering av takpannor, hängrännor, plåtarbeten, gamla läkt, takpapp och vindskivor</div></div><div class="scope-row flex items-start gap-2 py-2 pr-2 group/item"><div class="flex-1 text-[15px] ">Montering av nytt taksystem, hängrännor samt fotplåt och hängränneplåt</div></div><div class="scope-row flex items-start gap-2 py-2 pr-2 group/item"><div class="flex-1 text-[15px] ">Nya vindskivor, takpapp, ströläkt och bärläkt samt återmontering av keramiska takpannor</div></div><div class="scope-row flex items-start gap-2 py-2 pr-2 group/item"><div class="flex-1 text-[15px] ">Montering av takbrygga, taksteg samt snörasskydd</div></div><div class="scope-row flex items-start gap-2 py-2 pr-2 group/item"><div class="flex-1 text-[15px] ">Reparation av puts runt fönster och ombyggda öppningar</div></div><div class="scope-row flex items-start gap-2 py-2 pr-2 group/item"><div class="flex-1 text-[15px] ">Nätning och putsning av sockel, putsning och målning</div></div><div class="scope-row flex items-start gap-2 py-2 pr-2 group/item"><div class="flex-1 text-[15px] ">Komplett målning av fasaden 2 gånger med naturlig kalkfärg</div></div></div></div><div class="group relative mb-5"><div class="flex items-center gap-2 mb-1"><span class="w-2.5 h-2.5 rounded-full flex-shrink-0" style="background: rgb(84, 152, 217);"></span><span class="text-[16px]" style="color: rgb(84, 152, 217);">Arbetskostnader (bygg)</span></div><div class="ml-5 flex items-baseline gap-2 mb-2 flex-wrap"><span class="text-[15px] font-medium">585 000</span><span class="text-[15px] text-gray-600">kr inkl moms</span></div><div class="ml-5 mt-3"><div class="group relative mb-5"><div class="border-t-2 border-b-2 border-[#5498D9]"><div class="grid items-center py-3 px-2 text-[13px] group/row relative " style="grid-template-columns: minmax(140px, 1.2fr) minmax(180px, 2fr) minmax(210px, 1.4fr); column-gap: 20px;"><div class="uppercase font-semibold tracking-wide text-[12px]">ARBETSTIMMAR</div><div class="text-left text-[#2A3978]">ca 900 h × 650 kr</div><div class="flex items-baseline justify-start gap-1.5 relative whitespace-nowrap"><span class="font-bold">585 000</span><span>kr ink moms</span></div></div></div></div></div></div><div class="group relative mb-5"><div class="flex items-center gap-2 mb-1"><span class="w-2.5 h-2.5 rounded-full flex-shrink-0" style="background: rgb(34, 197, 94);"></span><span class="text-[16px]" style="color: rgb(34, 197, 94);">Material, transport och avfall</span></div><div class="ml-5 flex items-baseline gap-2 mb-2 flex-wrap"><span class="text-[15px] font-medium">210&nbsp;000</span><span class="text-[15px] text-gray-600">kr inkl moms</span></div><div class="ml-5 mt-3"><div class="group relative mb-5 pl-5"><div class="space-y-1.5"><div class="flex items-start gap-2 group/item"><span class="text-gray-700 mt-0.5">•</span><div class="flex-1 text-[14px]  ">Transport: ca 20 000 kr</div></div><div class="flex items-start gap-2 group/item"><span class="text-gray-700 mt-0.5">•</span><div class="flex-1 text-[14px]  ">Resor: ca 30 000 kr</div></div><div class="flex items-start gap-2 group/item"><span class="text-gray-700 mt-0.5">•</span><div class="flex-1 text-[14px]  ">Bortforsling av avfall: ca 20 000 kr</div></div><div class="flex items-start gap-2 group/item"><span class="text-gray-700 mt-0.5">•</span><div class="flex-1 text-[14px]  ">Byggmaterial (papp, läkt, hängrännor, plåtbeslag, färg): ca 140 000 kr</div></div></div></div></div></div><div class="group relative mb-5 pl-5"><div class="flex items-center gap-2 mb-1"><span class="w-2.5 h-2.5 rounded-full bg-[#2A3978]"></span><span class="text-[16px] font-bold text-[#2A3978] uppercase tracking-wide">Total preliminär budget — Etapp 3</span></div><div class="ml-5 flex items-baseline gap-2"><span class="text-[18px] font-bold">795 000</span><span class="text-[15px]">kr inkl moms</span></div></div></div></div></div><div class="group flex gap-4 relative"><div class="timeline-col"><div class="w-10 h-10 rounded-full bg-[#5468E5] text-white flex items-center justify-center font-medium text-[15px] flex-shrink-0">4</div><div class="timeline-line-fill"></div></div><div class="flex-1 min-w-0 pb-6"><div class="text-[18px] font-bold text-black leading-tight">Etapp 4 — Installationsarbeten (VVS + EL)</div><div class="text-[15px] mt-0.5 mb-3"><span class="font-medium">1 126 250</span><span class="text-gray-600"> kr inkl moms</span></div><div class="text-[13px] text-gray-600 mt-1 mb-2">Hela byggnaden inklusive nya källaren.</div><div class="pl-4"><div class="group relative mb-5"><div class="flex items-center gap-2 mb-1"><span class="w-2.5 h-2.5 rounded-full flex-shrink-0" style="background: rgb(84, 152, 217);"></span><span class="text-[16px]" style="color: rgb(84, 152, 217);">VVS — Vatten, avlopp, uppvärmning</span></div><div class="ml-5 flex items-baseline gap-2 mb-2 flex-wrap"><span class="text-[15px] font-medium">457 500</span><span class="text-[15px] text-gray-600">kr inkl moms</span></div><div class="ml-5 mt-3"><div class="group relative mb-5 pl-5"><div class="text-[14px] leading-relaxed text-gray-800 whitespace-pre-wrap">Komplett installation enligt specifikation. Vattenburen golvvärme installeras på entréplan. Golvvärme på övervåningen ingår ej i denna offert.</div></div></div></div><div class="group relative mb-5"><div class="flex items-center gap-2 mb-1"><span class="w-2.5 h-2.5 rounded-full flex-shrink-0" style="background: rgb(99, 102, 241);"></span><span class="text-[16px]" style="color: rgb(99, 102, 241);">EL — Komplett elinstallation</span></div><div class="ml-5 flex items-baseline gap-2 mb-2 flex-wrap"><span class="text-[15px] font-medium">668 750</span><span class="text-[15px] text-gray-600">kr inkl moms</span></div><div class="ml-5 mt-3"><div class="group relative mb-5 pl-5"><div class="text-[14px] leading-relaxed text-gray-800 whitespace-pre-wrap">Komplett elinstallation för hela byggnaden inklusive nya källarlägenheten. Inkluderar installationsmaterial. Vitvaror och sanitetsporslin ingår ej.</div></div><div class="group relative mb-5 pl-5"><div class="space-y-1.5"><div class="flex items-start gap-2 group/item"><span class="text-gray-700 mt-0.5">•</span><div class="flex-1 text-[14px]  ">Arbete (EL): 575 000 kr</div></div><div class="flex items-start gap-2 group/item"><span class="text-gray-700 mt-0.5">•</span><div class="flex-1 text-[14px]  ">Installationsmaterial (EL): 93 750 kr</div></div></div></div></div></div><div class="group relative mb-5 pl-5"><div class="flex items-center gap-2 mb-1"><span class="w-2.5 h-2.5 rounded-full bg-[#2A3978]"></span><span class="text-[16px] font-bold text-[#2A3978] uppercase tracking-wide">Total preliminär budget — Etapp 4</span></div><div class="ml-5 flex items-baseline gap-2"><span class="text-[18px] font-bold">1 126 250</span><span class="text-[15px]">kr inkl moms</span></div></div></div></div></div><div class="group flex gap-4 relative"><div class="timeline-col"><div class="w-10 h-10 rounded-full bg-[#5468E5] text-white flex items-center justify-center font-medium text-[15px] flex-shrink-0">5</div><div class="timeline-line-fill"></div></div><div class="flex-1 min-w-0 pb-6"><div class="text-[18px] font-bold text-black leading-tight">Reviderad 5/2026 · Etapp 1 — Rivning av frontparti (löpande räkning)</div><div class="text-[15px] mt-0.5 mb-3"><span class="font-medium">139 000</span><span class="text-gray-600"> kr inkl moms</span></div><div class="text-[13px] text-gray-600 mt-1 mb-2">Rivningsmängden har minskat till ca 1/4 av ursprunglig offert 5/2026. Kostnader för etablering, maskintransport och logistik kvarstår oförändrade och kan inte reduceras proportionellt mot mängden. Etapp utförs på löpande räkning.</div><div class="pl-4"><div class="group relative mb-5 pl-5"><div class="flex items-center gap-2 mb-2"><span class="w-2 h-2 rounded-full bg-[#2A3978]"></span><span class="text-[18px] text-[#2A3978]">Omfattningen av arbetet</span><span class="text-[#2A3978]">:</span></div><div class="scope-table-line ml-3 pl-4"><div class="scope-row flex items-start gap-2 py-2 pr-2 group/item"><div class="flex-1 text-[15px] ">Etablering och maskintransport</div></div><div class="scope-row flex items-start gap-2 py-2 pr-2 group/item"><div class="flex-1 text-[15px] ">Manuell demontering av betongbalustrader</div></div><div class="scope-row flex items-start gap-2 py-2 pr-2 group/item"><div class="flex-1 text-[15px] ">Bilning och rivning av bjälklag, ytter- och innerväggar samt betongplatta i frontpartiet</div></div><div class="scope-row flex items-start gap-2 py-2 pr-2 group/item"><div class="flex-1 text-[15px] ">Frikoppling av konstruktionsdelar från befintlig byggnad</div></div><div class="scope-row flex items-start gap-2 py-2 pr-2 group/item"><div class="flex-1 text-[15px] ">Säker avgränsning mot kvarvarande del av befintlig källare</div></div><div class="scope-row flex items-start gap-2 py-2 pr-2 group/item"><div class="flex-1 text-[15px] ">Lastning, bortforsling och deponi av rivningsmaterial</div></div><div class="scope-row flex items-start gap-2 py-2 pr-2 group/item"><div class="flex-1 text-[15px] ">Rengöring och friläggning av berg/undergrund inför nästa byggskede</div></div><div class="scope-row flex items-start gap-2 py-2 pr-2 group/item"><div class="flex-1 text-[15px] ">Säkring av angränsande byggnadsdelar</div></div></div></div><div class="group relative mb-5 pl-5"><div class="flex items-center gap-2 mb-1"><span class="w-2.5 h-2.5 rounded-full bg-[#2A3978]"></span><span class="text-[16px] font-bold text-[#2A3978] uppercase tracking-wide">Total preliminär budget — Rivning frontparti</span></div><div class="ml-5 flex items-baseline gap-2"><span class="text-[18px] font-bold">139 000</span><span class="text-[15px]">kr inkl moms</span></div></div></div></div></div><div class="group flex gap-4 relative"><div class="timeline-col"><div class="w-10 h-10 rounded-full bg-[#5468E5] text-white flex items-center justify-center font-medium text-[15px] flex-shrink-0">6</div><div class="timeline-line-fill"></div></div><div class="flex-1 min-w-0 pb-6"><div class="text-[18px] font-bold text-black leading-tight">Reviderad 5/2026 · Etapp 2 — Ny källarkonstruktion frontparti (löpande räkning)</div><div class="text-[15px] mt-0.5 mb-3"><span class="font-medium">836 250</span><span class="text-gray-600"> kr inkl moms</span></div><div class="text-[13px] text-gray-600 mt-1 mb-2">Eventuell sprängning eller bearbetning av berg (t.ex. DARDA-system) ingår ej. Behov av bergbearbetning kan fastställas först efter avslutad rivning och friläggning av undergrund. Sådan åtgärd prissätts separat efter teknisk bedömning.</div><div class="pl-4"><div class="group relative mb-5 pl-5"><div class="flex items-center gap-2 mb-2"><span class="w-2 h-2 rounded-full bg-[#2A3978]"></span><span class="text-[18px] text-[#2A3978]">Omfattningen av arbetet</span><span class="text-[#2A3978]">:</span></div><div class="scope-table-line ml-3 pl-4"><div class="scope-row flex items-start gap-2 py-2 pr-2 group/item"><div class="flex-1 text-[15px] ">Markutjämning</div></div><div class="scope-row flex items-start gap-2 py-2 pr-2 group/item"><div class="flex-1 text-[15px] ">Dränerande lager + fiberduk + radonmatta</div></div><div class="scope-row flex items-start gap-2 py-2 pr-2 group/item"><div class="flex-1 text-[15px] ">Dragning av avloppsinstallation</div></div><div class="scope-row flex items-start gap-2 py-2 pr-2 group/item"><div class="flex-1 text-[15px] ">Gjuten bottenplatta med golvvärme</div></div><div class="scope-row flex items-start gap-2 py-2 pr-2 group/item"><div class="flex-1 text-[15px] ">Ytterväggar bärande — LECA Thermoblock 300 mm + systemöverliggare</div></div><div class="scope-row flex items-start gap-2 py-2 pr-2 group/item"><div class="flex-1 text-[15px] ">Invändiga bärande väggar — LECA 190 mm</div></div><div class="scope-row flex items-start gap-2 py-2 pr-2 group/item"><div class="flex-1 text-[15px] ">Formning, armering och gjutning av betongbjälklag (takplatta)</div></div><div class="scope-row flex items-start gap-2 py-2 pr-2 group/item"><div class="flex-1 text-[15px] ">Utvändig isolering källarväggar — ISODRAN 2×100 mm</div></div><div class="scope-row flex items-start gap-2 py-2 pr-2 group/item"><div class="flex-1 text-[15px] ">Horisontell isolering takplatta — 2× svetsad takpapp</div></div><div class="scope-row flex items-start gap-2 py-2 pr-2 group/item"><div class="flex-1 text-[15px] ">Isolering takplatta — XPS 300, 100 mm</div></div><div class="scope-row flex items-start gap-2 py-2 pr-2 group/item"><div class="flex-1 text-[15px] ">Armering och gjutning av terrassplatta 100 mm</div></div><div class="scope-row flex items-start gap-2 py-2 pr-2 group/item"><div class="flex-1 text-[15px] ">Återmontering av betongbalustrader samt återuppbyggnad av trappa</div></div></div></div><div class="group relative mb-5"><div class="flex items-center gap-2 mb-1"><span class="w-2.5 h-2.5 rounded-full flex-shrink-0" style="background: rgb(84, 152, 217);"></span><span class="text-[16px]" style="color: rgb(84, 152, 217);">Arbetskostnader (bygg)</span></div><div class="ml-5 flex items-baseline gap-2 mb-2 flex-wrap"><span class="text-[15px] font-medium">471 250</span><span class="text-[15px] text-gray-600">kr inkl moms</span></div><div class="ml-5 mt-3"><div class="group relative mb-5"><div class="border-t-2 border-b-2 border-[#5498D9]"><div class="grid items-center py-3 px-2 text-[13px] group/row relative " style="grid-template-columns: minmax(140px, 1.2fr) minmax(180px, 2fr) minmax(210px, 1.4fr); column-gap: 20px;"><div class="uppercase font-semibold tracking-wide text-[12px]">ARBETE</div><div class="text-left text-[#2A3978]">725 h × 650 kr</div><div class="flex items-baseline justify-start gap-1.5 relative whitespace-nowrap"><span class="font-bold">471 250</span><span>kr ink moms</span></div></div></div></div></div></div><div class="group relative mb-5"><div class="flex items-center gap-2 mb-1"><span class="w-2.5 h-2.5 rounded-full flex-shrink-0" style="background: rgb(34, 197, 94);"></span><span class="text-[16px]" style="color: rgb(34, 197, 94);">Material, transport och avfall</span></div><div class="ml-5 flex items-baseline gap-2 mb-2 flex-wrap"><span class="text-[15px] font-medium">365&nbsp;000</span><span class="text-[15px] text-gray-600">kr inkl moms</span></div><div class="ml-5 mt-3"><div class="group relative mb-5 pl-5"><div class="space-y-1.5"><div class="flex items-start gap-2 group/item"><span class="text-gray-700 mt-0.5">•</span><div class="flex-1 text-[14px]  ">Material (stom + konstruktion): 275 000 kr</div></div><div class="flex items-start gap-2 group/item"><span class="text-gray-700 mt-0.5">•</span><div class="flex-1 text-[14px]  ">Betong (inkl. leverans + pump): 50 000 kr</div></div><div class="flex items-start gap-2 group/item"><span class="text-gray-700 mt-0.5">•</span><div class="flex-1 text-[14px]  ">Golvvärme (material + montage): 40 000 kr</div></div></div></div></div></div><div class="group relative mb-5 pl-5"><div class="flex items-center gap-2 mb-1"><span class="w-2.5 h-2.5 rounded-full bg-[#2A3978]"></span><span class="text-[16px] font-bold text-[#2A3978] uppercase tracking-wide">Total preliminär budget — Ny källarkonstruktion frontparti</span></div><div class="ml-5 flex items-baseline gap-2"><span class="text-[18px] font-bold">836 250</span><span class="text-[15px]">kr inkl moms</span></div></div></div></div></div><div class="flex gap-4 mb-4"><div class="timeline-col"><div class="timeline-line-fill" style="margin-top: 0px;"></div></div></div><div class="group flex gap-4 relative"><div class="timeline-col"><div class="w-10 h-10 rounded-full bg-[#5468E5] flex-shrink-0"></div></div><div class="flex-1 min-w-0 pb-6"><div class="pt-1.5"><div class="flex items-baseline gap-3 flex-wrap"><span class="text-[14px] tracking-wide uppercase font-medium">GRAND TOTAL — Offert 5C/2026</span><span class="strike text-[15px] font-bold"><span class="">5 897 750</span></span><span class="text-[14px]">kr inkl moms</span></div><div class="ml-12 mt-2 space-y-1"><div class="text-[14px] group/before flex items-baseline gap-1 flex-wrap"><span class="font-medium">4 979 000</span><span>kr inkl moms</span><span class="text-[#5498D9]">before ROT</span></div><div class="text-[14px] font-bold flex items-baseline gap-1 flex-wrap"><span class=""></span><span class="font-normal">kr inkl moms</span><span class="text-[#22C55E] font-normal">after ROT</span></div></div></div></div></div><div class="flex gap-4 mb-2"><div class="timeline-col"></div></div></div></div>
+<div class="doc-page doc-page-pink"><div class="page-number">3</div><div class="flex justify-between items-start mb-2"><div class="grid grid-cols-[80px_1fr] gap-x-3 gap-y-1 text-[15px]"><div class="font-bold">Offert:</div><div>Nr 5C/2026</div><div class="font-bold">Datum:</div><div>16.05.2026</div></div><img src="file:///Users/judytawis/Documents/BodoOffice/quote-app/assets/bodo-logo-on-white.svg" alt="BODO Build &amp; Track AB" class="" style="height: 42px;"></div><h2 class="text-[22px] font-medium text-black mb-6 mt-4">Timpriser och kostnadsgrunder (2026) — alla priser inkl. moms 25 %</h2><div class="border-t-2 border-[#2A3978]"><div class="grid items-center gap-4 py-4 px-2 border-b-2 border-[#2A3978] group/row" style="grid-template-columns: 2fr 1.5fr 1fr 32px;"><span class="text-[14px]">Arbetstimme bygg</span><span class="text-[14px] text-center text-gray-700">timme</span><div class="text-right"><span class="text-[15px] font-bold">650</span></div></div><div class="grid items-center gap-4 py-4 px-2 border-b-2 border-[#2A3978] group/row" style="grid-template-columns: 2fr 1.5fr 1fr 32px;"><span class="text-[14px]">Arbetstimme EL</span><span class="text-[14px] text-center text-gray-700">timme</span><div class="text-right"><span class="text-[15px] font-bold">760</span></div></div><div class="grid items-center gap-4 py-4 px-2 border-b-2 border-[#2A3978] group/row" style="grid-template-columns: 2fr 1.5fr 1fr 32px;"><span class="text-[14px]">Arbetstimme VVS</span><span class="text-[14px] text-center text-gray-700">timme</span><div class="text-right"><span class="text-[15px] font-bold">820</span></div></div><div class="grid items-center gap-4 py-4 px-2 border-b-2 border-[#2A3978] group/row" style="grid-template-columns: 2fr 1.5fr 1fr 32px;"><span class="text-[14px]">Grävmaskin</span><span class="text-[14px] text-center text-gray-700">timme</span><div class="text-right"><span class="text-[15px] font-bold">925</span></div></div><div class="grid items-center gap-4 py-4 px-2 border-b-2 border-[#2A3978] group/row" style="grid-template-columns: 2fr 1.5fr 1fr 32px;"><span class="text-[14px]">Lastbil</span><span class="text-[14px] text-center text-gray-700">timme</span><div class="text-right"><span class="text-[15px] font-bold">1 168</span></div></div><div class="grid items-center gap-4 py-4 px-2 border-b-2 border-[#2A3978] group/row" style="grid-template-columns: 2fr 1.5fr 1fr 32px;"><span class="text-[14px]">Resor / servicebil</span><span class="text-[14px] text-center text-gray-700">dag</span><div class="text-right"><span class="text-[15px] font-bold">750</span></div></div><div class="grid items-center gap-4 py-4 px-2 border-b-2 border-[#2A3978] group/row" style="grid-template-columns: 2fr 1.5fr 1fr 32px;"><span class="text-[14px]">Transport material</span><span class="text-[14px] text-center text-gray-700">tur</span><div class="text-right"><span class="text-[15px] font-bold">1 625</span></div></div><div class="grid items-center gap-4 py-4 px-2 border-b-2 border-[#2A3978] group/row" style="grid-template-columns: 2fr 1.5fr 1fr 32px;"><span class="text-[14px]">Avfallstransport</span><span class="text-[14px] text-center text-gray-700">tur + deponifaktura</span><div class="text-right"><span class="text-[15px] font-bold">3 500</span></div></div></div></div>
+<div class="doc-page doc-page-pink" style="background: rgb(158, 171, 186);"><div class="page-number">4</div><div class="bg-white/30 -mx-[18mm] py-5 px-[18mm] text-center mb-8"><h2 class="text-[22px] text-[#1A2A4A] font-bold font-display">Varför välja oss?</h2></div><div class="grid grid-cols-3 gap-x-8 gap-y-9 mb-10"><div class="text-center"><div class="w-12 h-12 rounded-full bg-[#5468E5] text-white flex items-center justify-center mx-auto mb-3 text-[18px] font-medium">1</div><div class="text-[13.5px] leading-relaxed"><span class="font-bold">Offert inom 5 dagar.</span></div></div><div class="text-center"><div class="w-12 h-12 rounded-full bg-[#5468E5] text-white flex items-center justify-center mx-auto mb-3 text-[18px] font-medium">2</div><div class="text-[13.5px] leading-relaxed"><span class="font-bold">Vi förhandlar inte om priserna vi döljer inga kostnader.</span></div></div><div class="text-center"><div class="w-12 h-12 rounded-full bg-[#5468E5] text-white flex items-center justify-center mx-auto mb-3 text-[18px] font-medium">3</div><div class="text-[13.5px] leading-relaxed"><span class="font-bold">Vi anpassar arbetsomfattningen efter din budget och behov.</span></div></div><div class="text-center"><div class="w-12 h-12 rounded-full bg-[#5468E5] text-white flex items-center justify-center mx-auto mb-3 text-[18px] font-medium">4</div><div class="text-[13.5px] leading-relaxed"><span class="font-bold">Snabb och solid</span><br>Vi har en avancerad rekryteringsprocess där vi noggrant granskar våra medarbetare för erfarenhet och kvalitet.</div></div><div class="text-center"><div class="w-12 h-12 rounded-full bg-[#5468E5] text-white flex items-center justify-center mx-auto mb-3 text-[18px] font-medium">5</div><div class="text-[13.5px] leading-relaxed"><span class="font-bold">De billigaste materialen av hög kvalitet</span><br>vi kan importera dem från Polen åt dig.</div></div><div class="text-center"><div class="w-12 h-12 rounded-full bg-[#5468E5] text-white flex items-center justify-center mx-auto mb-3 text-[18px] font-medium">6</div><div class="text-[13.5px] leading-relaxed"><span class="font-bold">Vi erbjuder alla typer av byggtjänster komplett service.</span></div></div><div class="text-center"><div class="w-12 h-12 rounded-full bg-[#5468E5] text-white flex items-center justify-center mx-auto mb-3 text-[18px] font-medium">7</div><div class="text-[13.5px] leading-relaxed"><span class="font-bold">Säkerhet</span><br>vi använder toppmoderna byggutrustningar och säkerhetsåtgärder.</div></div><div class="text-center"><div class="w-12 h-12 rounded-full bg-[#5468E5] text-white flex items-center justify-center mx-auto mb-3 text-[18px] font-medium">8</div><div class="text-[13.5px] leading-relaxed"><span class="font-bold">Vi hjälper dig med fastighetsköp och värdering av bostäder före och efter renovering.</span></div></div><div class="text-center"><div class="w-12 h-12 rounded-full bg-[#5468E5] text-white flex items-center justify-center mx-auto mb-3 text-[18px] font-medium">9</div><div class="text-[13.5px] leading-relaxed"><span class="font-bold">Vi ger belöningar för att rekommendera oss till dina vänner.</span></div></div></div><div class="bg-white/30 -mx-[18mm] py-5 px-[18mm] text-center mb-8"><h2 class="text-[20px] text-[#1A2A4A] font-bold font-display">Varför är det fördelaktigt att samarbeta med oss på lång sikt?</h2></div><div class="grid grid-cols-2 gap-x-12 gap-y-10"><div class="text-center"><div class="w-12 h-12 rounded-full bg-[#A49251] text-white flex items-center justify-center mx-auto mb-3 text-[18px] font-medium">1</div><div class="text-[13.5px] leading-relaxed"><span class="font-bold">Vi erbjuder upp till 20 års garanti</span><br>Om det uppstår problem kommer vi och utför reparationen kostnadsfritt.</div></div><div class="text-center"><div class="w-12 h-12 rounded-full bg-[#A49251] text-white flex items-center justify-center mx-auto mb-3 text-[18px] font-medium">2</div><div class="text-[13.5px] leading-relaxed"><span class="font-bold">Lojalitetskort för återkommande kunder</span><br>Du får rabatter på framtida projekt.</div></div><div class="text-center"><div class="w-12 h-12 rounded-full bg-[#A49251] text-white flex items-center justify-center mx-auto mb-3 text-[18px] font-medium">3</div><div class="text-[13.5px] leading-relaxed"><span class="font-bold">Prioriterad service</span><br>Om du behöver hjälp snabbt är vi hos dig inom 3 dagar.</div></div><div class="text-center"><div class="w-12 h-12 rounded-full bg-[#A49251] text-white flex items-center justify-center mx-auto mb-3 text-[18px] font-medium">4</div><div class="text-[13.5px] leading-relaxed"><span class="font-bold">Dubbel belöning</span><br>Rekommendera oss till vänner och skriv en recension, och vi belönar dig dubbel gång för din rekommendation.</div></div></div></div>
+<div class="doc-page doc-page-pink"><div class="page-number">5</div><div class="flex justify-between items-start mb-12"><div class="grid grid-cols-[80px_1fr] gap-x-3 gap-y-1 text-[15px]"><div class="font-bold">Offert:</div><div>Nr 5C/2026</div><div class="font-bold">Datum:</div><div>16.05.2026</div></div><img src="file:///Users/judytawis/Documents/BodoOffice/quote-app/assets/bodo-logo-on-white.svg" alt="BODO Build &amp; Track AB" class="" style="height: 42px;"></div><h2 class="text-center font-bold text-[18px] mb-6">Regler och giltighetstid för offert</h2><p class="text-[14px] mb-4">Offert gäller i 30 dagar från ovanstående datum.</p><div class="mb-6 text-[14px]"><div class="font-bold">Betalningspolicy</div><div>10 dagar netto</div><div>BODO Build and Track AB</div><div>Lillkalmarvägen 30A · 182 65 Djursholm</div><div>office@buildandtrack.com</div></div><div class="text-[13px] space-y-4 mb-12 leading-relaxed"><p>&nbsp;&nbsp;&nbsp;Vid oförutsedda förhållanden som inte kunnat bedömas utifrån nuvarande handlingar sker ekonomisk genomgång och skriftligt godkännande innan vidare arbete.</p><p>&nbsp;&nbsp;&nbsp;Allt byggnadsarbete kommer att utföras i enlighet med de krav och föreskrifter i lag och byggnormer som gäller i Sverige. I värderingen ingår inte kostnader för inredning och utrustning såsom möbler, vitvaror, belysning etc. om de inte ingår i avtalet som en separat post.</p><p>&nbsp;&nbsp;&nbsp;Betalningsvillkor kommer att anges i avtalet och kommer att bero på byggskeden och den tid som krävs för att slutföra varje etapp.</p></div><h3 class="text-center text-[24px] font-light mb-8 font-display">Godkännande</h3><div class="grid grid-cols-2 gap-12 mb-10"><div><div class="text-[18px] mb-3">Kund:</div><div class="text-gray-600 text-[15px] leading-relaxed"><div>Alexander Mørk-Eidem</div><div>Mälarhöjdsvägen 38
+129 40 Hägersten</div><div>Stenhus renovering — reviderad omfattning (ersätter 5B/2026 från 2026-05-04)</div></div></div><div><div class="text-[18px] mb-3">Entreprenör:</div><div class="text-gray-600 text-[15px] leading-relaxed"><div>BODO Build and Track AB</div><div>Lillkalmarvägen 30A</div><div>182 65 Djursholm</div><div>office@buildandtrack.com</div></div></div></div><div class="grid grid-cols-2 gap-12 mt-12"><div><div class="text-[16px] mb-2">Datum:</div><div class="border-b border-black h-5"></div></div><div><div class="text-[16px] mb-2">Kundsignatur:</div><div class="border-b border-black h-5"></div></div></div></div>
 </body>
 </html>
