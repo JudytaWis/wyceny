@@ -1,0 +1,43 @@
+- generic [ref=e3]:
+  - complementary [ref=e4]:
+    - generic [ref=e5]:
+      - img "BODO Build & Track AB" [ref=e7]
+      - paragraph [ref=e8]: Offert Generator · lokalnie
+    - generic [ref=e9]:
+      - button "Nowa wycena" [ref=e10] [cursor=pointer]:
+        - img [ref=e11]
+        - text: Nowa wycena
+      - generic [ref=e13]:
+        - button "Eksportuj JSON" [ref=e14] [cursor=pointer]
+        - generic [ref=e15] [cursor=pointer]: Importuj JSON
+    - generic [ref=e16]: Twoje wyceny
+    - generic [ref=e17]:
+      - button "Alexander Mørk-Eidem – Stenhus renovering 5B/2026 Alexander Mørk-Eidem" [ref=e18] [cursor=pointer]:
+        - generic [ref=e19]:
+          - generic [ref=e20]: Alexander Mørk-Eidem – Stenhus renovering 5B/2026
+          - generic [ref=e21]: Alexander Mørk-Eidem
+        - generic [ref=e22]:
+          - button "Duplikuj" [ref=e23]:
+            - img [ref=e24]
+          - button "Usuń" [ref=e27]:
+            - img [ref=e28]
+      - button "Alexander Mørk-Eidem – Stenhus renovering 5C/2026 Alexander Mørk-Eidem" [ref=e30] [cursor=pointer]:
+        - generic [ref=e31]:
+          - generic [ref=e32]: Alexander Mørk-Eidem – Stenhus renovering 5C/2026
+          - generic [ref=e33]: Alexander Mørk-Eidem
+        - generic [ref=e34]:
+          - button "Duplikuj" [ref=e35]:
+            - img [ref=e36]
+          - button "Usuń" [ref=e39]:
+            - img [ref=e40]
+  - main [ref=e42]:
+    - generic [ref=e43]:
+      - img "BODO Build & Track AB" [ref=e44]
+      - heading "Offert Generator" [level=1] [ref=e45]
+      - paragraph [ref=e46]:
+        - text: Lokalna aplikacja do tworzenia wycen w stylu BODO. Wszystko zapisane w przeglądarce (localStorage). Każda wycena ma swój URL — możesz wpisać
+        - code [ref=e47]: "?quote=nazwa"
+        - text: w adresie.
+      - button "Stwórz pierwszą wycenę" [ref=e48] [cursor=pointer]:
+        - img [ref=e49]
+        - text: Stwórz pierwszą wycenę

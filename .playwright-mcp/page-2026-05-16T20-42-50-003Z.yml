@@ -1,0 +1,27 @@
+- generic [ref=e3]:
+  - complementary [ref=e4]:
+    - generic [ref=e5]:
+      - img "BODO Build & Track AB" [ref=e7]
+      - paragraph [ref=e8]: Offert Generator · lokalnie
+    - generic [ref=e9]:
+      - button "Nowa wycena" [ref=e10] [cursor=pointer]:
+        - img [ref=e11]
+        - text: Nowa wycena
+      - generic [ref=e13]:
+        - button "Eksportuj JSON" [ref=e14] [cursor=pointer]
+        - generic [ref=e15] [cursor=pointer]: Importuj JSON
+    - generic [ref=e16]: Twoje wyceny
+    - generic [ref=e18]:
+      - text: Brak zapisanych wycen.
+      - text: Kliknij „Nowa wycena".
+  - main [ref=e19]:
+    - generic [ref=e20]:
+      - img "BODO Build & Track AB" [ref=e21]
+      - heading "Offert Generator" [level=1] [ref=e22]
+      - paragraph [ref=e23]:
+        - text: Lokalna aplikacja do tworzenia wycen w stylu BODO. Wszystko zapisane w przeglądarce (localStorage). Każda wycena ma swój URL — możesz wpisać
+        - code [ref=e24]: "?quote=nazwa"
+        - text: w adresie.
+      - button "Stwórz pierwszą wycenę" [ref=e25] [cursor=pointer]:
+        - img [ref=e26]
+        - text: Stwórz pierwszą wycenę

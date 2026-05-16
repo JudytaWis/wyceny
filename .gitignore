@@ -2,3 +2,5 @@
 node_modules/
 .vercel
 *.log
+canva-export-tmp/
+a4-quote-app/

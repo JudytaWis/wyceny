@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "gmail": {
+      "command": "npx",
+      "args": ["-y", "@gongrzhe/server-gmail-autoauth-mcp"]
+    },
+    "gdrive": {
+      "command": "npx",
+      "args": ["-y", "@piotr-agier/google-drive-mcp"]
+    }
+  }
+}

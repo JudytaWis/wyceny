@@ -1,0 +1,1152 @@
+- generic [ref=e3]:
+  - complementary [ref=e4]:
+    - generic [ref=e5]:
+      - img "BODO Build & Track AB" [ref=e7]
+      - paragraph [ref=e8]: Offert Generator · lokalnie
+    - generic [ref=e9]:
+      - button "Nowa wycena" [ref=e10] [cursor=pointer]:
+        - img [ref=e11]
+        - text: Nowa wycena
+      - generic [ref=e13]:
+        - button "Eksportuj JSON" [ref=e14] [cursor=pointer]
+        - generic [ref=e15] [cursor=pointer]: Importuj JSON
+    - generic [ref=e16]: Twoje wyceny
+    - generic [ref=e17]:
+      - button "Alexander Mørk-Eidem – Stenhus renovering 5B/2026 Alexander Mørk-Eidem" [ref=e18] [cursor=pointer]:
+        - generic [ref=e19]:
+          - generic [ref=e20]: Alexander Mørk-Eidem – Stenhus renovering 5B/2026
+          - generic [ref=e21]: Alexander Mørk-Eidem
+        - generic [ref=e22]:
+          - button "Duplikuj" [ref=e23]:
+            - img [ref=e24]
+          - button "Usuń" [ref=e27]:
+            - img [ref=e28]
+      - button "Alexander Mørk-Eidem – Stenhus renovering 5C/2026 Alexander Mørk-Eidem" [ref=e30] [cursor=pointer]:
+        - generic [ref=e31]:
+          - generic [ref=e32]: Alexander Mørk-Eidem – Stenhus renovering 5C/2026
+          - generic [ref=e33]: Alexander Mørk-Eidem
+        - generic [ref=e34]:
+          - button "Duplikuj" [ref=e35]:
+            - img [ref=e36]
+          - button "Usuń" [ref=e39]:
+            - img [ref=e40]
+    - generic [ref=e42]:
+      - generic [ref=e43]: Strony
+      - generic [ref=e44] [cursor=pointer]:
+        - checkbox "Other Running Costs" [checked] [ref=e45]
+        - text: Other Running Costs
+      - generic [ref=e46] [cursor=pointer]:
+        - checkbox "Varför välja oss?" [checked] [ref=e47]
+        - text: Varför välja oss?
+      - generic [ref=e48] [cursor=pointer]:
+        - checkbox "Term & Conditions" [checked] [ref=e49]
+        - text: Term & Conditions
+  - main [ref=e50]:
+    - generic [ref=e51]:
+      - generic [ref=e52]:
+        - textbox "Tytuł wyceny..." [ref=e53]: Alexander Mørk-Eidem – Stenhus renovering 5B/2026
+        - generic [ref=e54]: /alexander-mork-eidem
+      - generic [ref=e55]:
+        - button "Cofnij" [disabled] [ref=e56]:
+          - img [ref=e57]
+          - text: Cofnij
+        - button "Ponów" [disabled] [ref=e60]:
+          - img [ref=e61]
+          - text: Ponów
+        - button "HTML" [ref=e65] [cursor=pointer]:
+          - img [ref=e66]
+          - text: HTML
+        - button "PDF ciągły" [ref=e69] [cursor=pointer]:
+          - img [ref=e70]
+          - text: PDF ciągły
+        - button "Drukuj A4" [ref=e73] [cursor=pointer]:
+          - img [ref=e74]
+          - text: Drukuj A4
+    - generic [ref=e76]:
+      - generic [ref=e77]:
+        - generic [ref=e78]: "1"
+        - img "BODO Build & Track AB" [ref=e80]
+        - heading "Ett vackert hem. Ett lugnt sinne. Bygg din oas." [level=2] [ref=e81]:
+          - text: Ett vackert hem. Ett lugnt sinne.
+          - text: Bygg din oas.
+        - generic [ref=e82]:
+          - generic [ref=e83]:
+            - img "Japandi köksrenovering Stockholm" [ref=e85]
+            - img "Två stugor i Åre" [ref=e87]
+            - img "Tillbyggnad Stockholm" [ref=e89]
+          - generic [ref=e90]:
+            - paragraph [ref=e91]: Våra kunder litar på oss eftersom vi alltid håller deadlines, håller budgeten och erbjuder 20 års garanti.
+            - img "Djurö simhall byggande" [ref=e93]
+            - img "Platt tak Stockholm" [ref=e95]
+        - generic [ref=e96]:
+          - link "Telefon 0 702 784 918" [ref=e97] [cursor=pointer]:
+            - /url: tel:+46702784918
+            - img [ref=e99]
+            - generic [ref=e101]:
+              - generic [ref=e102]: Telefon
+              - generic [ref=e103]: 0 702 784 918
+          - link "Hemsida bodobygg.se" [ref=e104] [cursor=pointer]:
+            - /url: https://bodobygg.se
+            - img [ref=e106]
+            - generic [ref=e109]:
+              - generic [ref=e110]: Hemsida
+              - generic [ref=e111]: bodobygg.se
+          - link "Instagram @bodobygg" [ref=e112] [cursor=pointer]:
+            - /url: https://www.instagram.com/bodobygg
+            - img [ref=e114]
+            - generic [ref=e118]:
+              - generic [ref=e119]: Instagram
+              - generic [ref=e120]: "@bodobygg"
+      - generic [ref=e121]:
+        - generic [ref=e122]: "2"
+        - generic [ref=e123]:
+          - table [ref=e124]:
+            - rowgroup [ref=e125]:
+              - 'row "Offert: Nr 5B/2026" [ref=e126]':
+                - cell "Offert:" [ref=e127]
+                - cell "Nr 5B/2026" [ref=e128]:
+                  - generic [ref=e129]: Nr 5B/2026
+              - 'row "Datum: 04.05.2026" [ref=e130]':
+                - cell "Datum:" [ref=e131]
+                - cell "04.05.2026" [ref=e132]:
+                  - generic [ref=e133]: 04.05.2026
+              - 'row "Kund: Alexander Mørk-Eidem" [ref=e134]':
+                - cell "Kund:" [ref=e135]
+                - cell "Alexander Mørk-Eidem" [ref=e136]:
+                  - generic [ref=e137]: Alexander Mørk-Eidem
+              - 'row "Adress: Mälarhöjdsvägen 38 129 40 Hägersten" [ref=e138]':
+                - cell "Adress:" [ref=e139]
+                - cell "Mälarhöjdsvägen 38 129 40 Hägersten" [ref=e140]:
+                  - generic [ref=e141]:
+                    - text: Mälarhöjdsvägen 38
+                    - text: 129 40 Hägersten
+              - 'row "Projekt: Stenhus renovering och tillbygnad" [ref=e142]':
+                - cell "Projekt:" [ref=e143]
+                - cell "Stenhus renovering och tillbygnad" [ref=e144]:
+                  - generic [ref=e145]: Stenhus renovering och tillbygnad
+          - img "BODO Build & Track AB" [ref=e146]
+        - generic [ref=e147]:
+          - generic [ref=e148]:
+            - generic [ref=e150]: "1"
+            - generic [ref=e152]:
+              - generic [ref=e153]: Etapp 1. Källare – separat lägenhet
+              - generic [ref=e154]: 697 500 kr inkl moms
+              - generic [ref=e155]: Renoveringsarbeten utförs på löpande räkning baserat på timpriser nedan.
+              - generic [ref=e156]:
+                - generic [ref=e157]:
+                  - generic [ref=e158]:
+                    - button [ref=e159] [cursor=pointer]:
+                      - img [ref=e160]
+                    - button [ref=e162] [cursor=pointer]:
+                      - img [ref=e163]
+                    - button [ref=e165] [cursor=pointer]:
+                      - img [ref=e166]
+                  - generic [ref=e168]:
+                    - generic [ref=e170]: Beskrivning av arbeten
+                    - generic [ref=e171]: ":"
+                  - generic [ref=e172]:
+                    - generic [ref=e173]:
+                      - generic [ref=e174]: Rivningsarbeten
+                      - generic [ref=e175]:
+                        - button "Przekreśl" [ref=e176] [cursor=pointer]:
+                          - img [ref=e177]
+                        - button "Usuń" [ref=e179] [cursor=pointer]:
+                          - img [ref=e180]
+                    - generic [ref=e182]:
+                      - generic [ref=e183]: Installation av ny el samt vatten och avlopp
+                      - generic [ref=e184]:
+                        - button "Przekreśl" [ref=e185] [cursor=pointer]:
+                          - img [ref=e186]
+                        - button "Usuń" [ref=e188] [cursor=pointer]:
+                          - img [ref=e189]
+                    - generic [ref=e191]:
+                      - generic [ref=e192]: Ombyggnation av golvkonstruktionen i badrum och hall, reparation av ruttet hörn i konstruktionen
+                      - generic [ref=e193]:
+                        - button "Przekreśl" [ref=e194] [cursor=pointer]:
+                          - img [ref=e195]
+                        - button "Usuń" [ref=e197] [cursor=pointer]:
+                          - img [ref=e198]
+                    - generic [ref=e200]:
+                      - generic [ref=e201]: Konstruktion av innerväggar
+                      - generic [ref=e202]:
+                        - button "Przekreśl" [ref=e203] [cursor=pointer]:
+                          - img [ref=e204]
+                        - button "Usuń" [ref=e206] [cursor=pointer]:
+                          - img [ref=e207]
+                    - generic [ref=e209]:
+                      - generic [ref=e210]: Utförande av komplett badrum med elektrisk golvvärme samt vatteninstallation
+                      - generic [ref=e211]:
+                        - button "Przekreśl" [ref=e212] [cursor=pointer]:
+                          - img [ref=e213]
+                        - button "Usuń" [ref=e215] [cursor=pointer]:
+                          - img [ref=e216]
+                    - generic [ref=e218]:
+                      - generic [ref=e219]: Anpassning av ventilation
+                      - generic [ref=e220]:
+                        - button "Przekreśl" [ref=e221] [cursor=pointer]:
+                          - img [ref=e222]
+                        - button "Usuń" [ref=e224] [cursor=pointer]:
+                          - img [ref=e225]
+                    - generic [ref=e227]:
+                      - generic [ref=e228]: Byte av fönster och dörrar
+                      - generic [ref=e229]:
+                        - button "Przekreśl" [ref=e230] [cursor=pointer]:
+                          - img [ref=e231]
+                        - button "Usuń" [ref=e233] [cursor=pointer]:
+                          - img [ref=e234]
+                    - generic [ref=e236]:
+                      - generic [ref=e237]: Spackling, målning och övriga finisharbeten
+                      - generic [ref=e238]:
+                        - button "Przekreśl" [ref=e239] [cursor=pointer]:
+                          - img [ref=e240]
+                        - button "Usuń" [ref=e242] [cursor=pointer]:
+                          - img [ref=e243]
+                    - generic [ref=e245]:
+                      - generic [ref=e246]: Montering av kök samt tillfällig inkoppling av elanslutning
+                      - generic [ref=e247]:
+                        - button "Przekreśl" [ref=e248] [cursor=pointer]:
+                          - img [ref=e249]
+                        - button "Usuń" [ref=e251] [cursor=pointer]:
+                          - img [ref=e252]
+                  - button "dodaj wiersz" [ref=e254] [cursor=pointer]:
+                    - img [ref=e255]
+                    - text: dodaj wiersz
+                - generic [ref=e257]:
+                  - generic [ref=e258]:
+                    - button [ref=e259] [cursor=pointer]:
+                      - img [ref=e260]
+                    - button [ref=e262] [cursor=pointer]:
+                      - img [ref=e263]
+                    - button [ref=e265] [cursor=pointer]:
+                      - img [ref=e266]
+                  - generic [ref=e268]:
+                    - generic [ref=e270]: Arbetskostnader (bygg)
+                    - generic [ref=e271]:
+                      - button "blue" [ref=e272] [cursor=pointer]
+                      - button "green" [ref=e273] [cursor=pointer]
+                      - button "gold" [ref=e274] [cursor=pointer]
+                      - button "purple" [ref=e275] [cursor=pointer]
+                  - generic [ref=e276]:
+                    - generic [ref=e277]: 552 500,00
+                    - generic [ref=e278]: kr inkl moms
+                    - button "skreśl cenę" [ref=e279] [cursor=pointer]
+                    - generic [ref=e280]: ↑ auto-policzone z MANPOWER
+                  - generic [ref=e282]:
+                    - generic [ref=e283]:
+                      - button [ref=e284] [cursor=pointer]:
+                        - img [ref=e285]
+                      - button [ref=e287] [cursor=pointer]:
+                        - img [ref=e288]
+                      - button [ref=e290] [cursor=pointer]:
+                        - img [ref=e291]
+                    - generic [ref=e294]:
+                      - generic [ref=e295]: ARBETSTIMMAR
+                      - generic [ref=e296]: 850 h × 650 kr
+                      - generic [ref=e297]:
+                        - generic [ref=e298]: 552 500,00
+                        - generic [ref=e299]: kr ink moms
+                        - generic [ref=e300]:
+                          - button "auto" [ref=e301] [cursor=pointer]
+                          - button "Nie można usunąć ostatniego wiersza" [disabled] [ref=e302]:
+                            - img [ref=e303]
+                    - button "dodaj wiersz w tabeli MANPOWER" [ref=e305] [cursor=pointer]:
+                      - img [ref=e306]
+                      - text: dodaj wiersz w tabeli MANPOWER
+                  - button "dodaj w subpunkcie" [ref=e309] [cursor=pointer]:
+                    - img [ref=e310]
+                    - text: dodaj w subpunkcie
+                - generic [ref=e312]:
+                  - generic [ref=e313]:
+                    - button [ref=e314] [cursor=pointer]:
+                      - img [ref=e315]
+                    - button [ref=e317] [cursor=pointer]:
+                      - img [ref=e318]
+                    - button [ref=e320] [cursor=pointer]:
+                      - img [ref=e321]
+                  - generic [ref=e323]:
+                    - generic [ref=e325]: Material, transport och avfall
+                    - generic [ref=e326]:
+                      - button "blue" [ref=e327] [cursor=pointer]
+                      - button "green" [ref=e328] [cursor=pointer]
+                      - button "gold" [ref=e329] [cursor=pointer]
+                      - button "purple" [ref=e330] [cursor=pointer]
+                  - generic [ref=e331]:
+                    - generic [ref=e332]: 145 000
+                    - generic [ref=e333]: kr inkl moms
+                    - button "skreśl cenę" [ref=e334] [cursor=pointer]
+                  - generic [ref=e336]:
+                    - generic [ref=e337]:
+                      - button [ref=e338] [cursor=pointer]:
+                        - img [ref=e339]
+                      - button [ref=e341] [cursor=pointer]:
+                        - img [ref=e342]
+                      - button [ref=e344] [cursor=pointer]:
+                        - img [ref=e345]
+                    - generic [ref=e347]:
+                      - generic [ref=e348]:
+                        - generic [ref=e349]: •
+                        - generic [ref=e350]: "Transport: ca 20 000 kr"
+                        - generic [ref=e351]:
+                          - button "B" [ref=e352] [cursor=pointer]
+                          - button [ref=e353] [cursor=pointer]:
+                            - img [ref=e354]
+                          - button [ref=e356] [cursor=pointer]:
+                            - img [ref=e357]
+                      - generic [ref=e359]:
+                        - generic [ref=e360]: •
+                        - generic [ref=e361]: "Resor: ca 25 000 kr"
+                        - generic [ref=e362]:
+                          - button "B" [ref=e363] [cursor=pointer]
+                          - button [ref=e364] [cursor=pointer]:
+                            - img [ref=e365]
+                          - button [ref=e367] [cursor=pointer]:
+                            - img [ref=e368]
+                      - generic [ref=e370]:
+                        - generic [ref=e371]: •
+                        - generic [ref=e372]: "Bortforsling av avfall: ca 30 000 kr"
+                        - generic [ref=e373]:
+                          - button "B" [ref=e374] [cursor=pointer]
+                          - button [ref=e375] [cursor=pointer]:
+                            - img [ref=e376]
+                          - button [ref=e378] [cursor=pointer]:
+                            - img [ref=e379]
+                      - generic [ref=e381]:
+                        - generic [ref=e382]: •
+                        - generic [ref=e383]: "Byggmaterial, konstruktion, isoleringslager, spackel och primer: ca 70 000 kr"
+                        - generic [ref=e384]:
+                          - button "B" [ref=e385] [cursor=pointer]
+                          - button [ref=e386] [cursor=pointer]:
+                            - img [ref=e387]
+                          - button [ref=e389] [cursor=pointer]:
+                            - img [ref=e390]
+                    - button "dodaj punkt" [ref=e392] [cursor=pointer]:
+                      - img [ref=e393]
+                      - text: dodaj punkt
+                  - button "dodaj w subpunkcie" [ref=e396] [cursor=pointer]:
+                    - img [ref=e397]
+                    - text: dodaj w subpunkcie
+                - generic [ref=e399]:
+                  - generic [ref=e400]:
+                    - button [ref=e401] [cursor=pointer]:
+                      - img [ref=e402]
+                    - button [ref=e404] [cursor=pointer]:
+                      - img [ref=e405]
+                    - button [ref=e407] [cursor=pointer]:
+                      - img [ref=e408]
+                  - generic [ref=e412]: Totalt preliminär budget – Etapp 1
+                  - generic [ref=e413]:
+                    - generic [ref=e414]: 697 500
+                    - generic [ref=e415]: kr inkl moms
+                - button "dodaj blok" [ref=e417] [cursor=pointer]:
+                  - img [ref=e418]
+                  - text: dodaj blok
+            - generic [ref=e420]:
+              - button [ref=e421] [cursor=pointer]:
+                - img [ref=e422]
+              - button [ref=e424] [cursor=pointer]:
+                - img [ref=e425]
+              - button [ref=e427] [cursor=pointer]:
+                - img [ref=e428]
+          - generic [ref=e430]:
+            - generic [ref=e432]: "2"
+            - generic [ref=e434]:
+              - generic [ref=e435]: Etapp 2. Entréplan, plan 1, tillbyggnad
+              - generic [ref=e436]: 1 750 000 kr inkl moms
+              - generic [ref=e437]:
+                - generic [ref=e438]:
+                  - generic [ref=e439]:
+                    - button [ref=e440] [cursor=pointer]:
+                      - img [ref=e441]
+                    - button [ref=e443] [cursor=pointer]:
+                      - img [ref=e444]
+                    - button [ref=e446] [cursor=pointer]:
+                      - img [ref=e447]
+                  - generic [ref=e449]:
+                    - generic [ref=e451]: Beskrivning av arbeten
+                    - generic [ref=e452]: ":"
+                  - generic [ref=e453]:
+                    - generic [ref=e454]:
+                      - generic [ref=e455]: Rivningsarbeten
+                      - generic [ref=e456]:
+                        - button "Przekreśl" [ref=e457] [cursor=pointer]:
+                          - img [ref=e458]
+                        - button "Usuń" [ref=e460] [cursor=pointer]:
+                          - img [ref=e461]
+                    - generic [ref=e463]:
+                      - generic [ref=e464]: Installation av ny el samt vatten och avlopp
+                      - generic [ref=e465]:
+                        - button "Przekreśl" [ref=e466] [cursor=pointer]:
+                          - img [ref=e467]
+                        - button "Usuń" [ref=e469] [cursor=pointer]:
+                          - img [ref=e470]
+                    - generic [ref=e472]:
+                      - generic [ref=e473]: Ombyggnation av golvkonstruktionen på bjälklaget för installation av vattenburen golvvärme
+                      - generic [ref=e474]:
+                        - button "Przekreśl" [ref=e475] [cursor=pointer]:
+                          - img [ref=e476]
+                        - button "Usuń" [ref=e478] [cursor=pointer]:
+                          - img [ref=e479]
+                    - generic [ref=e481]:
+                      - generic [ref=e482]: Konstruktion av ytterväggar till tillbyggnaden samt anslutning till befintlig konstruktion
+                      - generic [ref=e483]:
+                        - button "Przekreśl" [ref=e484] [cursor=pointer]:
+                          - img [ref=e485]
+                        - button "Usuń" [ref=e487] [cursor=pointer]:
+                          - img [ref=e488]
+                    - generic [ref=e490]:
+                      - generic [ref=e491]: Byte av fönster, ombyggnation av fönsteröppning till balkongdörr i köket samt montering av entrédörr
+                      - generic [ref=e492]:
+                        - button "Przekreśl" [ref=e493] [cursor=pointer]:
+                          - img [ref=e494]
+                        - button "Usuń" [ref=e496] [cursor=pointer]:
+                          - img [ref=e497]
+                    - generic [ref=e499]:
+                      - generic [ref=e500]: Klimatskal för tillbyggnaden samt takbeklädnad med takpannor
+                      - generic [ref=e501]:
+                        - button "Przekreśl" [ref=e502] [cursor=pointer]:
+                          - img [ref=e503]
+                        - button "Usuń" [ref=e505] [cursor=pointer]:
+                          - img [ref=e506]
+                    - generic [ref=e508]:
+                      - generic [ref=e509]: Fortsatta finisharbeten, ombyggnation av trappa samt tillbyggnad av extra trapplopp till lägenheten i källaren
+                      - generic [ref=e510]:
+                        - button "Przekreśl" [ref=e511] [cursor=pointer]:
+                          - img [ref=e512]
+                        - button "Usuń" [ref=e514] [cursor=pointer]:
+                          - img [ref=e515]
+                    - generic [ref=e517]:
+                      - generic [ref=e518]: Ombyggnation av väggar på övervåningen samt montering av dörrar till sovrummen
+                      - generic [ref=e519]:
+                        - button "Przekreśl" [ref=e520] [cursor=pointer]:
+                          - img [ref=e521]
+                        - button "Usuń" [ref=e523] [cursor=pointer]:
+                          - img [ref=e524]
+                    - generic [ref=e526]:
+                      - generic [ref=e527]: Montering av kök
+                      - generic [ref=e528]:
+                        - button "Przekreśl" [ref=e529] [cursor=pointer]:
+                          - img [ref=e530]
+                        - button "Usuń" [ref=e532] [cursor=pointer]:
+                          - img [ref=e533]
+                    - generic [ref=e535]:
+                      - generic [ref=e536]: Byggnation av komplett badrum på övervåningen
+                      - generic [ref=e537]:
+                        - button "Przekreśl" [ref=e538] [cursor=pointer]:
+                          - img [ref=e539]
+                        - button "Usuń" [ref=e541] [cursor=pointer]:
+                          - img [ref=e542]
+                    - generic [ref=e544]:
+                      - generic [ref=e545]: Spackling och målning av väggar och tak
+                      - generic [ref=e546]:
+                        - button "Przekreśl" [ref=e547] [cursor=pointer]:
+                          - img [ref=e548]
+                        - button "Usuń" [ref=e550] [cursor=pointer]:
+                          - img [ref=e551]
+                    - generic [ref=e553]:
+                      - generic [ref=e554]: Montering av kamin
+                      - generic [ref=e555]:
+                        - button "Przekreśl" [ref=e556] [cursor=pointer]:
+                          - img [ref=e557]
+                        - button "Usuń" [ref=e559] [cursor=pointer]:
+                          - img [ref=e560]
+                    - generic [ref=e562]:
+                      - generic [ref=e563]: Montering av golv och lister samt renovering av små fönster
+                      - generic [ref=e564]:
+                        - button "Przekreśl" [ref=e565] [cursor=pointer]:
+                          - img [ref=e566]
+                        - button "Usuń" [ref=e568] [cursor=pointer]:
+                          - img [ref=e569]
+                  - button "dodaj wiersz" [ref=e571] [cursor=pointer]:
+                    - img [ref=e572]
+                    - text: dodaj wiersz
+                - generic [ref=e574]:
+                  - generic [ref=e575]:
+                    - button [ref=e576] [cursor=pointer]:
+                      - img [ref=e577]
+                    - button [ref=e579] [cursor=pointer]:
+                      - img [ref=e580]
+                    - button [ref=e582] [cursor=pointer]:
+                      - img [ref=e583]
+                  - generic [ref=e585]: "Budgetstyrning: Om prognosen indikerar att projektet riskerar att överstiga budgetramen med mer än 10 %, pausas arbetet för gemensam ekonomisk genomgång. Eventuella ändringar eller tilläggsarbeten ska godkännas av beställaren innan utförande."
+                - generic [ref=e586]:
+                  - generic [ref=e587]:
+                    - button [ref=e588] [cursor=pointer]:
+                      - img [ref=e589]
+                    - button [ref=e591] [cursor=pointer]:
+                      - img [ref=e592]
+                    - button [ref=e594] [cursor=pointer]:
+                      - img [ref=e595]
+                  - generic [ref=e597]:
+                    - generic [ref=e599]: Arbetskostnader (bygg)
+                    - generic [ref=e600]:
+                      - button "blue" [ref=e601] [cursor=pointer]
+                      - button "green" [ref=e602] [cursor=pointer]
+                      - button "gold" [ref=e603] [cursor=pointer]
+                      - button "purple" [ref=e604] [cursor=pointer]
+                  - generic [ref=e605]:
+                    - generic [ref=e606]: 1 300 000,00
+                    - generic [ref=e607]: kr inkl moms
+                    - button "skreśl cenę" [ref=e608] [cursor=pointer]
+                    - generic [ref=e609]: ↑ auto-policzone z MANPOWER
+                  - generic [ref=e611]:
+                    - generic [ref=e612]:
+                      - button [ref=e613] [cursor=pointer]:
+                        - img [ref=e614]
+                      - button [ref=e616] [cursor=pointer]:
+                        - img [ref=e617]
+                      - button [ref=e619] [cursor=pointer]:
+                        - img [ref=e620]
+                    - generic [ref=e623]:
+                      - generic [ref=e624]: ARBETSTIMMAR
+                      - generic [ref=e625]: 2000 h × 650 kr
+                      - generic [ref=e626]:
+                        - generic [ref=e627]: 1 300 000,00
+                        - generic [ref=e628]: kr ink moms
+                        - generic [ref=e629]:
+                          - button "auto" [ref=e630] [cursor=pointer]
+                          - button "Nie można usunąć ostatniego wiersza" [disabled] [ref=e631]:
+                            - img [ref=e632]
+                    - button "dodaj wiersz w tabeli MANPOWER" [ref=e634] [cursor=pointer]:
+                      - img [ref=e635]
+                      - text: dodaj wiersz w tabeli MANPOWER
+                  - button "dodaj w subpunkcie" [ref=e638] [cursor=pointer]:
+                    - img [ref=e639]
+                    - text: dodaj w subpunkcie
+                - generic [ref=e641]:
+                  - generic [ref=e642]:
+                    - button [ref=e643] [cursor=pointer]:
+                      - img [ref=e644]
+                    - button [ref=e646] [cursor=pointer]:
+                      - img [ref=e647]
+                    - button [ref=e649] [cursor=pointer]:
+                      - img [ref=e650]
+                  - generic [ref=e652]:
+                    - generic [ref=e654]: Material, transport och avfall
+                    - generic [ref=e655]:
+                      - button "blue" [ref=e656] [cursor=pointer]
+                      - button "green" [ref=e657] [cursor=pointer]
+                      - button "gold" [ref=e658] [cursor=pointer]
+                      - button "purple" [ref=e659] [cursor=pointer]
+                  - generic [ref=e660]:
+                    - generic [ref=e661]: 450 000
+                    - generic [ref=e662]: kr inkl moms
+                    - button "skreśl cenę" [ref=e663] [cursor=pointer]
+                  - generic [ref=e665]:
+                    - generic [ref=e666]:
+                      - button [ref=e667] [cursor=pointer]:
+                        - img [ref=e668]
+                      - button [ref=e670] [cursor=pointer]:
+                        - img [ref=e671]
+                      - button [ref=e673] [cursor=pointer]:
+                        - img [ref=e674]
+                    - generic [ref=e676]:
+                      - generic [ref=e677]:
+                        - generic [ref=e678]: •
+                        - generic [ref=e679]: "Transport: ca 50 000 kr"
+                        - generic [ref=e680]:
+                          - button "B" [ref=e681] [cursor=pointer]
+                          - button [ref=e682] [cursor=pointer]:
+                            - img [ref=e683]
+                          - button [ref=e685] [cursor=pointer]:
+                            - img [ref=e686]
+                      - generic [ref=e688]:
+                        - generic [ref=e689]: •
+                        - generic [ref=e690]: "Resor: ca 50 000 kr"
+                        - generic [ref=e691]:
+                          - button "B" [ref=e692] [cursor=pointer]
+                          - button [ref=e693] [cursor=pointer]:
+                            - img [ref=e694]
+                          - button [ref=e696] [cursor=pointer]:
+                            - img [ref=e697]
+                      - generic [ref=e699]:
+                        - generic [ref=e700]: •
+                        - generic [ref=e701]: "Bortforsling av avfall: ca 60 000 kr"
+                        - generic [ref=e702]:
+                          - button "B" [ref=e703] [cursor=pointer]
+                          - button [ref=e704] [cursor=pointer]:
+                            - img [ref=e705]
+                          - button [ref=e707] [cursor=pointer]:
+                            - img [ref=e708]
+                      - generic [ref=e710]:
+                        - generic [ref=e711]: •
+                        - generic [ref=e712]: "Byggmaterial, konstruktion, isoleringslager, spackel och primer: ca 350 000 kr"
+                        - generic [ref=e713]:
+                          - button "B" [ref=e714] [cursor=pointer]
+                          - button [ref=e715] [cursor=pointer]:
+                            - img [ref=e716]
+                          - button [ref=e718] [cursor=pointer]:
+                            - img [ref=e719]
+                    - button "dodaj punkt" [ref=e721] [cursor=pointer]:
+                      - img [ref=e722]
+                      - text: dodaj punkt
+                  - button "dodaj w subpunkcie" [ref=e725] [cursor=pointer]:
+                    - img [ref=e726]
+                    - text: dodaj w subpunkcie
+                - generic [ref=e728]:
+                  - generic [ref=e729]:
+                    - button [ref=e730] [cursor=pointer]:
+                      - img [ref=e731]
+                    - button [ref=e733] [cursor=pointer]:
+                      - img [ref=e734]
+                    - button [ref=e736] [cursor=pointer]:
+                      - img [ref=e737]
+                  - generic [ref=e741]: Totalt preliminär budget – Etapp 2
+                  - generic [ref=e742]:
+                    - generic [ref=e743]: 1 750 000
+                    - generic [ref=e744]: kr inkl moms
+                - button "dodaj blok" [ref=e746] [cursor=pointer]:
+                  - img [ref=e747]
+                  - text: dodaj blok
+            - generic [ref=e749]:
+              - button [ref=e750] [cursor=pointer]:
+                - img [ref=e751]
+              - button [ref=e753] [cursor=pointer]:
+                - img [ref=e754]
+              - button [ref=e756] [cursor=pointer]:
+                - img [ref=e757]
+          - generic [ref=e759]:
+            - generic [ref=e761]: "3"
+            - generic [ref=e763]:
+              - generic [ref=e764]: Etapp 3. Takrenovering och fasadrenovering
+              - generic [ref=e765]: 795 000 kr inkl moms
+              - generic [ref=e766]:
+                - generic [ref=e767]:
+                  - generic [ref=e768]:
+                    - button [ref=e769] [cursor=pointer]:
+                      - img [ref=e770]
+                    - button [ref=e772] [cursor=pointer]:
+                      - img [ref=e773]
+                    - button [ref=e775] [cursor=pointer]:
+                      - img [ref=e776]
+                  - generic [ref=e778]:
+                    - generic [ref=e780]: Beskrivning av arbeten
+                    - generic [ref=e781]: ":"
+                  - generic [ref=e782]:
+                    - generic [ref=e783]:
+                      - generic [ref=e784]: Montering av byggställningar och skydd
+                      - generic [ref=e785]:
+                        - button "Przekreśl" [ref=e786] [cursor=pointer]:
+                          - img [ref=e787]
+                        - button "Usuń" [ref=e789] [cursor=pointer]:
+                          - img [ref=e790]
+                    - generic [ref=e792]:
+                      - generic [ref=e793]: Demontering av takpannor, hängrännor, plåtarbeten, gamla läkt, takpapp och vindskivor
+                      - generic [ref=e794]:
+                        - button "Przekreśl" [ref=e795] [cursor=pointer]:
+                          - img [ref=e796]
+                        - button "Usuń" [ref=e798] [cursor=pointer]:
+                          - img [ref=e799]
+                    - generic [ref=e801]:
+                      - generic [ref=e802]: Montering av nytt taksystem, hängrännor samt fotplåt och hängränneplåt
+                      - generic [ref=e803]:
+                        - button "Przekreśl" [ref=e804] [cursor=pointer]:
+                          - img [ref=e805]
+                        - button "Usuń" [ref=e807] [cursor=pointer]:
+                          - img [ref=e808]
+                    - generic [ref=e810]:
+                      - generic [ref=e811]: Nya vindskivor, takpapp, ströläkt och bärläkt samt återmontering av keramiska takpannor
+                      - generic [ref=e812]:
+                        - button "Przekreśl" [ref=e813] [cursor=pointer]:
+                          - img [ref=e814]
+                        - button "Usuń" [ref=e816] [cursor=pointer]:
+                          - img [ref=e817]
+                    - generic [ref=e819]:
+                      - generic [ref=e820]: Montering av takbrygga, taksteg samt snörasskydd
+                      - generic [ref=e821]:
+                        - button "Przekreśl" [ref=e822] [cursor=pointer]:
+                          - img [ref=e823]
+                        - button "Usuń" [ref=e825] [cursor=pointer]:
+                          - img [ref=e826]
+                    - generic [ref=e828]:
+                      - generic [ref=e829]: Reparation av puts runt fönster och ombyggda öppningar
+                      - generic [ref=e830]:
+                        - button "Przekreśl" [ref=e831] [cursor=pointer]:
+                          - img [ref=e832]
+                        - button "Usuń" [ref=e834] [cursor=pointer]:
+                          - img [ref=e835]
+                    - generic [ref=e837]:
+                      - generic [ref=e838]: Nätning och putsning av sockel, putsning och målning
+                      - generic [ref=e839]:
+                        - button "Przekreśl" [ref=e840] [cursor=pointer]:
+                          - img [ref=e841]
+                        - button "Usuń" [ref=e843] [cursor=pointer]:
+                          - img [ref=e844]
+                    - generic [ref=e846]:
+                      - generic [ref=e847]: Komplett målning av fasaden 2 gånger med naturlig kalkfärg
+                      - generic [ref=e848]:
+                        - button "Przekreśl" [ref=e849] [cursor=pointer]:
+                          - img [ref=e850]
+                        - button "Usuń" [ref=e852] [cursor=pointer]:
+                          - img [ref=e853]
+                  - button "dodaj wiersz" [ref=e855] [cursor=pointer]:
+                    - img [ref=e856]
+                    - text: dodaj wiersz
+                - generic [ref=e858]:
+                  - generic [ref=e859]:
+                    - button [ref=e860] [cursor=pointer]:
+                      - img [ref=e861]
+                    - button [ref=e863] [cursor=pointer]:
+                      - img [ref=e864]
+                    - button [ref=e866] [cursor=pointer]:
+                      - img [ref=e867]
+                  - generic [ref=e869]:
+                    - generic [ref=e871]: Arbetskostnader (bygg)
+                    - generic [ref=e872]:
+                      - button "blue" [ref=e873] [cursor=pointer]
+                      - button "green" [ref=e874] [cursor=pointer]
+                      - button "gold" [ref=e875] [cursor=pointer]
+                      - button "purple" [ref=e876] [cursor=pointer]
+                  - generic [ref=e877]:
+                    - generic [ref=e878]: 585 000,00
+                    - generic [ref=e879]: kr inkl moms
+                    - button "skreśl cenę" [ref=e880] [cursor=pointer]
+                    - generic [ref=e881]: ↑ auto-policzone z MANPOWER
+                  - generic [ref=e883]:
+                    - generic [ref=e884]:
+                      - button [ref=e885] [cursor=pointer]:
+                        - img [ref=e886]
+                      - button [ref=e888] [cursor=pointer]:
+                        - img [ref=e889]
+                      - button [ref=e891] [cursor=pointer]:
+                        - img [ref=e892]
+                    - generic [ref=e895]:
+                      - generic [ref=e896]: ARBETSTIMMAR
+                      - generic [ref=e897]: 900 h × 650 kr
+                      - generic [ref=e898]:
+                        - generic [ref=e899]: 585 000,00
+                        - generic [ref=e900]: kr ink moms
+                        - generic [ref=e901]:
+                          - button "auto" [ref=e902] [cursor=pointer]
+                          - button "Nie można usunąć ostatniego wiersza" [disabled] [ref=e903]:
+                            - img [ref=e904]
+                    - button "dodaj wiersz w tabeli MANPOWER" [ref=e906] [cursor=pointer]:
+                      - img [ref=e907]
+                      - text: dodaj wiersz w tabeli MANPOWER
+                  - button "dodaj w subpunkcie" [ref=e910] [cursor=pointer]:
+                    - img [ref=e911]
+                    - text: dodaj w subpunkcie
+                - generic [ref=e913]:
+                  - generic [ref=e914]:
+                    - button [ref=e915] [cursor=pointer]:
+                      - img [ref=e916]
+                    - button [ref=e918] [cursor=pointer]:
+                      - img [ref=e919]
+                    - button [ref=e921] [cursor=pointer]:
+                      - img [ref=e922]
+                  - generic [ref=e924]:
+                    - generic [ref=e926]: Material, transport och avfall
+                    - generic [ref=e927]:
+                      - button "blue" [ref=e928] [cursor=pointer]
+                      - button "green" [ref=e929] [cursor=pointer]
+                      - button "gold" [ref=e930] [cursor=pointer]
+                      - button "purple" [ref=e931] [cursor=pointer]
+                  - generic [ref=e932]:
+                    - generic [ref=e933]: 210 000
+                    - generic [ref=e934]: kr inkl moms
+                    - button "skreśl cenę" [ref=e935] [cursor=pointer]
+                  - generic [ref=e937]:
+                    - generic [ref=e938]:
+                      - button [ref=e939] [cursor=pointer]:
+                        - img [ref=e940]
+                      - button [ref=e942] [cursor=pointer]:
+                        - img [ref=e943]
+                      - button [ref=e945] [cursor=pointer]:
+                        - img [ref=e946]
+                    - generic [ref=e948]:
+                      - generic [ref=e949]:
+                        - generic [ref=e950]: •
+                        - generic [ref=e951]: "Transport: ca 20 000 kr"
+                        - generic [ref=e952]:
+                          - button "B" [ref=e953] [cursor=pointer]
+                          - button [ref=e954] [cursor=pointer]:
+                            - img [ref=e955]
+                          - button [ref=e957] [cursor=pointer]:
+                            - img [ref=e958]
+                      - generic [ref=e960]:
+                        - generic [ref=e961]: •
+                        - generic [ref=e962]: "Resor: ca 30 000 kr"
+                        - generic [ref=e963]:
+                          - button "B" [ref=e964] [cursor=pointer]
+                          - button [ref=e965] [cursor=pointer]:
+                            - img [ref=e966]
+                          - button [ref=e968] [cursor=pointer]:
+                            - img [ref=e969]
+                      - generic [ref=e971]:
+                        - generic [ref=e972]: •
+                        - generic [ref=e973]: "Bortforsling av avfall: ca 20 000 kr"
+                        - generic [ref=e974]:
+                          - button "B" [ref=e975] [cursor=pointer]
+                          - button [ref=e976] [cursor=pointer]:
+                            - img [ref=e977]
+                          - button [ref=e979] [cursor=pointer]:
+                            - img [ref=e980]
+                      - generic [ref=e982]:
+                        - generic [ref=e983]: •
+                        - generic [ref=e984]: "Byggmaterial, papp, läkt, hängrännor, plåtbeslag, färg: ca 140 000 kr"
+                        - generic [ref=e985]:
+                          - button "B" [ref=e986] [cursor=pointer]
+                          - button [ref=e987] [cursor=pointer]:
+                            - img [ref=e988]
+                          - button [ref=e990] [cursor=pointer]:
+                            - img [ref=e991]
+                    - button "dodaj punkt" [ref=e993] [cursor=pointer]:
+                      - img [ref=e994]
+                      - text: dodaj punkt
+                  - button "dodaj w subpunkcie" [ref=e997] [cursor=pointer]:
+                    - img [ref=e998]
+                    - text: dodaj w subpunkcie
+                - generic [ref=e1000]:
+                  - generic [ref=e1001]:
+                    - button [ref=e1002] [cursor=pointer]:
+                      - img [ref=e1003]
+                    - button [ref=e1005] [cursor=pointer]:
+                      - img [ref=e1006]
+                    - button [ref=e1008] [cursor=pointer]:
+                      - img [ref=e1009]
+                  - generic [ref=e1013]: Totalt preliminär budget – Etapp 3
+                  - generic [ref=e1014]:
+                    - generic [ref=e1015]: 795 000
+                    - generic [ref=e1016]: kr inkl moms
+                - button "dodaj blok" [ref=e1018] [cursor=pointer]:
+                  - img [ref=e1019]
+                  - text: dodaj blok
+            - generic [ref=e1021]:
+              - button [ref=e1022] [cursor=pointer]:
+                - img [ref=e1023]
+              - button [ref=e1025] [cursor=pointer]:
+                - img [ref=e1026]
+              - button [ref=e1028] [cursor=pointer]:
+                - img [ref=e1029]
+          - generic [ref=e1031]:
+            - generic [ref=e1033]: "4"
+            - generic [ref=e1035]:
+              - generic [ref=e1036]: Etapp 4. Installationsarbeten
+              - generic [ref=e1037]: 1 226 250 kr inkl moms
+              - generic [ref=e1038]: OBS — gäller hela byggnaden inklusive den nya källaren.
+              - generic [ref=e1039]:
+                - generic [ref=e1040]:
+                  - generic [ref=e1041]:
+                    - button [ref=e1042] [cursor=pointer]:
+                      - img [ref=e1043]
+                    - button [ref=e1045] [cursor=pointer]:
+                      - img [ref=e1046]
+                    - button [ref=e1048] [cursor=pointer]:
+                      - img [ref=e1049]
+                  - generic [ref=e1051]:
+                    - generic [ref=e1053]: VVS – Vatten, avlopp och uppvärmning
+                    - generic [ref=e1054]:
+                      - button "blue" [ref=e1055] [cursor=pointer]
+                      - button "green" [ref=e1056] [cursor=pointer]
+                      - button "gold" [ref=e1057] [cursor=pointer]
+                      - button "purple" [ref=e1058] [cursor=pointer]
+                  - generic [ref=e1059]:
+                    - generic [ref=e1060]: 557 500
+                    - generic [ref=e1061]: kr inkl moms
+                    - button "skreśl cenę" [ref=e1062] [cursor=pointer]
+                  - generic [ref=e1064]:
+                    - generic [ref=e1065]:
+                      - button [ref=e1066] [cursor=pointer]:
+                        - img [ref=e1067]
+                      - button [ref=e1069] [cursor=pointer]:
+                        - img [ref=e1070]
+                      - button [ref=e1072] [cursor=pointer]:
+                        - img [ref=e1073]
+                    - generic [ref=e1075]: Komplett installation enligt specifikation.
+                  - button "dodaj w subpunkcie" [ref=e1077] [cursor=pointer]:
+                    - img [ref=e1078]
+                    - text: dodaj w subpunkcie
+                - generic [ref=e1080]:
+                  - generic [ref=e1081]:
+                    - button [ref=e1082] [cursor=pointer]:
+                      - img [ref=e1083]
+                    - button [ref=e1085] [cursor=pointer]:
+                      - img [ref=e1086]
+                    - button [ref=e1088] [cursor=pointer]:
+                      - img [ref=e1089]
+                  - generic [ref=e1091]:
+                    - generic [ref=e1093]: EL – Komplett elinstallation
+                    - generic [ref=e1094]:
+                      - button "blue" [ref=e1095] [cursor=pointer]
+                      - button "green" [ref=e1096] [cursor=pointer]
+                      - button "gold" [ref=e1097] [cursor=pointer]
+                      - button "purple" [ref=e1098] [cursor=pointer]
+                  - generic [ref=e1099]:
+                    - generic [ref=e1100]: 668 750
+                    - generic [ref=e1101]: kr inkl moms
+                    - button "skreśl cenę" [ref=e1102] [cursor=pointer]
+                  - generic [ref=e1103]:
+                    - generic [ref=e1104]:
+                      - generic [ref=e1105]:
+                        - button [ref=e1106] [cursor=pointer]:
+                          - img [ref=e1107]
+                        - button [ref=e1109] [cursor=pointer]:
+                          - img [ref=e1110]
+                        - button [ref=e1112] [cursor=pointer]:
+                          - img [ref=e1113]
+                      - generic [ref=e1115]: Komplett installation enligt specifikation. Priset inkluderar installationsmaterial, dock utan vitvaror och sanitetsporslin.
+                    - generic [ref=e1116]:
+                      - generic [ref=e1117]:
+                        - button [ref=e1118] [cursor=pointer]:
+                          - img [ref=e1119]
+                        - button [ref=e1121] [cursor=pointer]:
+                          - img [ref=e1122]
+                        - button [ref=e1124] [cursor=pointer]:
+                          - img [ref=e1125]
+                      - generic [ref=e1127]:
+                        - generic [ref=e1128]:
+                          - generic [ref=e1129]: •
+                          - generic [ref=e1130]: "Arbete: 575 000 kr"
+                          - generic [ref=e1131]:
+                            - button "B" [ref=e1132] [cursor=pointer]
+                            - button [ref=e1133] [cursor=pointer]:
+                              - img [ref=e1134]
+                            - button [ref=e1136] [cursor=pointer]:
+                              - img [ref=e1137]
+                        - generic [ref=e1139]:
+                          - generic [ref=e1140]: •
+                          - generic [ref=e1141]: "Installationsmaterial: 93 750 kr"
+                          - generic [ref=e1142]:
+                            - button "B" [ref=e1143] [cursor=pointer]
+                            - button [ref=e1144] [cursor=pointer]:
+                              - img [ref=e1145]
+                            - button [ref=e1147] [cursor=pointer]:
+                              - img [ref=e1148]
+                      - button "dodaj punkt" [ref=e1150] [cursor=pointer]:
+                        - img [ref=e1151]
+                        - text: dodaj punkt
+                  - button "dodaj w subpunkcie" [ref=e1154] [cursor=pointer]:
+                    - img [ref=e1155]
+                    - text: dodaj w subpunkcie
+                - generic [ref=e1157]:
+                  - generic [ref=e1158]:
+                    - button [ref=e1159] [cursor=pointer]:
+                      - img [ref=e1160]
+                    - button [ref=e1162] [cursor=pointer]:
+                      - img [ref=e1163]
+                    - button [ref=e1165] [cursor=pointer]:
+                      - img [ref=e1166]
+                  - generic [ref=e1170]: Totalt preliminär budget – Etapp 4
+                  - generic [ref=e1171]:
+                    - generic [ref=e1172]: 1 226 250
+                    - generic [ref=e1173]: kr inkl moms
+                - button "dodaj blok" [ref=e1175] [cursor=pointer]:
+                  - img [ref=e1176]
+                  - text: dodaj blok
+            - generic [ref=e1178]:
+              - button [ref=e1179] [cursor=pointer]:
+                - img [ref=e1180]
+              - button [ref=e1182] [cursor=pointer]:
+                - img [ref=e1183]
+              - button [ref=e1185] [cursor=pointer]:
+                - img [ref=e1186]
+          - button "Dodaj punkt (ETAPP)" [ref=e1191] [cursor=pointer]:
+            - img [ref=e1192]
+            - text: Dodaj punkt (ETAPP)
+          - generic [ref=e1194]:
+            - generic [ref=e1199]:
+              - generic [ref=e1200]:
+                - generic [ref=e1201]: SAMMANSTÄLLNING AV KOSTNADER
+                - generic [ref=e1202]: (stara suma — opcjonalne)
+                - generic [ref=e1203]: kr inkl moms
+              - generic [ref=e1204]:
+                - generic [ref=e1205]:
+                  - generic [ref=e1206]: 4 468 750
+                  - generic [ref=e1207]: kr inkl moms
+                  - generic [ref=e1208]: before ROT
+                  - button "↻ auto (4 468 750,00)" [ref=e1209] [cursor=pointer]
+                - generic [ref=e1210]:
+                  - generic [ref=e1211]: 0,00
+                  - generic [ref=e1212]: kr inkl moms
+                  - generic [ref=e1213]: after ROT
+            - button [ref=e1215] [cursor=pointer]:
+              - img [ref=e1216]
+          - generic [ref=e1218]:
+            - img [ref=e1221]
+            - generic [ref=e1223]:
+              - generic [ref=e1224]: Optional works
+              - generic [ref=e1225]:
+                - generic [ref=e1226]: (stara cena)
+                - generic [ref=e1227]: 1 429 000
+                - generic [ref=e1228]: kr inkl moms
+              - generic [ref=e1229]:
+                - generic [ref=e1230]:
+                  - generic [ref=e1232]: Rivning av källare och uppbyggnad av ny källare från grunden (separat offert 5/2026)
+                  - button [ref=e1233] [cursor=pointer]:
+                    - img [ref=e1234]
+                - generic [ref=e1236]:
+                  - generic [ref=e1238]: "Etapp 1 – Rivning av befintlig källarkonstruktion: 239 000 kr"
+                  - button [ref=e1239] [cursor=pointer]:
+                    - img [ref=e1240]
+                - generic [ref=e1242]:
+                  - generic [ref=e1244]: "Etapp 2 – Ny källarkonstruktion från grund: 1 190 000 kr"
+                  - button [ref=e1245] [cursor=pointer]:
+                    - img [ref=e1246]
+                - generic [ref=e1248]:
+                  - generic [ref=e1250]: "GRAND TOTAL med offert 5/2026: 5 897 750 kr inkl moms"
+                  - button [ref=e1251] [cursor=pointer]:
+                    - img [ref=e1252]
+                - button "dodaj opcję" [ref=e1254] [cursor=pointer]:
+                  - img [ref=e1255]
+                  - text: dodaj opcję
+            - button [ref=e1258] [cursor=pointer]:
+              - img [ref=e1259]
+      - generic [ref=e1261]:
+        - generic [ref=e1262]: "3"
+        - generic [ref=e1263]:
+          - generic [ref=e1264]:
+            - generic [ref=e1265]: "Offert:"
+            - generic [ref=e1266]: Nr 5B/2026
+            - generic [ref=e1267]: "Datum:"
+            - generic [ref=e1268]: 04.05.2026
+          - img "BODO Build & Track AB" [ref=e1269]
+        - heading "Stawki za prace dodatkowe (2026)" [level=2] [ref=e1270]
+        - generic [ref=e1271]:
+          - generic [ref=e1272]:
+            - generic [ref=e1273]: Arbetstimme bygg
+            - generic [ref=e1274]: timme
+            - generic [ref=e1275]: "650"
+            - button [ref=e1276] [cursor=pointer]:
+              - img [ref=e1277]
+          - generic [ref=e1279]:
+            - generic [ref=e1280]: Arbetstimme EL
+            - generic [ref=e1281]: timme
+            - generic [ref=e1282]: "760"
+            - button [ref=e1283] [cursor=pointer]:
+              - img [ref=e1284]
+          - generic [ref=e1286]:
+            - generic [ref=e1287]: Arbetstimme VVS
+            - generic [ref=e1288]: timme
+            - generic [ref=e1289]: "820"
+            - button [ref=e1290] [cursor=pointer]:
+              - img [ref=e1291]
+          - generic [ref=e1293]:
+            - generic [ref=e1294]: Arbete med grävmaskin
+            - generic [ref=e1295]: timme
+            - generic [ref=e1296]: "925"
+            - button [ref=e1297] [cursor=pointer]:
+              - img [ref=e1298]
+          - generic [ref=e1300]:
+            - generic [ref=e1301]: Arbete med lastbil
+            - generic [ref=e1302]: timme
+            - generic [ref=e1303]: 1 168
+            - button [ref=e1304] [cursor=pointer]:
+              - img [ref=e1305]
+          - generic [ref=e1307]:
+            - generic [ref=e1308]: Resor
+            - generic [ref=e1309]: dag
+            - generic [ref=e1310]: "750"
+            - button [ref=e1311] [cursor=pointer]:
+              - img [ref=e1312]
+          - generic [ref=e1314]:
+            - generic [ref=e1315]: Transport material
+            - generic [ref=e1316]: tur
+            - generic [ref=e1317]: 1 625
+            - button [ref=e1318] [cursor=pointer]:
+              - img [ref=e1319]
+          - generic [ref=e1321]:
+            - generic [ref=e1322]: Avfallstransport (plus faktura deponi)
+            - generic [ref=e1323]: tur
+            - generic [ref=e1324]: 3 500
+            - button [ref=e1325] [cursor=pointer]:
+              - img [ref=e1326]
+        - button "dodaj wiersz" [ref=e1328] [cursor=pointer]:
+          - img [ref=e1329]
+          - text: dodaj wiersz
+      - generic [ref=e1331]:
+        - generic [ref=e1332]: "4"
+        - heading "Varför välja oss?" [level=2] [ref=e1334]
+        - generic [ref=e1335]:
+          - generic [ref=e1336]:
+            - generic [ref=e1337]: "1"
+            - generic [ref=e1338]: Offert inom 5 dagar.
+          - generic [ref=e1339]:
+            - generic [ref=e1340]: "2"
+            - generic [ref=e1341]: Vi förhandlar inte om priserna vi döljer inga kostnader.
+          - generic [ref=e1342]:
+            - generic [ref=e1343]: "3"
+            - generic [ref=e1344]: Vi anpassar arbetsomfattningen efter din budget och behov.
+          - generic [ref=e1345]:
+            - generic [ref=e1346]: "4"
+            - generic [ref=e1347]:
+              - text: Snabb och solid
+              - text: Vi har en avancerad rekryteringsprocess där vi noggrant granskar våra medarbetare för erfarenhet och kvalitet.
+          - generic [ref=e1348]:
+            - generic [ref=e1349]: "5"
+            - generic [ref=e1350]:
+              - text: De billigaste materialen av hög kvalitet
+              - text: vi kan importera dem från Polen åt dig.
+          - generic [ref=e1351]:
+            - generic [ref=e1352]: "6"
+            - generic [ref=e1353]: Vi erbjuder alla typer av byggtjänster komplett service.
+          - generic [ref=e1354]:
+            - generic [ref=e1355]: "7"
+            - generic [ref=e1356]:
+              - text: Säkerhet
+              - text: vi använder toppmoderna byggutrustningar och säkerhetsåtgärder.
+          - generic [ref=e1357]:
+            - generic [ref=e1358]: "8"
+            - generic [ref=e1359]: Vi hjälper dig med fastighetsköp och värdering av bostäder före och efter renovering.
+          - generic [ref=e1360]:
+            - generic [ref=e1361]: "9"
+            - generic [ref=e1362]: Vi ger belöningar för att rekommendera oss till dina vänner.
+        - heading "Varför är det fördelaktigt att samarbeta med oss på lång sikt?" [level=2] [ref=e1364]
+        - generic [ref=e1365]:
+          - generic [ref=e1366]:
+            - generic [ref=e1367]: "1"
+            - generic [ref=e1368]:
+              - text: Vi erbjuder upp till 20 års garanti
+              - text: Om det uppstår problem kommer vi och utför reparationen kostnadsfritt.
+          - generic [ref=e1369]:
+            - generic [ref=e1370]: "2"
+            - generic [ref=e1371]:
+              - text: Lojalitetskort för återkommande kunder
+              - text: Du får rabatter på framtida projekt.
+          - generic [ref=e1372]:
+            - generic [ref=e1373]: "3"
+            - generic [ref=e1374]:
+              - text: Prioriterad service
+              - text: Om du behöver hjälp snabbt är vi hos dig inom 3 dagar.
+          - generic [ref=e1375]:
+            - generic [ref=e1376]: "4"
+            - generic [ref=e1377]:
+              - text: Dubbel belöning
+              - text: Rekommendera oss till vänner och skriv en recension, och vi belönar dig dubbel gång för din rekommendation.
+      - generic [ref=e1378]:
+        - generic [ref=e1379]: "5"
+        - generic [ref=e1380]:
+          - generic [ref=e1381]:
+            - generic [ref=e1382]: "Offert:"
+            - generic [ref=e1383]: Nr 5B/2026
+            - generic [ref=e1384]: "Datum:"
+            - generic [ref=e1385]: 04.05.2026
+          - img "BODO Build & Track AB" [ref=e1386]
+        - heading "Regler och giltighetstid för offert" [level=2] [ref=e1387]
+        - paragraph [ref=e1388]: Offert gäller i 30 dagar från ovanstående datum.
+        - generic [ref=e1389]:
+          - generic [ref=e1390]: Betalningspolicy
+          - generic [ref=e1391]: 10 dagar
+          - generic [ref=e1392]: BODO Build and Track AB
+          - generic [ref=e1393]: Lillkalmarvägen 30A · 182 65 Djursholm
+          - generic [ref=e1394]: office@buildandtrack.com
+        - generic [ref=e1395]:
+          - paragraph [ref=e1396]: Vid oförutsedda förhållanden som inte kunnat bedömas utifrån nuvarande handlingar sker ekonomisk genomgång och skriftligt godkännande innan vidare arbete.
+          - paragraph [ref=e1397]: Allt byggnadsarbete kommer att utföras i enlighet med de krav och föreskrifter i lag och byggnormer som gäller i Sverige. I värderingen ingår inte kostnader för inredning och utrustning såsom möbler, vitvaror, belysning etc. om de inte ingår i avtalet som en separat post.
+          - paragraph [ref=e1398]: Betalningsvillkor kommer att anges i avtalet och kommer att bero på byggskeden och den tid som krävs för att slutföra varje etapp.
+        - heading "Godkännande" [level=3] [ref=e1399]
+        - generic [ref=e1400]:
+          - generic [ref=e1401]:
+            - generic [ref=e1402]: "Kund:"
+            - generic [ref=e1403]:
+              - generic [ref=e1404]: Alexander Mørk-Eidem
+              - generic [ref=e1405]: Mälarhöjdsvägen 38 129 40 Hägersten
+              - generic [ref=e1406]: Stenhus renovering och tillbygnad
+          - generic [ref=e1407]:
+            - generic [ref=e1408]: "Entreprenör:"
+            - generic [ref=e1409]:
+              - generic [ref=e1410]: BODO Build and Track AB
+              - generic [ref=e1411]: Lillkalmarvägen 30A
+              - generic [ref=e1412]: 182 65 Djursholm
+              - generic [ref=e1413]: office@buildandtrack.com
+        - generic [ref=e1414]:
+          - generic [ref=e1416]: "Datum:"
+          - generic [ref=e1419]: "Kundsignatur:"

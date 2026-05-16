@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Importowanie wyceny Alexander 5C/2026…</title>
+<style>
+  body { font-family: system-ui, sans-serif; padding: 60px; text-align: center; background: #F3F4F6; color: #374151; }
+  .spinner { width: 30px; height: 30px; border: 3px solid #E5E7EB; border-top-color: #6366F1; border-radius: 50%; margin: 20px auto; animation: spin 0.7s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+</style>
+</head>
+<body>
+  <h1>Importowanie wyceny Alexander Mørk-Eidem 5C/2026…</h1>
+  <div class="spinner"></div>
+  <p>Za sekundę przekieruję Cię do edytora.</p>
+
+<script>
+const STORAGE_KEY = 'bodo_quotes_v1';
+const uid = (suffix = '') => 'u-' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6) + suffix;
+
+/* Build a stage (point) helper */
+const makeStage = ({ title, total, subtitle, scope, laborLabel, laborFormula, laborAmount, materialItems, totalLabel }) => ({
+  id: uid('-p'),
+  title,
+  mainPrice: total,
+  subtitle: subtitle || '',
+  blocks: [
+    scope && {
+      id: uid('-s'),
+      type: 'scope',
+      label: 'Omfattningen av arbetet',
+      items: scope.map(t => ({ text: t, strike: false })),
+    },
+    laborLabel && {
+      id: uid('-sub-lbr'),
+      type: 'subsection',
+      color: 'blue',
+      label: 'Arbetskostnader (bygg)',
+      price: laborAmount,
+      oldPrice: '',
+      children: [{
+        id: uid('-mp'),
+        type: 'manpower',
+        label: 'MANPOWER',
+        rows: [{
+          id: uid('-r'),
+          label: laborLabel,
+          formula: laborFormula,
+          total: laborAmount,
+          auto: false,
+        }],
+      }],
+    },
+    materialItems && materialItems.length > 0 && {
+      id: uid('-sub-mat'),
+      type: 'subsection',
+      color: 'green',
+      label: 'Material, transport och avfall',
+      price: materialItems.reduce((s, [, v]) => {
+        const m = String(v).match(/[\d\s]+/);
+        return s + (m ? parseInt(m[0].replace(/\s/g, ''), 10) || 0 : 0);
+      }, 0).toLocaleString('sv-SE').replace(/ /g, ' '),
+      oldPrice: '',
+      children: [{
+        id: uid('-b'),
+        type: 'bullet',
+        items: materialItems.map(([k, v]) => ({ text: `${k}: ${v}`, strike: false, bold: false })),
+      }],
+    },
+    totalLabel && {
+      id: uid('-tot'),
+      type: 'totalFixedPrice',
+      label: totalLabel,
+      price: total,
+    },
+  ].filter(Boolean),
+});
+
+const quote = {
+  meta: {
+    slug: 'alexander-mork-eidem-5c-2026',
+    title: 'Alexander Mørk-Eidem – Stenhus renovering 5C/2026',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+  },
+  header: {
+    offerNumber: 'Nr 5C/2026',
+    date: '16.05.2026',
+    customerName: 'Alexander Mørk-Eidem',
+    customerAddress: 'Mälarhöjdsvägen 38\n129 40 Hägersten',
+    projectName: 'Stenhus renovering — reviderad omfattning (ersätter 5B/2026 från 2026-05-04)',
+  },
+  points: [
+    // ----- ETAPP 1 -----
+    makeStage({
+      title: 'Etapp 1 — Källare (separat lägenhet)',
+      total: '697 500',
+      subtitle: 'Renoveringsarbeten utförs på löpande räkning baserat på timpriser i avsnittet "Timpriser och kostnadsgrunder".',
+      scope: [
+        'Rivningsarbeten',
+        'Installation av ny el samt vatten och avlopp',
+        'Ombyggnation av golvkonstruktionen i badrum och hall, reparation av ruttet hörn i konstruktionen',
+        'Konstruktion av innerväggar',
+        'Utförande av komplett badrum med elektrisk golvvärme samt vatteninstallation',
+        'Anpassning av ventilation',
+        'Byte av fönster och dörrar',
+        'Spackling, målning och övriga finisharbeten',
+        'Montering av kök samt tillfällig inkoppling av elanslutning',
+      ],
+      laborLabel: 'ARBETSTIMMAR',
+      laborFormula: 'ca 850 h × 650 kr',
+      laborAmount: '552 500',
+      materialItems: [
+        ['Transport', 'ca 20 000 kr'],
+        ['Resor', 'ca 25 000 kr'],
+        ['Bortforsling av avfall', 'ca 30 000 kr'],
+        ['Byggmaterial / konstruktion / isolering / spackel / primer', 'ca 70 000 kr'],
+      ],
+      totalLabel: 'Total preliminär budget — Etapp 1',
+    }),
+    // ----- ETAPP 2 -----
+    makeStage({
+      title: 'Etapp 2 — Entréplan, plan 1 (utan tillbyggnad)',
+      total: '1 385 000',
+      subtitle: '',
+      scope: [
+        'Rivningsarbeten',
+        'Installation av ny el samt vatten och avlopp',
+        'Ombyggnation av golvkonstruktionen på entréplanets bjälklag för installation av vattenburen golvvärme',
+        'Byte av fönster, ombyggnation av fönsteröppning till balkongdörr i köket samt montering av entrédörr',
+        'Montering av ny balkongdörr i badrum på övervåningen (201 × 71 mm dörrblad, vänsterhängd, samma stil som dörr till förstukvist)',
+        'Fortsatta finisharbeten, ombyggnation av trappa samt tillbyggnad av extra trapplopp till lägenheten i källaren',
+        'Montering av dörrar till badrum och sovrum samt förstärkning av befintliga innerväggar på övervåningen',
+        'Montering av kök',
+        'Byggnation av komplett badrum på övervåningen',
+        'Spackling och grundning av väggar och tak (utan målning)',
+        'Montering av kamin',
+        'Montering av golv och lister samt renovering av små fönster',
+      ],
+      laborLabel: 'ARBETSTIMMAR',
+      laborFormula: '1 500 h × 650 kr',
+      laborAmount: '975 000',
+      materialItems: [
+        ['Transport', '50 000 kr'],
+        ['Resor', '50 000 kr'],
+        ['Bortforsling av avfall', '60 000 kr'],
+        ['Byggmaterial / konstruktion / isolering / spackel / primer', '250 000 kr'],
+      ],
+      totalLabel: 'Total preliminär budget — Etapp 2',
+    }),
+    // ----- ETAPP 3 -----
+    makeStage({
+      title: 'Etapp 3 — Takrenovering och fasadrenovering',
+      total: '795 000',
+      subtitle: '',
+      scope: [
+        'Montering av byggställningar och skydd',
+        'Demontering av takpannor, hängrännor, plåtarbeten, gamla läkt, takpapp och vindskivor',
+        'Montering av nytt taksystem, hängrännor samt fotplåt och hängränneplåt',
+        'Nya vindskivor, takpapp, ströläkt och bärläkt samt återmontering av keramiska takpannor',
+        'Montering av takbrygga, taksteg samt snörasskydd',
+        'Reparation av puts runt fönster och ombyggda öppningar',
+        'Nätning och putsning av sockel, putsning och målning',
+        'Komplett målning av fasaden 2 gånger med naturlig kalkfärg',
+      ],
+      laborLabel: 'ARBETSTIMMAR',
+      laborFormula: 'ca 900 h × 650 kr',
+      laborAmount: '585 000',
+      materialItems: [
+        ['Transport', 'ca 20 000 kr'],
+        ['Resor', 'ca 30 000 kr'],
+        ['Bortforsling av avfall', 'ca 20 000 kr'],
+        ['Byggmaterial (papp, läkt, hängrännor, plåtbeslag, färg)', 'ca 140 000 kr'],
+      ],
+      totalLabel: 'Total preliminär budget — Etapp 3',
+    }),
+    // ----- ETAPP 4 — VVS + EL -----
+    {
+      id: uid('-p4'),
+      title: 'Etapp 4 — Installationsarbeten (VVS + EL)',
+      mainPrice: '1 126 250',
+      subtitle: 'Hela byggnaden inklusive nya källaren.',
+      blocks: [
+        {
+          id: uid('-sub-vvs'),
+          type: 'subsection',
+          color: 'blue',
+          label: 'VVS — Vatten, avlopp, uppvärmning',
+          price: '457 500',
+          oldPrice: '',
+          children: [{
+            id: uid('-par'),
+            type: 'paragraph',
+            text: 'Komplett installation enligt specifikation. Vattenburen golvvärme installeras på entréplan. Golvvärme på övervåningen ingår ej i denna offert.',
+          }],
+        },
+        {
+          id: uid('-sub-el'),
+          type: 'subsection',
+          color: 'purple',
+          label: 'EL — Komplett elinstallation',
+          price: '668 750',
+          oldPrice: '',
+          children: [
+            {
+              id: uid('-par-el'),
+              type: 'paragraph',
+              text: 'Komplett elinstallation för hela byggnaden inklusive nya källarlägenheten. Inkluderar installationsmaterial. Vitvaror och sanitetsporslin ingår ej.',
+            },
+            {
+              id: uid('-b-el'),
+              type: 'bullet',
+              items: [
+                { text: 'Arbete (EL): 575 000 kr', strike: false, bold: false },
+                { text: 'Installationsmaterial (EL): 93 750 kr', strike: false, bold: false },
+              ],
+            },
+          ],
+        },
+        {
+          id: uid('-tot4'),
+          type: 'totalFixedPrice',
+          label: 'Total preliminär budget — Etapp 4',
+          price: '1 126 250',
+        },
+      ],
+    },
+    // ----- REVIDERAD 5/2026 — Etapp 1 (rivning frontparti) -----
+    makeStage({
+      title: 'Reviderad 5/2026 · Etapp 1 — Rivning av frontparti (löpande räkning)',
+      total: '139 000',
+      subtitle: 'Rivningsmängden har minskat till ca 1/4 av ursprunglig offert 5/2026. Kostnader för etablering, maskintransport och logistik kvarstår oförändrade och kan inte reduceras proportionellt mot mängden. Etapp utförs på löpande räkning.',
+      scope: [
+        'Etablering och maskintransport',
+        'Manuell demontering av betongbalustrader',
+        'Bilning och rivning av bjälklag, ytter- och innerväggar samt betongplatta i frontpartiet',
+        'Frikoppling av konstruktionsdelar från befintlig byggnad',
+        'Säker avgränsning mot kvarvarande del av befintlig källare',
+        'Lastning, bortforsling och deponi av rivningsmaterial',
+        'Rengöring och friläggning av berg/undergrund inför nästa byggskede',
+        'Säkring av angränsande byggnadsdelar',
+      ],
+      totalLabel: 'Total preliminär budget — Rivning frontparti',
+    }),
+    // ----- REVIDERAD 5/2026 — Etapp 2 (ny källarkonstruktion) -----
+    makeStage({
+      title: 'Reviderad 5/2026 · Etapp 2 — Ny källarkonstruktion frontparti (löpande räkning)',
+      total: '836 250',
+      subtitle: 'Eventuell sprängning eller bearbetning av berg (t.ex. DARDA-system) ingår ej. Behov av bergbearbetning kan fastställas först efter avslutad rivning och friläggning av undergrund. Sådan åtgärd prissätts separat efter teknisk bedömning.',
+      scope: [
+        'Markutjämning',
+        'Dränerande lager + fiberduk + radonmatta',
+        'Dragning av avloppsinstallation',
+        'Gjuten bottenplatta med golvvärme',
+        'Ytterväggar bärande — LECA Thermoblock 300 mm + systemöverliggare',
+        'Invändiga bärande väggar — LECA 190 mm',
+        'Formning, armering och gjutning av betongbjälklag (takplatta)',
+        'Utvändig isolering källarväggar — ISODRAN 2×100 mm',
+        'Horisontell isolering takplatta — 2× svetsad takpapp',
+        'Isolering takplatta — XPS 300, 100 mm',
+        'Armering och gjutning av terrassplatta 100 mm',
+        'Återmontering av betongbalustrader samt återuppbyggnad av trappa',
+      ],
+      laborLabel: 'ARBETE',
+      laborFormula: '725 h × 650 kr',
+      laborAmount: '471 250',
+      materialItems: [
+        ['Material (stom + konstruktion)', '275 000 kr'],
+        ['Betong (inkl. leverans + pump)', '50 000 kr'],
+        ['Golvvärme (material + montage)', '40 000 kr'],
+      ],
+      totalLabel: 'Total preliminär budget — Ny källarkonstruktion frontparti',
+    }),
+  ],
+  summary: {
+    enabled: true,
+    label: 'GRAND TOTAL — Offert 5C/2026',
+    original: '5 897 750',  // poprzednia (5B/2026) jako przekreślona
+    beforeROT: '4 979 000',  // grand total z JSON
+    afterROT: '',
+  },
+  optional: {
+    enabled: false,
+    oldPrice: '',
+    newPrice: '',
+    items: [],
+  },
+  otherCosts: {
+    enabled: true,
+    title: 'Timpriser och kostnadsgrunder (2026) — alla priser inkl. moms 25 %',
+    rows: [
+      { item: 'Arbetstimme bygg', unit: 'timme', price: '650' },
+      { item: 'Arbetstimme EL', unit: 'timme', price: '760' },
+      { item: 'Arbetstimme VVS', unit: 'timme', price: '820' },
+      { item: 'Grävmaskin', unit: 'timme', price: '925' },
+      { item: 'Lastbil', unit: 'timme', price: '1 168' },
+      { item: 'Resor / servicebil', unit: 'dag', price: '750' },
+      { item: 'Transport material', unit: 'tur', price: '1 625' },
+      { item: 'Avfallstransport', unit: 'tur + deponifaktura', price: '3 500' },
+    ],
+  },
+  values: { enabled: true },
+  terms: { enabled: true, validity: 30, paymentPolicy: '10 dagar netto' },
+};
+
+// Save to localStorage (overwrite if exists)
+const existing = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+existing[quote.meta.slug] = quote;
+localStorage.setItem(STORAGE_KEY, JSON.stringify(existing));
+
+// Redirect to editor
+setTimeout(() => {
+  window.location.href = 'index.html?quote=' + quote.meta.slug;
+}, 800);
+</script>
+</body>
+</html>

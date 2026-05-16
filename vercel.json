@@ -1,7 +1,7 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "buildCommand": null,
-  "outputDirectory": "public",
+  "outputDirectory": "quote-app/public",
   "cleanUrls": false,
   "trailingSlash": false
 }
