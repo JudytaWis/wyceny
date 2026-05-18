@@ -5,8 +5,5 @@ node_modules/
 canva-export-tmp/
 a4-quote-app/
 
-# Legacy file kept locally during refactor — delete at end of refactor
-quote-app/_legacy/
-
 # Quote-app data files — local-only, contain customer info
 quote-app/wyceny/
