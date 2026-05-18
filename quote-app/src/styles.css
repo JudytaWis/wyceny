@@ -23,6 +23,7 @@
 .view-a4 .timeline-line-fill {
   background: #5468E5;
   width: 2px;
+  opacity: 0.55;
 }
 
 /* --- Custom CSS extracted from _legacy/index.html ---- */
