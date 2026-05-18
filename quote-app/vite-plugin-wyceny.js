@@ -26,14 +26,21 @@ function send(res, status, body, contentType = 'application/json; charset=utf-8'
 function readJsonBody(req) {
   return new Promise((resolve, reject) => {
     let raw = '';
+    let rejected = false;
     req.on('data', (chunk) => {
+      if (rejected) return;
       raw += chunk;
-      if (raw.length > 5_000_000) reject(new Error('body too large'));
+      if (raw.length > 5_000_000) {
+        rejected = true;
+        reject(new Error('body too large'));
+        req.destroy();
+      }
     });
     req.on('end', () => {
+      if (rejected) return;
       try { resolve(raw ? JSON.parse(raw) : null); } catch (e) { reject(e); }
     });
-    req.on('error', reject);
+    req.on('error', (e) => { if (!rejected) reject(e); });
   });
 }
 
@@ -41,9 +48,11 @@ export function wycenyPlugin() {
   return {
     name: 'wyceny-plugin',
     configureServer(server) {
+      // Create folder once at startup. Per-request mkdir is wasteful and unnecessary.
+      ensureDir().catch((err) => console.error('[wyceny-plugin] failed to create wyceny/ dir:', err));
+
       server.middlewares.use('/api/wyceny', async (req, res, next) => {
         try {
-          await ensureDir();
           const url = new URL(req.url, 'http://localhost');
           const parts = url.pathname.split('/').filter(Boolean); // [] for /api/wyceny, ['slug'] for /api/wyceny/slug
           const slug = parts[0];
