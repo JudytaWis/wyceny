@@ -21,15 +21,16 @@ export const QuotePageA4 = ({ quote, setQuote, pointIndex, pageNum, totalPages, 
   };
   const addPoint = () => setQuote({ ...quote, points: [...quote.points, blankPoint(quote.points.length + 1)] });
 
+  const isFirstPoint = pointIndex === 0;
   return (
     <div className="doc-page doc-page-pink">
       <PageFooter num={pageNum} total={totalPages} />
-      <QuoteHeader header={quote.header} setHeader={setHeader} />
-      <div className="mt-4">
+      {isFirstPoint && <QuoteHeader header={quote.header} setHeader={setHeader} />}
+      <div className={isFirstPoint ? 'mt-4' : ''}>
         <Point
           point={point}
           idx={pointIndex}
-          hasNext={false}
+          hasNext={point.blocks.length > 0}
           onChange={updatePoint}
           onDelete={deletePoint}
           onMove={movePoint}
