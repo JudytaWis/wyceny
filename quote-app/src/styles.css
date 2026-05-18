@@ -19,6 +19,12 @@
   background: #D1D5DB;
 }
 
+/* --- A4 view-mode: main-point timeline line in blue (matches point circle) --- */
+.view-a4 .timeline-line-fill {
+  background: #5468E5;
+  width: 2px;
+}
+
 /* --- Custom CSS extracted from _legacy/index.html ---- */
 :root {
   --bodo-blue: #5498D9;
