@@ -4,3 +4,6 @@ node_modules/
 *.log
 canva-export-tmp/
 a4-quote-app/
+
+# Legacy file kept locally during refactor — delete at end of refactor
+quote-app/_legacy/
