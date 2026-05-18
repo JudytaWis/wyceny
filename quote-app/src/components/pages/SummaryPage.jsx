@@ -9,7 +9,7 @@ export const SummaryPage = ({ quote, setQuote, pageNum, totalPages }) => {
   const computedTotal = quote.points.reduce((s, p) => s + (parseNum(p.mainPrice) || 0), 0);
   const autoTotal = computedTotal > 0 ? formatNum(computedTotal) : '';
   return (
-    <div className="doc-page doc-page-pink">
+    <div className="doc-page doc-page-pink view-a4">
       <PageFooter num={pageNum} total={totalPages} />
       <QuoteHeaderReadonly header={quote.header} />
       <div className="mt-4">

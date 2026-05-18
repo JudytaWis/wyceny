@@ -23,7 +23,7 @@ export const QuotePageA4 = ({ quote, setQuote, pointIndex, pageNum, totalPages, 
 
   const isFirstPoint = pointIndex === 0;
   return (
-    <div className="doc-page doc-page-pink">
+    <div className="doc-page doc-page-pink view-a4">
       <PageFooter num={pageNum} total={totalPages} />
       {isFirstPoint && <QuoteHeader header={quote.header} setHeader={setHeader} />}
       <div className={isFirstPoint ? 'mt-4' : ''}>

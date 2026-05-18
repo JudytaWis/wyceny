@@ -72,7 +72,7 @@ export const SubsectionBlock = ({ block, set, onDelete, onMove }) => {
       </div>
       {/* Nested children blocks */}
       {children.length > 0 && (
-        <div className="ml-5 mt-3">
+        <div className="ml-5 mt-3 subsection-children">
           {children.map(child => (
             <Block
               key={child.id}

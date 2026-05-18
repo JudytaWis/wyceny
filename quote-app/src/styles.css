@@ -5,6 +5,20 @@
 @tailwind components;
 @tailwind utilities;
 
+/* --- A4 view-mode: gray vertical line connecting subsection children --- */
+.view-a4 .subsection-children {
+  position: relative;
+}
+.view-a4 .subsection-children::before {
+  content: '';
+  position: absolute;
+  left: -0.9375rem;  /* aligns with the colored dot above the children */
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: #D1D5DB;
+}
+
 /* --- Custom CSS extracted from _legacy/index.html ---- */
 :root {
   --bodo-blue: #5498D9;

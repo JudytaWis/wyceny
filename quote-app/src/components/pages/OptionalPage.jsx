@@ -6,7 +6,7 @@ import { OptionalSection } from '../OptionalSection.jsx';
 export const OptionalPage = ({ quote, setQuote, pageNum, totalPages }) => {
   const setOptional = (optional) => setQuote({ ...quote, optional });
   return (
-    <div className="doc-page doc-page-pink">
+    <div className="doc-page doc-page-pink view-a4">
       <PageFooter num={pageNum} total={totalPages} />
       <QuoteHeaderReadonly header={quote.header} />
       <div className="mt-4">
