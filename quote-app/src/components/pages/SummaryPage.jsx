@@ -12,7 +12,7 @@ export const SummaryPage = ({ quote, setQuote, pageNum, totalPages }) => {
     <div className="doc-page doc-page-pink view-a4">
       <PageFooter num={pageNum} total={totalPages} />
       <QuoteHeaderReadonly header={quote.header} />
-      <div className="mt-4">
+      <div className="mt-16">
         <SummarySection summary={quote.summary} setSummary={setSummary} hasNext={false} autoTotal={autoTotal} />
       </div>
     </div>
