@@ -1,5 +1,120 @@
+/* Montserrat — bundled with the app instead of loaded via <link> in index.html */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Custom CSS will be moved here from _legacy/index.html in Task 5 */
+/* --- Custom CSS extracted from _legacy/index.html ---- */
+:root {
+  --bodo-blue: #5498D9;
+  --bodo-navy: #2A3978;
+  --bodo-gold: #A49251;
+  --bodo-gold-light: #D8D0B3;
+  --bodo-dark: #1A1A1A;
+  --bodo-accent-purple: #6366F1;
+}
+html, body { font-family: 'Montserrat', system-ui, sans-serif; background: #F3F4F6; }
+.doc-page, .doc-page * { font-family: 'Montserrat', system-ui, sans-serif !important; }
+.font-display { font-family: 'Montserrat', sans-serif; }
+.doc-page {
+  width: 210mm;
+  min-height: 297mm;      /* A4 minimum — strona rośnie jeśli content tego wymaga, Chrome paginuje przy druku */
+  background: white;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+  margin: 0 auto 16px auto;
+  padding: 18mm 18mm;
+  position: relative;
+  box-sizing: border-box;
+}
+/* PINK STRIPE WYŁĄCZONY — był dziedziczony z Canva, w PDF wyglądał jak artefakt */
+.doc-page-pink { border-top: 0; }
+.page-number {
+  position: absolute;
+  bottom: 6mm;
+  right: 18mm;
+  font-size: 11px;
+  color: #2A3978;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+}
+[contenteditable] {
+  min-width: 4px;
+  min-height: 1.2em;
+  border-radius: 4px;
+  transition: background 0.1s;
+  cursor: text;
+}
+[contenteditable]:hover { background: rgba(99,102,241,0.06); }
+[contenteditable]:focus { outline: 2px solid rgba(99,102,241,0.4); background: rgba(99,102,241,0.05); }
+[contenteditable]:empty:before {
+  content: attr(data-placeholder);
+  color: #9CA3AF;
+  opacity: 0.7;
+  pointer-events: none;
+  font-style: italic;
+}
+[contenteditable]:focus:empty:before { opacity: 0.4; }
+@media print {
+  [contenteditable]:empty:before { content: ''; }
+  [contenteditable] { background: transparent !important; outline: none !important; }
+}
+.timeline-col { width: 40px; flex-shrink: 0; display: flex; flex-direction: column; align-items: center; }
+.timeline-line-fill { flex: 1; width: 1px; background: #D1D5DB; margin-top: 2px; min-height: 20px; }
+.scope-table-line { border-left: 1px solid #C8CCDB; }
+.scope-row { border-bottom: 1px solid #E5E7EB; }
+.scope-row:last-child { border-bottom: 0; }
+.strike { text-decoration: line-through; opacity: 0.55; }
+@media print {
+  /* FORCE color/background printing (browsers strip these by default) */
+  *, *::before, *::after {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+  html, body { background: transparent !important; margin: 0 !important; padding: 0 !important; }
+  .no-print { display: none !important; }
+  .doc-page {
+    box-shadow: none !important;
+    margin: 0 !important;
+    padding: 14mm !important;
+    page-break-after: always;
+    break-after: page;
+    page-break-inside: auto;
+    break-inside: auto;
+    width: 100% !important;
+    max-width: none !important;
+    height: 297mm !important;     /* sztywno A4 — Chrome nie doda białego paska */
+    max-height: 297mm !important;
+    overflow: hidden !important;
+    position: relative;
+  }
+  .doc-page:last-child { page-break-after: auto; break-after: auto; }
+  /* Pink top stripe disabled */
+  .doc-page-pink { border-top: 0 !important; }
+  .doc-page-pink::before { content: none !important; display: none !important; }
+  /* Avoid splitting individual rows / sections across pages */
+  .point-row, .scope-row, .timeline-col,
+  .doc-page table, .doc-page table tr,
+  .doc-page > div > div {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  h1, h2, h3, h4 { break-after: avoid; page-break-after: avoid; }
+  img { break-inside: avoid; page-break-inside: avoid; max-width: 100%; }
+  .text-white { color: #ffffff !important; }
+  @page { size: A4 portrait; margin: 0; }
+}
+/* CONTINUOUS PDF mode — single long page (used in popup window for "PDF ciągły") */
+@media print {
+  body.continuous-pdf .doc-page {
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+    min-height: 0 !important;
+    max-height: none !important;
+  }
+}
+/* Scrollbar tweak */
+.sb::-webkit-scrollbar { width: 8px; }
+.sb::-webkit-scrollbar-thumb { background: #D1D5DB; border-radius: 4px; }
+.sb::-webkit-scrollbar-track { background: transparent; }
