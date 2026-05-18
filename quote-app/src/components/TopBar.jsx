@@ -1,7 +1,7 @@
 // src/components/TopBar.jsx
 import { openQuoteAsURL } from '../lib/openAsURL.js';
 
-export const TopBar = ({ quote, onTitleChange, savedAt, onUndo, onRedo, canUndo, canRedo }) => (
+export const TopBar = ({ quote, onTitleChange, savedAt, onUndo, onRedo, canUndo, canRedo, viewMode, onViewModeChange }) => (
   <div className="no-print sticky top-0 z-10 bg-white/80 backdrop-blur border-b border-gray-200 px-8 py-3 flex items-center justify-between">
     <div className="flex items-center gap-3 flex-1 min-w-0">
       <input
@@ -34,6 +34,22 @@ export const TopBar = ({ quote, onTitleChange, savedAt, onUndo, onRedo, canUndo,
       </button>
       <div className="w-px h-5 bg-gray-300 mx-1"></div>
       {savedAt && <span className="text-[11px] text-gray-400">Zapisano {savedAt}</span>}
+      <div className="flex items-center bg-gray-100 rounded-lg p-0.5">
+        <button
+          onClick={() => onViewModeChange('long')}
+          className={`px-3 py-1 text-sm rounded-md transition ${viewMode === 'long' ? 'bg-white shadow-sm text-gray-900 font-medium' : 'text-gray-500 hover:text-gray-700'}`}
+          title="Wszystkie punkty na jednej długiej stronie"
+        >
+          Ciągły
+        </button>
+        <button
+          onClick={() => onViewModeChange('a4')}
+          className={`px-3 py-1 text-sm rounded-md transition ${viewMode === 'a4' ? 'bg-white shadow-sm text-gray-900 font-medium' : 'text-gray-500 hover:text-gray-700'}`}
+          title="Każdy punkt na osobnej kartce A4"
+        >
+          A4
+        </button>
+      </div>
       <button
         onClick={() => openQuoteAsURL(quote)}
         className="px-3 py-1.5 bg-[#6366F1] hover:bg-[#4F46E5] text-white text-sm rounded-lg flex items-center gap-1.5"

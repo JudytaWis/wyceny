@@ -2,17 +2,21 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { storage } from './lib/storage.js';
 import { migrateLocalStorageIfNeeded } from './lib/migration.js';
-import { blankQuote } from './lib/quoteModel.js';
+import { blankQuote, blankPoint } from './lib/quoteModel.js';
 import { slugify, getQuoteFromURL, setQuoteInURL } from './lib/slug.js';
 import { Sidebar } from './components/Sidebar.jsx';
 import { TopBar } from './components/TopBar.jsx';
 import { CoverPage } from './components/pages/CoverPage.jsx';
 import { QuotePage } from './components/pages/QuotePage.jsx';
+import { QuotePageA4 } from './components/pages/QuotePageA4.jsx';
+import { SummaryPage } from './components/pages/SummaryPage.jsx';
+import { OptionalPage } from './components/pages/OptionalPage.jsx';
 import { OtherCostsPage } from './components/pages/OtherCostsPage.jsx';
 import { ValuesPage } from './components/pages/ValuesPage.jsx';
 import { TermsPage } from './components/pages/TermsPage.jsx';
 import { BodoLogo } from './components/shared/BodoLogo.jsx';
 import { Icon } from './components/shared/Icon.jsx';
+import { PageFooter } from './components/shared/PageFooter.jsx';
 
 const AUTOSAVE_DEBOUNCE_MS = 1000;
 
@@ -22,6 +26,14 @@ export default function App() {
   const [savedAt, setSavedAt] = useState(null);
   const [loading, setLoading] = useState(true);
   const [migrationNote, setMigrationNote] = useState(null);
+
+  const [viewMode, setViewMode] = useState(() => {
+    try { return localStorage.getItem('bodo_view_mode_v1') || 'long'; } catch { return 'long'; }
+  });
+  const onViewModeChange = (m) => {
+    setViewMode(m);
+    try { localStorage.setItem('bodo_view_mode_v1', m); } catch {}
+  };
 
   const historyRef = useRef({});
   const [, forceUpdate] = useState(0);
@@ -270,12 +282,23 @@ export default function App() {
           </div>
         )}
         {quote && (() => {
+          const summaryOn = !!quote.summary?.enabled;
+          const optionalOn = !!quote.optional?.enabled;
+          const otherCostsOn = !!quote.otherCosts?.enabled;
+          const valuesOn = !!quote.values?.enabled;
+          const termsOn = !!quote.terms?.enabled;
+
           const total =
-            1 +
-            1 +
-            (quote.otherCosts?.enabled ? 1 : 0) +
-            (quote.values?.enabled ? 1 : 0) +
-            (quote.terms?.enabled ? 1 : 0);
+            1 /* cover */
+            + (viewMode === 'a4'
+                ? (quote.points.length === 0 ? 1 : quote.points.length) /* one A4 per point, min 1 for empty state */
+                  + (summaryOn ? 1 : 0)
+                  + (optionalOn ? 1 : 0)
+                : 1 /* single long Quote page (includes points + summary + optional) */
+              )
+            + (otherCostsOn ? 1 : 0)
+            + (valuesOn ? 1 : 0)
+            + (termsOn ? 1 : 0);
           let n = 0;
           const next = () => ++n;
           return (
@@ -288,11 +311,41 @@ export default function App() {
                 onRedo={redo}
                 canUndo={canUndo}
                 canRedo={canRedo}
+                viewMode={viewMode}
+                onViewModeChange={onViewModeChange}
               />
               <div className="py-8 px-4 bg-gray-100 min-h-screen">
                 <CoverPage pageNum={next()} totalPages={total} />
-                <QuotePage quote={quote} setQuote={updateQuote} pageNum={next()} totalPages={total} />
-                {quote.otherCosts?.enabled && (
+                {viewMode === 'long' ? (
+                  <QuotePage quote={quote} setQuote={updateQuote} pageNum={next()} totalPages={total} />
+                ) : (
+                  <>
+                    {quote.points.length === 0 ? (
+                      <div className="doc-page doc-page-pink flex flex-col items-center justify-center">
+                        <PageFooter num={next()} total={total} />
+                        <button
+                          onClick={() => updateQuote({ ...quote, points: [blankPoint(1)] })}
+                          className="no-print px-6 py-3 bg-[#6366F1] hover:bg-[#4F46E5] text-white rounded-lg flex items-center gap-2"
+                        >
+                          <Icon.Plus width="16" height="16"/> Dodaj pierwszy punkt (ETAPP)
+                        </button>
+                      </div>
+                    ) : quote.points.map((p, i) => (
+                      <QuotePageA4
+                        key={p.id}
+                        quote={quote}
+                        setQuote={updateQuote}
+                        pointIndex={i}
+                        pageNum={next()}
+                        totalPages={total}
+                        isLastPoint={i === quote.points.length - 1}
+                      />
+                    ))}
+                    {summaryOn && <SummaryPage quote={quote} setQuote={updateQuote} pageNum={next()} totalPages={total} />}
+                    {optionalOn && <OptionalPage quote={quote} setQuote={updateQuote} pageNum={next()} totalPages={total} />}
+                  </>
+                )}
+                {otherCostsOn && (
                   <OtherCostsPage
                     otherCosts={quote.otherCosts}
                     setOtherCosts={(oc) => updateQuote({ ...quote, otherCosts: oc })}
@@ -301,8 +354,8 @@ export default function App() {
                     totalPages={total}
                   />
                 )}
-                {quote.values?.enabled && <ValuesPage pageNum={next()} totalPages={total} />}
-                {quote.terms?.enabled && <TermsPage header={quote.header} terms={quote.terms} pageNum={next()} totalPages={total} />}
+                {valuesOn && <ValuesPage pageNum={next()} totalPages={total} />}
+                {termsOn && <TermsPage header={quote.header} terms={quote.terms} pageNum={next()} totalPages={total} />}
               </div>
             </>
           );
