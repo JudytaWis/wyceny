@@ -128,10 +128,10 @@ Plugin używa Node `fs/promises` + `path.resolve(__dirname, 'wyceny')`. Walidacj
 - **Node**: 24 LTS (default Vercel — choć Vercela tu nie używamy)
 - **Package manager**: pnpm (już używasz w workspace)
 
-## Decyzje do potwierdzenia podczas implementacji
+## Decyzje (zatwierdzone)
 
-1. **Gitignore wycen?** — czy `quote-app/wyceny/*.json` ma być w `.gitignore` (= prywatne dane klientów nie w repo), czy commitujemy je? **Domyślnie: gitignored**, ale do potwierdzenia.
-2. **Seeds** — `seeds/oferta-5C-2026.json` przeniesiemy do `wyceny/` jako przykład, czy zostaje osobno?
+1. **`quote-app/wyceny/*.json` → `.gitignore`**. Dane klientów nie idą do repo. Backup robi sama apka przez Undo/Redo (in-memory) + opcjonalny export-all bundle jako JSON.
+2. **`seeds/oferta-5C-2026.json` → przenosimy do `wyceny/`** jako pierwszy widoczny w sidebarze plik. Folder `seeds/` można skasować po migracji.
 
 ## Non-goals
 
