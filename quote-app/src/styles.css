@@ -26,6 +26,15 @@
   opacity: 0.55;
 }
 
+/* A4 view-mode: enforce A4 height on screen so overflow can be detected and
+   QuotePageA4 splits a long point across multiple .doc-page cards. */
+.view-a4.doc-page {
+  height: 297mm;
+  min-height: 297mm;
+  max-height: 297mm;
+  overflow: hidden;
+}
+
 /* --- Custom CSS extracted from _legacy/index.html ---- */
 :root {
   --bodo-blue: #5498D9;
