@@ -9,7 +9,10 @@ export const parseNum = (v) => {
 
 export const formatNum = (n, decimals = 2) => {
   if (typeof n !== 'number' || isNaN(n)) return '';
-  return n.toLocaleString('sv-SE', { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
+  // Normalize sv-SE thin/narrow no-break space to regular NBSP for consistent
+  // rendering across browsers (some Safari versions emit   which wraps).
+  return n.toLocaleString('sv-SE', { minimumFractionDigits: decimals, maximumFractionDigits: decimals })
+    .replace(/[  ]/g, ' ');
 };
 
 /**
@@ -20,11 +23,10 @@ export const formatNum = (n, decimals = 2) => {
 export const buildFormulaFromLegacy = (r) => {
   // New-style: qty + unit + rate
   if (r.qty != null && r.qty !== '') {
-    const parts = [];
-    if (r.qty != null && r.qty !== '') parts.push(String(r.qty));
+    const parts = [String(r.qty)];
     if (r.unit != null && r.unit !== '') parts.push(String(r.unit));
     if (r.rate != null && r.rate !== '') parts.push(String(r.rate));
-    return parts.length > 0 ? parts.join(' × ') : '';
+    return parts.join(' × ');
   }
   // Legacy-style: hours / discount / rate
   const h = (r.hours || '').toString().trim();
@@ -82,9 +84,12 @@ export const manpowerRows = (b) => {
   }];
 };
 
+// Note: condition is `auto === false` (not `!== false` like legacy) — this is
+// logically equivalent because computeFromFormula returns 0 on failure (never null).
+// Legacy used `auto !== false` + `|| 0` to coerce null; the inversion here keeps
+// the manual-override branch explicit. Do NOT "fix" the comparison back.
 export const computeManpowerTotal = (b) => {
   return manpowerRows(b).reduce((s, r) => {
-    // If auto is explicitly false, use stored total instead of formula
     if (r.auto === false) {
       return s + (parseNum(r.total) || 0);
     }
