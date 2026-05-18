@@ -150,6 +150,8 @@ export const blankQuote = (slug, title) => ({
     original: '',
     beforeROT: '',
     afterROT: '',
+    taxMode: 'rot',     // 'rot' | 'rut' | 'none'
+    extraInfo: '',      // yellow callout text below totals
   },
   optional: {
     enabled: false,
