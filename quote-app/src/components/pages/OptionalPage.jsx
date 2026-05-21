@@ -9,7 +9,7 @@ export const OptionalPage = ({ quote, setQuote, pageNum, totalPages }) => {
     <div className="doc-page doc-page-pink view-a4">
       <PageFooter num={pageNum} total={totalPages} />
       <QuoteHeaderReadonly header={quote.header} />
-      <div className="mt-4">
+      <div className="mt-16">
         <OptionalSection optional={quote.optional} setOptional={setOptional} hasNext={false} />
       </div>
     </div>
