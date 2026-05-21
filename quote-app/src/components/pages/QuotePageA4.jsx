@@ -114,11 +114,9 @@ export const QuotePageA4 = ({ quote, setQuote, pointIndex, pageNum, totalPages, 
       {pointIndex + 1}
     </div>
   );
-  const continuationDot = (
-    <div className="w-10 h-10 flex items-center justify-center flex-shrink-0">
-      <div className="w-2 h-2 rounded-full bg-[#5468E5] opacity-50"></div>
-    </div>
-  );
+  // Continuation cards: no top dot — the blue line starts straight from the
+  // top of the content area and runs down (visual continuity from previous page).
+  const continuationDot = null;
 
   return (
     <div ref={wrapRef}>
@@ -129,12 +127,14 @@ export const QuotePageA4 = ({ quote, setQuote, pointIndex, pageNum, totalPages, 
         const showHeader = isFirstSlice && isFirstPoint;
         const cardPageNum = pageNum + sliceIdx;
         return (
-          <div key={sliceIdx} data-a4-card className="doc-page doc-page-pink view-a4">
+          <div key={sliceIdx} data-a4-card className="doc-page doc-page-pink view-a4 flex flex-col">
             <PageFooter num={cardPageNum} total={totalPages} />
             {showHeader && <QuoteHeader header={quote.header} setHeader={setHeader} />}
-            <div className={showHeader ? 'mt-4' : ''}>
+            <div className={`${showHeader ? 'mt-4' : ''} flex-1 flex flex-col min-h-0`}>
               <TimelineRow
                 hasNext={blocksOnThisCard.length > 0 || !isLastSlice}
+                fillHeight={!isLastSlice}
+                endDot={isLastSlice}
                 circle={isFirstSlice ? circle : continuationDot}
                 hoverTools={isFirstSlice ? (
                   <>

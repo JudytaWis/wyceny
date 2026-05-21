@@ -10,10 +10,21 @@ export const OtherCostsPage = ({ otherCosts, setOtherCosts, header, pageNum, tot
   const addRow = () => setOtherCosts({ ...otherCosts, rows: [...otherCosts.rows, { item: 'Ny rad', unit: 'tur', price: '0' }] });
   const delRow = (i) => setOtherCosts({ ...otherCosts, rows: otherCosts.rows.filter((_, idx) => idx !== i) });
   return (
-    <div className="doc-page doc-page-pink">
+    <div id="other-costs" className="doc-page doc-page-pink group/page relative" style={{ scrollMarginTop: '24px' }}>
       <PageFooter num={pageNum} total={totalPages} />
+      <button
+        onClick={() => {
+          if (confirm('Usunąć całą stronę „Timpriser och kostnadsgrunder"? Można ją włączyć z powrotem w sidebarze.')) {
+            setOtherCosts({ ...otherCosts, enabled: false });
+          }
+        }}
+        className="no-print absolute top-4 right-4 opacity-0 group-hover/page:opacity-100 transition px-2.5 py-1.5 bg-white border border-red-200 hover:bg-red-50 text-red-500 text-xs rounded flex items-center gap-1.5 shadow-sm"
+        title="Usun cala strone"
+      >
+        <Icon.Trash width="13" height="13"/> Usun strone
+      </button>
       <QuoteHeaderReadonly header={header} />
-      <EditableText as="h2" value={otherCosts.title} onChange={(v) => setOtherCosts({ ...otherCosts, title: v })} className="text-[22px] font-medium text-black mb-6 mt-4" />
+      <EditableText as="h2" value={otherCosts.title} onChange={(v) => setOtherCosts({ ...otherCosts, title: v })} className="text-[22px] font-medium text-black mb-6 mt-16" />
       <div className="border-t-2 border-[#2A3978]">
         {otherCosts.rows.map((r, i) => (
           <div key={i} className="grid items-center gap-4 py-4 px-2 border-b-2 border-[#2A3978] group/row"

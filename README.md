@@ -14,6 +14,23 @@ Workspace dla BODO Build and Track AB.
 - `wycena-A.pdf` — gotowy PDF Alexander 5C/2026
 - `alexander-quote-data.json` — JSON wyceny Alexander
 
+## Jak odpalić apkę lokalnie (dev)
+
+Apka `quote-app/` to projekt Vite + React + Tailwind.
+
+```bash
+cd quote-app
+pnpm install        # tylko za pierwszym razem (lub po zmianie package.json)
+pnpm dev            # uruchamia dev server na http://localhost:5173
+```
+
+Inne komendy:
+
+- `pnpm build` — produkcyjny build do `quote-app/dist/`
+- `pnpm preview` — podgląd builda lokalnie
+
+Wymagania: Node.js 18+ i `pnpm` (`npm i -g pnpm`).
+
 ## Workflow publikacji wyceny dla klienta
 
 1. W aplikacji (`quote-app/index.html`) klikasz **🚀 Opublikuj**

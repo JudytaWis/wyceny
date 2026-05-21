@@ -7,7 +7,7 @@ import { formatNum, computeManpowerTotal } from '../../lib/formula.js';
 import { newBlock } from '../../lib/quoteModel.js';
 
 export const SubsectionBlock = ({ block, set, onDelete, onMove }) => {
-  const colors = { blue: '#5498D9', green: '#22C55E', gold: '#A49251', purple: '#6366F1' };
+  const colors = { blue: '#5498D9', green: '#22C55E', gold: '#C2A878', purple: '#6366F1' };
   const dot = colors[block.color] || '#5498D9';
   const children = block.children || [];
 
@@ -33,7 +33,7 @@ export const SubsectionBlock = ({ block, set, onDelete, onMove }) => {
   const displayedPrice = (!block.price && autoSum > 0) ? formatNum(autoSum) : block.price;
 
   return (
-    <div className="group relative mb-5">
+    <div id={`sub-${block.id}`} className="group relative mb-5" style={{ scrollMarginTop: '24px' }}>
       <BlockTools onDelete={onDelete} onMove={onMove} />
       {/* Header row: dot + label + colors picker */}
       <div className="flex items-center gap-2 mb-1">

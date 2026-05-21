@@ -8,7 +8,7 @@ import { Point } from '../Point.jsx';
 import { parseNum, formatNum } from '../../lib/formula.js';
 import { blankPoint } from '../../lib/quoteModel.js';
 
-export const QuotePage = ({ quote, setQuote, pageNum, totalPages }) => {
+export const QuotePage = ({ quote, setQuote, pageNum, totalPages, showHeader = true }) => {
   const setHeader = (header) => setQuote({ ...quote, header });
   const setSummary = (summary) => setQuote({ ...quote, summary });
   const setOptional = (optional) => setQuote({ ...quote, optional });
@@ -38,18 +38,19 @@ export const QuotePage = ({ quote, setQuote, pageNum, totalPages }) => {
   return (
     <div className="doc-page doc-page-pink">
       <PageFooter num={pageNum} total={totalPages} />
-      <QuoteHeader header={quote.header} setHeader={setHeader} />
-      <div className="mt-4">
+      {showHeader && <QuoteHeader header={quote.header} setHeader={setHeader} />}
+      <div className={showHeader ? 'mt-4' : ''}>
         {quote.points.map((pt, idx) => (
-          <Point
-            key={pt.id}
-            point={pt}
-            idx={idx}
-            hasNext={pointHasNext(idx)}
-            onChange={(p) => updatePoint(pt.id, p)}
-            onDelete={() => deletePoint(pt.id)}
-            onMove={(dir) => movePoint(pt.id, dir)}
-          />
+          <div key={pt.id} id={`etapp-${idx + 1}`} style={{ scrollMarginTop: '24px' }}>
+            <Point
+              point={pt}
+              idx={idx}
+              hasNext={pointHasNext(idx)}
+              onChange={(p) => updatePoint(pt.id, p)}
+              onDelete={() => deletePoint(pt.id)}
+              onMove={(dir) => movePoint(pt.id, dir)}
+            />
+          </div>
         ))}
         <div className="flex gap-4 mb-4">
           <div className="timeline-col">

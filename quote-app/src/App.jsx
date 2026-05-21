@@ -7,6 +7,7 @@ import { slugify, getQuoteFromURL, setQuoteInURL } from './lib/slug.js';
 import { Sidebar } from './components/Sidebar.jsx';
 import { TopBar } from './components/TopBar.jsx';
 import { CoverPage } from './components/pages/CoverPage.jsx';
+import { TocPage } from './components/pages/TocPage.jsx';
 import { QuotePage } from './components/pages/QuotePage.jsx';
 import { QuotePageA4 } from './components/pages/QuotePageA4.jsx';
 import { SummaryPage } from './components/pages/SummaryPage.jsx';
@@ -287,9 +288,12 @@ export default function App() {
           const otherCostsOn = !!quote.otherCosts?.enabled;
           const valuesOn = !!quote.values?.enabled;
           const termsOn = !!quote.terms?.enabled;
+          // TOC: only in long view, only when there are more than 2 points
+          const tocOn = viewMode === 'long' && quote.points.length > 2;
 
           const total =
             1 /* cover */
+            + (tocOn ? 1 : 0)
             + (viewMode === 'a4'
                 ? (quote.points.length === 0 ? 1 : quote.points.length) /* one A4 per point, min 1 for empty state */
                   + (summaryOn ? 1 : 0)
@@ -316,8 +320,9 @@ export default function App() {
               />
               <div className="py-8 px-4 bg-gray-100 min-h-screen">
                 <CoverPage pageNum={next()} totalPages={total} />
+                {tocOn && <TocPage quote={quote} setQuote={updateQuote} pageNum={next()} totalPages={total} />}
                 {viewMode === 'long' ? (
-                  <QuotePage quote={quote} setQuote={updateQuote} pageNum={next()} totalPages={total} />
+                  <QuotePage quote={quote} setQuote={updateQuote} pageNum={next()} totalPages={total} showHeader={!tocOn} />
                 ) : (
                   <>
                     {quote.points.length === 0 ? (

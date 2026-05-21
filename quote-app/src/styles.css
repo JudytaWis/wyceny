@@ -26,6 +26,23 @@
   opacity: 0.55;
 }
 
+/* End-of-point cap dot — small bullet that closes the timeline line on the
+   card where the point ends (so it visibly terminates instead of just stopping). */
+.timeline-end-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background: #D1D5DB;
+  margin-top: -1px;
+  flex-shrink: 0;
+}
+.view-a4 .timeline-end-dot {
+  background: #5468E5;
+  opacity: 0.55;
+  width: 7px;
+  height: 7px;
+}
+
 /* A4 view-mode: enforce A4 height on screen so overflow can be detected and
    QuotePageA4 splits a long point across multiple .doc-page cards. */
 .view-a4.doc-page {
@@ -39,11 +56,12 @@
 :root {
   --bodo-blue: #5498D9;
   --bodo-navy: #2A3978;
-  --bodo-gold: #A49251;
+  --bodo-gold: #C2A878;
   --bodo-gold-light: #D8D0B3;
   --bodo-dark: #1A1A1A;
   --bodo-accent-purple: #6366F1;
 }
+html { scroll-behavior: smooth; }
 html, body { font-family: 'Montserrat', system-ui, sans-serif; background: #F3F4F6; }
 .doc-page, .doc-page * { font-family: 'Montserrat', system-ui, sans-serif !important; }
 .font-display { font-family: 'Montserrat', sans-serif; }

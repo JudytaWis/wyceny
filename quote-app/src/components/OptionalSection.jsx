@@ -20,7 +20,7 @@ export const OptionalSection = ({ optional, setOptional, hasNext }) => {
   const addItem = () => setOptional({ ...optional, items: [...optional.items, { text: 'Nowa opcja' }] });
   const delItem = (i) => setOptional({ ...optional, items: optional.items.filter((_, idx) => idx !== i) });
   const circle = (
-    <div className="w-10 h-10 rounded-full bg-[#A49251] flex items-center justify-center flex-shrink-0 text-white">
+    <div className="w-10 h-10 rounded-full bg-[#C2A878] flex items-center justify-center flex-shrink-0 text-white">
       <Icon.Star width="20" height="20" />
     </div>
   );

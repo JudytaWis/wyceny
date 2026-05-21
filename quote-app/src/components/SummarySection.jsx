@@ -22,23 +22,16 @@ export const SummarySection = ({ summary, setSummary, hasNext, autoTotal }) => {
   const beforeLabel = taxMode === 'rot' ? 'before ROT' : taxMode === 'rut' ? 'before RUT' : '';
   const afterLabel = taxMode === 'rot' ? 'after ROT' : taxMode === 'rut' ? 'after RUT' : '';
   const beforeDisplay = (!summary.beforeROT && autoTotal) ? autoTotal : summary.beforeROT;
-  const circle = <div className="w-10 h-10 rounded-full bg-[#5468E5] flex-shrink-0"></div>;
+  const circle = <div className="w-10 h-10 rounded-full bg-[#C2A878] flex-shrink-0"></div>;
   const hoverTools = (
     <button onClick={() => setSummary({ ...summary, enabled: false })} className="w-7 h-7 rounded bg-white border border-red-200 hover:bg-red-50 flex items-center justify-center text-red-500"><Icon.Trash width="14" height="14"/></button>
   );
   return (
+    <div id="grand-total" style={{ scrollMarginTop: '24px' }}>
     <TimelineRow hasNext={hasNext} circle={circle} hoverTools={hoverTools}>
-      <div className="pt-1.5">
-        <div className="flex items-baseline gap-3 flex-wrap">
+      <div className="pt-2.5">
+        <div className="flex items-center gap-3 flex-wrap">
           <EditableText as="span" value={summary.label} onChange={set('label')} className="text-[14px] tracking-wide uppercase font-medium" />
-          {summary.original ? (
-            <span className="strike text-[15px] font-bold">
-              <EditableText as="span" value={summary.original} onChange={set('original')} />
-            </span>
-          ) : (
-            <EditableText as="span" value={summary.original} onChange={set('original')} className="no-print text-[11px] text-gray-300 italic" placeholder="(stara suma — opcjonalne)" />
-          )}
-          <span className="text-[14px]">kr inkl moms</span>
           {/* Tax-mode picker (editor-only) */}
           <div className="no-print flex items-center bg-gray-100 rounded-md p-0.5 text-[11px] ml-2">
             {['rot', 'rut', 'none'].map(m => (
@@ -103,20 +96,32 @@ export const SummarySection = ({ summary, setSummary, hasNext, autoTotal }) => {
               </div>
             </>
           )}
-          {/* Extra info — yellow callout */}
-          <div className="mt-3 flex items-start gap-2">
-            <span className="w-2.5 h-2.5 mt-2 rounded-full flex-shrink-0 bg-[#F59E0B]"></span>
+          {/* Extra info — yellow callout. Dot + delete only when there's content. */}
+          <div className="mt-3 flex items-start gap-2 group/extra">
+            {summary.extraInfo && (
+              <span className="w-2.5 h-2.5 mt-2 rounded-full flex-shrink-0 bg-[#F59E0B]"></span>
+            )}
             <EditableText
               as="div"
               value={summary.extraInfo || ''}
               onChange={set('extraInfo')}
               placeholder="Dodatkowe informacje / gratis"
-              className="text-[13px] text-[#92400E] font-medium flex-1"
+              className={`text-[13px] font-medium flex-1 ${summary.extraInfo ? 'text-[#92400E]' : 'no-print text-gray-300 italic'}`}
               multiline
             />
+            {summary.extraInfo && (
+              <button
+                onClick={() => set('extraInfo')('')}
+                className="no-print mt-1 opacity-0 group-hover/extra:opacity-100 transition text-[10px] text-gray-400 hover:text-red-600 border border-gray-200 hover:border-red-300 rounded px-1.5 py-0.5"
+                title="Usun dodatkowe informacje"
+              >
+                ✕
+              </button>
+            )}
           </div>
         </div>
       </div>
     </TimelineRow>
+    </div>
   );
 };
