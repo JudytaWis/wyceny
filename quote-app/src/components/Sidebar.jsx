@@ -14,6 +14,7 @@ export const Sidebar = ({
   onTogglePage,
   onExportAll,
   onImportAll,
+  onUnpublish,
   quote,
 }) => {
   const list = Object.values(quotes).sort(
@@ -75,6 +76,31 @@ export const Sidebar = ({
                 </div>
               </div>
               <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100">
+                {isPub && q.meta.publishedUrl && (
+                  <a
+                    href={q.meta.publishedUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="p-1 text-[#16A34A] hover:text-[#15803D] cursor-pointer"
+                    title={`Otwórz: ${q.meta.publishedUrl}`}
+                  >
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  </a>
+                )}
+                {isPub && onUnpublish && (
+                  <span
+                    role="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onUnpublish(q.meta.slug);
+                    }}
+                    className="p-1 text-amber-500 hover:text-amber-700 cursor-pointer"
+                    title="Cofnij publikację"
+                  >
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+                  </span>
+                )}
                 <span
                   role="button"
                   onClick={(e) => {

@@ -7,10 +7,32 @@ import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const WYCENY_DIR = path.resolve(__dirname, 'wyceny');
+const PUBLIC_DIR = path.resolve(__dirname, 'public');
 const SLUG_RE = /^[a-z0-9][a-z0-9-]{0,99}$/;
 
 async function ensureDir() {
   await fs.mkdir(WYCENY_DIR, { recursive: true });
+  await fs.mkdir(PUBLIC_DIR, { recursive: true });
+}
+
+function readRawBody(req, max = 20_000_000) {
+  return new Promise((resolve, reject) => {
+    const chunks = [];
+    let len = 0;
+    let rejected = false;
+    req.on('data', (c) => {
+      if (rejected) return;
+      chunks.push(c);
+      len += c.length;
+      if (len > max) {
+        rejected = true;
+        reject(new Error('body too large'));
+        req.destroy();
+      }
+    });
+    req.on('end', () => { if (!rejected) resolve(Buffer.concat(chunks).toString('utf8')); });
+    req.on('error', (e) => { if (!rejected) reject(e); });
+  });
 }
 
 function send(res, status, body, contentType = 'application/json; charset=utf-8') {
@@ -50,6 +72,44 @@ export function wycenyPlugin() {
     configureServer(server) {
       // Create folder once at startup. Per-request mkdir is wasteful and unnecessary.
       ensureDir().catch((err) => console.error('[wyceny-plugin] failed to create wyceny/ dir:', err));
+
+      // Publish API — writes/removes standalone HTML in quote-app/public/<slug>/index.html
+      server.middlewares.use('/api/publish', async (req, res, next) => {
+        try {
+          const url = new URL(req.url, 'http://localhost');
+          const parts = url.pathname.split('/').filter(Boolean);
+          const slug = parts[0];
+          if (!slug || !SLUG_RE.test(slug)) return send(res, 400, { error: 'invalid slug' });
+
+          const targetDir = path.join(PUBLIC_DIR, slug);
+          const targetFile = path.join(targetDir, 'index.html');
+
+          if (req.method === 'PUT') {
+            const html = await readRawBody(req);
+            if (!html || typeof html !== 'string' || !html.includes('<html')) {
+              return send(res, 400, { error: 'expected non-empty HTML body' });
+            }
+            await fs.mkdir(targetDir, { recursive: true });
+            await fs.writeFile(targetFile, html, 'utf8');
+            return send(res, 200, { ok: true, path: `public/${slug}/index.html` });
+          }
+
+          if (req.method === 'DELETE') {
+            try {
+              await fs.rm(targetDir, { recursive: true, force: true });
+              return send(res, 200, { ok: true });
+            } catch (e) {
+              if (e.code === 'ENOENT') return send(res, 404, { error: 'not found' });
+              throw e;
+            }
+          }
+
+          return send(res, 405, { error: 'method not allowed' });
+        } catch (err) {
+          console.error('[publish]', err);
+          return send(res, 500, { error: err.message });
+        }
+      });
 
       server.middlewares.use('/api/wyceny', async (req, res, next) => {
         try {

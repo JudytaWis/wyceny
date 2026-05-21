@@ -18,6 +18,8 @@ import { TermsPage } from './components/pages/TermsPage.jsx';
 import { BodoLogo } from './components/shared/BodoLogo.jsx';
 import { Icon } from './components/shared/Icon.jsx';
 import { PageFooter } from './components/shared/PageFooter.jsx';
+import { PublishModal } from './components/PublishModal.jsx';
+import { publishHTML, unpublishHTML, publishedUrlFor } from './lib/publish.js';
 
 const AUTOSAVE_DEBOUNCE_MS = 1000;
 
@@ -27,6 +29,9 @@ export default function App() {
   const [savedAt, setSavedAt] = useState(null);
   const [loading, setLoading] = useState(true);
   const [migrationNote, setMigrationNote] = useState(null);
+
+  const [publishing, setPublishing] = useState(false);
+  const [publishModal, setPublishModal] = useState({ open: false, mode: 'publish', slug: '', url: '' });
 
   const [viewMode, setViewMode] = useState(() => {
     try { return localStorage.getItem('bodo_view_mode_v1') || 'long'; } catch { return 'long'; }
@@ -184,6 +189,67 @@ export default function App() {
     }
   };
 
+  const publishQuote = async (slug) => {
+    const src = quotes[slug];
+    if (!src) return;
+    if (currentSlug !== slug) {
+      alert('Otwórz wycenę, którą chcesz opublikować — publikacja używa aktualnego widoku.');
+      return;
+    }
+    setPublishing(true);
+    try {
+      const { imageFailures } = await publishHTML(src);
+      const updated = {
+        ...src,
+        meta: {
+          ...src.meta,
+          published: true,
+          publishedAt: new Date().toISOString(),
+          publishedUrl: publishedUrlFor(slug),
+          updatedAt: new Date().toISOString(),
+        },
+      };
+      await storage.put(slug, updated);
+      setQuotes(qs => ({ ...qs, [slug]: updated }));
+      if (imageFailures > 0) {
+        console.warn(`[publish] ${imageFailures} obrazów nie udało się osadzić`);
+      }
+      setPublishModal({ open: true, mode: 'publish', slug, url: publishedUrlFor(slug) });
+    } catch (err) {
+      console.error('[publish] failed', err);
+      alert('Publikacja nie powiodła się: ' + err.message);
+    } finally {
+      setPublishing(false);
+    }
+  };
+
+  const unpublishQuote = async (slug) => {
+    const src = quotes[slug];
+    if (!src) return;
+    if (!confirm(`Cofnąć publikację „${src.meta.title}"? Plik HTML zostanie usunięty z folderu publicznego. Aby zniknął ze świata, musisz wypchnąć projekt na Vercela.`)) return;
+    setPublishing(true);
+    try {
+      await unpublishHTML(slug);
+      const updated = {
+        ...src,
+        meta: {
+          ...src.meta,
+          published: false,
+          unpublishedAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString(),
+        },
+      };
+      await storage.put(slug, updated);
+      setQuotes(qs => ({ ...qs, [slug]: updated }));
+      setPublishModal({ open: true, mode: 'unpublish', slug, url: '' });
+    } catch (err) {
+      console.error('[unpublish] failed', err);
+      alert('Nie udało się cofnąć publikacji: ' + err.message);
+    } finally {
+      setPublishing(false);
+    }
+  };
+
   const renameQuote = async (slug, newTitle) => {
     const src = quotes[slug];
     if (!src) return;
@@ -261,7 +327,15 @@ export default function App() {
         onTogglePage={togglePage}
         onExportAll={exportAll}
         onImportAll={importAll}
+        onUnpublish={unpublishQuote}
         quote={quote}
+      />
+      <PublishModal
+        open={publishModal.open}
+        mode={publishModal.mode}
+        slug={publishModal.slug}
+        url={publishModal.url}
+        onClose={() => setPublishModal((m) => ({ ...m, open: false }))}
       />
       <main className="flex-1 min-w-0">
         {migrationNote && (
@@ -317,6 +391,9 @@ export default function App() {
                 canRedo={canRedo}
                 viewMode={viewMode}
                 onViewModeChange={onViewModeChange}
+                onPublish={() => publishQuote(currentSlug)}
+                onUnpublish={() => unpublishQuote(currentSlug)}
+                publishing={publishing}
               />
               <div className="py-8 px-4 bg-gray-100 min-h-screen">
                 <CoverPage pageNum={next()} totalPages={total} />

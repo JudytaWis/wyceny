@@ -1,7 +1,7 @@
 // src/components/TopBar.jsx
 import { openQuoteAsURL } from '../lib/openAsURL.js';
 
-export const TopBar = ({ quote, onTitleChange, savedAt, onUndo, onRedo, canUndo, canRedo, viewMode, onViewModeChange }) => (
+export const TopBar = ({ quote, onTitleChange, savedAt, onUndo, onRedo, canUndo, canRedo, viewMode, onViewModeChange, onPublish, onUnpublish, publishing }) => (
   <div className="no-print sticky top-0 z-10 bg-white/80 backdrop-blur border-b border-gray-200 px-8 py-3 flex items-center justify-between">
     <div className="flex items-center gap-3 flex-1 min-w-0">
       <input
@@ -52,11 +52,31 @@ export const TopBar = ({ quote, onTitleChange, savedAt, onUndo, onRedo, canUndo,
       </div>
       <button
         onClick={() => openQuoteAsURL(quote)}
-        className="px-3 py-1.5 bg-[#6366F1] hover:bg-[#4F46E5] text-white text-sm rounded-lg flex items-center gap-1.5"
+        className="px-3 py-1.5 border border-gray-300 text-gray-700 hover:bg-gray-50 text-sm rounded-lg flex items-center gap-1.5"
         title="Otwórz wycenę jako stronę HTML w nowej zakładce"
       >
         Pokaż HTML
       </button>
+      {quote.meta.published ? (
+        <button
+          onClick={onUnpublish}
+          disabled={publishing}
+          className="px-3 py-1.5 bg-amber-500 hover:bg-amber-600 disabled:opacity-50 disabled:cursor-not-allowed text-white text-sm rounded-lg flex items-center gap-1.5"
+          title="Usuń HTML z folderu publicznego (trzeba potem zdeployować)"
+        >
+          {publishing ? 'Pracuję…' : 'Cofnij publikację'}
+        </button>
+      ) : (
+        <button
+          onClick={onPublish}
+          disabled={publishing}
+          className="px-3 py-1.5 bg-[#16A34A] hover:bg-[#15803D] disabled:opacity-50 disabled:cursor-not-allowed text-white text-sm rounded-lg flex items-center gap-1.5 font-medium"
+          title="Zapisz HTML do public/ i pokaż komendę deployu"
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
+          {publishing ? 'Publikuję…' : 'Publikuj'}
+        </button>
+      )}
     </div>
   </div>
 );
